@@ -1,0 +1,28 @@
+ion-content{
+    --background: #ECF7FF;
+
+    .logo{
+        width: 150px;
+        height: 150px;
+        margin: 50px auto;
+    }
+
+    .don_image{
+        margin: 20px auto;
+    }
+
+    .button{
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+
+        .btn1{
+            --background:#005d99 ;
+            color: #ddb307;
+        }
+        .btn2{
+            --background:#ddb307 ;
+            color: #005d99;
+        }
+    }
+}

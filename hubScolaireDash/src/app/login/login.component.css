@@ -1,0 +1,52 @@
+.contenair{
+    background: linear-gradient#005D99;
+        padding: 50px;
+        margin-right:100px;    
+    }
+    .content{
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color:  #ECF7FF;
+        padding: 30px;
+        border: 1px solid  rgb(90, 89, 89);
+    }
+    form{
+        height: 200px;
+        margin-bottom: 30px;
+    }
+    .radius{
+        border-radius: 13px;    
+    }
+    .ombre{
+        box-shadow: 0 4px 15px rgb(0 0 0 / 0.6);
+    }
+    .card{
+        padding: 20px;
+        width: 100%;
+        height: 500px;
+    }
+    .card-body h1{
+    
+        text-align: center;
+        font-weight: 900;
+        font-size: 45px;
+        margin-bottom: 50px;
+    }
+    i{
+        padding: 10px;
+    }
+    .lien{
+        margin-bottom: 10px;
+    }
+    .btnC{
+        background-color: #005D99;
+        color: #ddb307;
+    }
+    .log{
+        background-color: #ddb307
+        ;
+    }
+    h1{
+        color:#005D99;
+    }
+    

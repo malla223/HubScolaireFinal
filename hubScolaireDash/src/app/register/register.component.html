@@ -1,0 +1,200 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bloc1">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title txt1">ADMIN</h4>
+              <div class="">
+                <button type="button" class="btn btn1" routerLink="/gestionAdmin">
+                  <b>Retour</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid bg">
+          <!-- ============================================================== -->
+          <!-- Start Page Content -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <div class="col-lg-9 bloc">
+              <div class="card">
+                <form class="form-horizontal" [formGroup]="form" (ngSubmit)="saveAdmin()" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <h4 class="card-title txt">Ajouter un admin</h4>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Nom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="nom"
+                          name="nom_admin" formControlName="nom_admin" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Prenom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="prenom"
+                          name="prenom_admin" formControlName="prenom_admin" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Login</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="login"
+                          name="login_admin" formControlName="login_admin" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Mot de passe</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="password"
+                          class="form-control"
+                          placeholder="mot de passe"
+                          name="password_admin" formControlName="password_admin" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Telephone</label
+  >
+                        <div class="col-sm-9">
+                          <input
+                            type="number"
+                            class="form-control"
+                            placeholder="telephone"
+                            name="tel_admin" formControlName="tel_admin" required />
+                        </div>
+                      </div>
+
+
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Email</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="email"
+                          name="email_admin" formControlName="email_admin" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Genre</label
+                      >
+                      <div class="col-sm-9">
+                        <select formControlName="genre" required>
+                          <option [value]="" disabled>Selectionner</option>
+                          <option name="genre" value="Homme">Homme</option>
+                          <option name="genre" value="Femme">Femme</option>
+                        </select>
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Type</label
+                      >
+                      <div class="col-sm-9">
+                        <select formControlName="type" required>
+                          <option [value]="" disabled>Selectionner</option>
+                          <option name="type" value="admin">admin</option>
+                          <option name="type" value="super_admin">super_admin</option>
+                        </select>
+
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Photo</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="file"
+                          class="form-control"
+                          name="photo_admin" formControlName="photo_admin"
+                           required (change)="onFileChanged($event)" 
+                           accept="image/png, image/jpeg"
+                        />
+                      </div>
+                    </div>
+                     
+                  </div>
+                  <div class="bouton">
+                    <div class="card-body">
+                      <button type="submit" class="btn btn-primary btn2" [disabled]="!form.valid">
+                        <b> ENREGISTRER</b>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->

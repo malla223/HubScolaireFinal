@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+})
+export class LoginPage implements OnInit {
+
+  constructor(
+    private userService: UserServiceService,
+    private router : Router,
+    private load : LoadingController,
+    private alert : AlertController)
+     { 
+      localStorage.clear;
+      localStorage.removeItem("login");
+    }
+
+  ngOnInit() {
+  }
+
+  async onLogin(form: NgForm) {
+    const loading = await this.load.create({
+      message: 'Connexion en cours...',
+    });
+    await loading.present();
+    this.userService.connexion(form.value["login"], form.value["password"]).subscribe((res:any)=>{
+      if(res){
+        loading.dismiss();
+        //mettre l'utilisateur connecté dans le localstorage
+        //JSON.stringify converti l'objet en string
+        localStorage.setItem("user", JSON.stringify(res));
+        this.router.navigateByUrl('/tabs');
+      }else{
+        loading.dismiss();
+        this.alertError();
+      } 
+    });
+  }
+
+  async alertError(){
+    const error = await this.alert.create({
+      header : 'Erreur de Connexion',
+      message : 'Votre connexion a échoué...',
+      buttons : [
+        {
+          text : 'REESSAYER'
+        }
+      ]
+      
+    })
+    await error.present();
+  }
+
+}

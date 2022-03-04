@@ -1,0 +1,31 @@
+.bloc{
+    position: center;
+    margin-left: 150px;
+}
+.bouton{
+    position: center;
+    margin-left: 33%;
+}
+.btn1{
+    background-color:#005D99;
+    width: 300px;
+}
+.bg{
+    background-color:#005D99;
+}   
+.txt{
+    color:#005D99 ;
+    font-size:18px;
+    font-weight: bold;
+}
+.txt1{
+    color:#005D99 ;
+    font-size:25px;
+    font-weight: bold;
+}
+.bloc1{
+    background-color:#ECF7FF;
+}
+footer{
+    margin-top:20%;
+}

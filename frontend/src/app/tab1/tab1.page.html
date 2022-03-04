@@ -1,0 +1,77 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hub.png"></ion-img>
+    <ion-icon slot="end" name="notifications-circle"></ion-icon>
+    <ion-icon color="warning" slot="end" name="log-in" (click)="onLogout()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment value="don" color="tertiary" scrollable [(ngModel)]="type" (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="don" checked>
+      <ion-label><b>DONS</b></ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="mes_dons">
+      <ion-label><b>MES DONS</b></ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="attente">
+      <ion-label><b>DEMANDE</b></ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+  <div [ngSwitch]="type" class="card-don">
+
+    <ion-searchbar  [(ngModel)]="filterTerm" animated="true" placeholder="Recherche"></ion-searchbar>
+    <ion-row>
+      <ion-col size="6" *ngFor="let liste of listDonC | filter:filterTerm">
+    
+        <ion-card  *ngSwitchCase="'don'" >
+          <ion-card-content>
+            <ion-img class="image" src="{{photo}} + {{liste?.id_don}}"  [routerLink]="['/demande',liste?.id_don]"></ion-img>
+            <h3><b>{{liste.libelle_don}} </b></h3>
+            <ion-label>Catégorie : {{liste.categorie.libelle_cat}}</ion-label><br>
+            <ion-label>Niveau : {{liste.niveau.libelle_niveau}}</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <div *ngSwitchCase="'mes_dons'">
+     
+        <ion-row>
+          <ion-col size="6" *ngFor="let lista of listDonA | filter:filterTerm">
+            
+              <ion-card  *ngSwitchCase="'mes_dons'">
+                <ion-card-content>
+                  <ion-img class="image" src="{{photo}} + {{lista?.id_don}}" [routerLink]="['/attente', lista?.id_don]"></ion-img>
+                  <h3><b>{{lista.libelle_don}}</b></h3>
+                  <ion-label><b>Catégorie : </b>{{lista.categorie.libelle_cat}}</ion-label><br>
+                  <ion-label><b>Niveau : </b>{{lista.niveau.libelle_niveau}}</ion-label>
+                </ion-card-content>
+              </ion-card>
+  
+          </ion-col>
+      </ion-row>
+    </div>
+
+    <div *ngSwitchCase="'attente'">
+     
+        <ion-row>
+          <ion-col size="6" *ngFor="let list of listDemandeDonA | filter:filterTerm">
+              <ion-card  *ngSwitchCase="'attente'">
+                <ion-card-content>
+                  <ion-img class="image" src="{{photo}} + {{list?.id_demande}}" [routerLink]="['/demande-confirmer',list?.id_demande]"></ion-img>
+                  <h3><b>{{list.don.libelle_don}}</b></h3>
+                <ion-label><b>Nom élève : </b>{{list.nom_eleve}}</ion-label><br>
+                <ion-label><b>Nom école : </b>{{list.nom_ecole}}</ion-label>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+    </div>
+
+  </div>
+</ion-content>

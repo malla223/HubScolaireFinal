@@ -1,0 +1,33 @@
+ion-header{
+    position: absolute;
+}
+ion-toolbar{
+    --backgroung: transparent;
+    --opacity: 0%  
+}
+ion-icon{
+    color: #005d99 ;
+    width: 30px;
+    height: 30px;
+}
+.logo{
+    width: 30px;
+    height: 30px;
+}
+ion-content{
+    --background: #ECF7FF;
+
+    ion-segment{
+        margin-top: 70px;
+    }
+    ion-card{
+        --background: #ECF7FF;
+    }
+    h3{
+        text-align: center;
+    }
+    .image{
+        width:80px;
+        height: 80px;
+    }
+}

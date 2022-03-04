@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img class="dessin" src="assets/images/dessin.png"></ion-img>
+
+  <ion-card>
+    <ion-icon name="people"></ion-icon>
+        <ion-item>
+          <ion-label><b>Nom & Prénom : </b></ion-label>
+          <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.nom_complet"></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Nom d'utilisateur : </b></ion-label>
+          <ion-input type="text" autocomplete="false" name="login_user" [(ngModel)]="userConnect.login_user"></ion-input>
+         
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Téléphone : </b></ion-label>
+          <ion-input type="number" autocomplete="false" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label><b>Adresse : </b></ion-label>
+          <ion-input type="text" autocomplete="false" name="adresse_user" [(ngModel)]="userConnect.adresse_user"></ion-input>
+        </ion-item>
+        
+        <ion-button (click)="modUser()" class="btn1" >MODIFIER</ion-button>
+  </ion-card>
+
+</ion-content>

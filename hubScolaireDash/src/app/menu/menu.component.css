@@ -1,0 +1,41 @@
+.bg{
+    background-color: #ECF7FF;
+}
+.bg1{
+    color:#005D99 ;
+    font-size:18px;
+    font-weight: bold;
+}
+.dec{
+    width: 200px;
+    color:white;
+    display: block;
+    margin: 50px auto;
+}
+ a{
+        font-weight: bold;
+        font-size: 20px;
+}
+.blc{
+    margin-left: 650px;
+}
+a:before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  a::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: hsl(200 100% 80%);
+    z-index: -1;
+    transition: transform .7s ease;
+  }

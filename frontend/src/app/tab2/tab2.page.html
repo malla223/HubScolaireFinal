@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hub.png"></ion-img>
+    <ion-icon slot="end" name="notifications-circle"></ion-icon>
+    <ion-icon color="warning" slot="end" name="log-in" (click)="onLogout()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-img class="demande" src="assets/images/don.png"></ion-img>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-title><b>Faire un don</b></ion-card-title>
+      </ion-card-header>
+    <form [formGroup]="form" (ngSubmit)="saveDon()" enctype="multipart/form-data">
+      <ion-item>
+        <ion-label position="floating" autocomplete="false">Libélle</ion-label>
+        <ion-input type="text" autocomplete="false" name="libelle_don" formControlName="libelle_don" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Categorie</ion-label>
+        <ion-select formControlName="categorie" required>
+          <ion-select-option *ngFor="let list of listCat" [value]="list" name="categorie">{{list.libelle_cat}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Niveau</ion-label>
+        <ion-select formControlName="niveau" required>
+          <ion-select-option *ngFor="let liste of listN" [value]="liste" name="niveau" >{{liste.libelle_niveau}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"></ion-input>
+      </ion-item>
+      <ion-button type="submit" [disabled]="!form.valid"><b>CONFIRMER</b></ion-button>
+    </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img class="dessin" src="assets/images/dessin.png"></ion-img>
+
+  <ion-card>
+    <ion-icon name="people"></ion-icon>
+    <form [formGroup]="form" (ngSubmit)="saveUser()" enctype="multipart/form-data">
+        <ion-item>
+          <ion-label position="floating" autocomplete="false" >Nom & Prénom</ion-label>
+          <ion-input type="text" autocomplete="false" name="nom_complet" formControlName="nom_complet" required></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" autocomplete="false">Nom d'utilisateur</ion-label>
+          <ion-input type="text" autocomplete="false" name="login_user" formControlName="login_user" required></ion-input>
+         
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" autocomplete="false">Mot de passe</ion-label>
+          <ion-input type="password" autocomplete="false" name="password_user" formControlName="password_user" required ></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" autocomplete="false">Téléphone</ion-label>
+          <ion-input type="number" autocomplete="false" name="tel_user" formControlName="tel_user" required></ion-input>
+          
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" autocomplete="false" >Adresse</ion-label>
+          <ion-input type="text" autocomplete="false" name="adresse_user" formControlName="adresse_user" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="file" name="image" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"></ion-input> 
+        </ion-item>
+        
+        <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
+    </form>
+          <p>Vous avez déjà un compte <br><a [routerLink]="['/login']">CONNECTEZ-VOUS</a></p>
+  </ion-card>
+
+</ion-content>

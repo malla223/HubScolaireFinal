@@ -1,0 +1,75 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { DonServiceService } from '../Services/don-service.service';
+
+@Component({
+  selector: 'app-gestion-don',
+  templateUrl: './gestion-don.component.html',
+  styleUrls: ['./gestion-don.component.css']
+})
+export class GestionDonComponent implements OnInit {
+
+  donEtat = false;
+  demandeEtat = false;
+  donConfirmerEtat = false;
+  don : any;
+  data_Don : any;
+  donAttenteR: any;
+  demandeAttenteR: any;
+  id_don: any;
+  id_demande :any;
+  photo = environment.photoDon;
+
+  constructor(private donService : DonServiceService, private route : Router) { }
+
+  ngOnInit() {
+    this.data_Don = 'don';
+    this.getAllDonA();
+    this.getDemandeDonA();
+  }
+
+  users(event: any){
+    this.don=[];
+    if(event.target.value == 'Don en attente' || event.target.value == ''){
+      this.demandeEtat = false;
+      this.donConfirmerEtat = false;
+      this.donEtat = true;
+      this.don = this.data_Don;
+    }
+    if(event.target.value == 'Demande en attente'){
+      this.donEtat = false;
+      this.donConfirmerEtat = false;
+      this.demandeEtat = true;
+      this.don = this.data_Don;
+    }
+
+    if(event.target.value == 'Don confirmer'){
+      this.donEtat = false;
+      this.demandeEtat = false;
+      this.donConfirmerEtat = true;
+      this.don = this.data_Don;
+    }
+  }
+
+
+  getAllDonA(){
+    this.donService.getAllDonAttente().subscribe(res=>{
+      this.donAttenteR = res;
+    })
+  }
+
+  getDemandeDonA(){
+    this.donService.getAllDemandeDonAttente().subscribe(data=>{
+      this.demandeAttenteR = data;
+    })
+  }
+
+  donAttenteDetail(id_don : any){
+    this.route.navigateByUrl('/detaildon', id_don);
+  }
+
+  demandeDetail(id_demande: any){
+    this.route.navigateByUrl('/detailAttentedon', id_demande);
+  }
+}

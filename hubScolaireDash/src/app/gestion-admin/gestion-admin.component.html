@@ -1,0 +1,112 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <div class="page-wrapper bg">
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title txt1"><b>ADMINS</b></h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <div class="d-md-flex">
+                            <ol class="breadcrumb ms-auto"> 
+                            </ol>
+                            <a class="btn d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light txt2" routerLink="/register">
+                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; <b>Ajouter</b></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-center ">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title txt">Total des administrateurs</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-success">{{nombreAdmin}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title txt">Hommes</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-success">{{nombreH}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title txt">Femmes</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-success">{{nombreF}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title txt1">Liste des administrateurs</h3>
+                            <div class="table-responsive">
+                                <table class="table text-nowrap"> 
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0 txt">#</th>
+                                            <th class="border-top-0 txt">Photo</th>
+                                            <th class="border-top-0 txt">Nom</th>
+                                            <th class="border-top-0 txt">Prenom</th>
+                                            <th class="border-top-0 txt">Tel</th>
+                                            <th class="border-top-0 txt">Email</th>
+                                            <th class="border-top-0 txt">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor = "let list of listAdmin">
+                                            <td>{{list.id_admin}}</td>
+                                            <td><img src="{{photo}}+{{list.id_admin}}"></td>
+                                            <td>{{list.nom_admin}}</td>
+                                            <td>{{list.prenom_admin}}</td>
+                                            <td>{{list.tel_admin}}</td>
+                                            <td>{{list.email_admin}}</td>
+                                            <td>  <i class=" fa fa-edit " aria-hidden="true" [routerLink]="['/editAdmin',list.id_admin]"></i>&nbsp;
+                                                <i class="fa fa-trash fat" aria-hidden="true" (click)="alertConfirmation(list.id_admin)"></i>&nbsp;
+                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detailadmin',list.id_admin]"></i>&nbsp;
+                                            </td>   
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse <a
+                    href="https://www.hubscolaire.com/">&nbsp; hubscolaire.com</a>
+            </footer>
+        </div>
+    </div>
+   
+
+<router-outlet></router-outlet>

@@ -1,0 +1,44 @@
+.bloc{
+    position: center;
+    margin-left: 150px;
+}
+.bouton{
+   display: flex;
+   position: center;
+   justify-content: center;
+   margin: 0 auto;
+   width: 200px;
+}
+.btn1{
+    background-color:#005D99;
+    color:#ddb307;
+}
+.btn2{
+    color:#005D99;
+    background-color:#ddb307;
+}
+.bg{
+    background-color:#005D99;
+}   
+.txt{
+    color:#005D99 ;
+    font-size:18px;
+    font-weight: bold;
+}
+.btnR{
+    margin-left: 20px;
+    background-color:#ddb307;
+    color:#005D99 ;
+    border: none;
+}
+.txt1{
+    color:#005D99 ;
+    font-size:25px;
+    font-weight: bold;
+}
+.bloc1{
+    background-color: white;
+}
+footer{
+    margin-top:20%;
+}

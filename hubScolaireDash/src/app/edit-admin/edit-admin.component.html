@@ -1,0 +1,144 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      <div class="page-wrapper">
+        <div class="page-breadcrumb bloc1">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title txt1">ADMIN</h4>
+              <div class="">
+                <button type="button" class="btn btn1" routerLink="/gestionAdmin">
+                  <i class=" fas fa-chevron-left" aria-hidden="true"></i>&nbsp;
+                  <b>Retour</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid bg">
+          <div class="row">
+            <div class="col-lg-9 bloc">
+              <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title txt">Modifier un admin</h4>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Nom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="getAdminId.nom_admin"
+                          
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Prenom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="getAdminId.prenom_admin"
+                          
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Login</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="getAdminId.login_admin"
+                           
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Telephone</label
+  >
+                        <div class="col-sm-9">
+                          <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="getAdminId.tel_admin"
+                             />
+                        </div>
+                      </div>
+
+
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Email</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="email"
+                          class="form-control"
+                          [(ngModel)]="getAdminId.email_admin"
+                         
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Genre</label
+                      >
+                      <div class="col-sm-9">
+                        <select >
+                          <option [value]="" disabled >{{getAdminId.genre}}</option>
+                          <option value="Homme">Homme</option>
+                          <option  value="Femme">Femme</option>
+                        </select>
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Type</label
+                      >
+                      <div class="col-sm-9">
+                        <select>
+                          <option [value]="" disabled >{{getAdminId.type}}</option>
+                          <option value="admin">admin</option>
+                          <option  value="super_admin">super_admin</option>
+                        </select>
+
+                      </div>
+                    </div>
+                     
+                  </div>
+                  <div class="bouton">
+                    <div class="card-body">
+                      <button (click)="updateA()" class="btn btn-primary btn2" >
+                        <b> Modifier</b>
+                      </button>
+                    </div>
+                  </div>
+              </div>
+        </div>
+      </div>
+    </div>

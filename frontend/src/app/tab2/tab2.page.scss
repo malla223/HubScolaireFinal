@@ -1,0 +1,48 @@
+ion-header{
+    position: absolute;
+}
+ion-toolbar{
+    --backgroung: transparent;
+    --opacity: 0%  
+}
+ion-icon{
+    color: #005d99 ;
+    width: 30px;
+    height: 30px;
+}
+.logo{
+    width: 30px;
+    height: 30px;
+}
+
+ion-content{
+    --background: #ECF7FF;
+
+    .demande{
+        margin: 80px auto 0 auto;
+        width: 170px;
+    }
+
+    .text{
+        text-align: center;
+        margin-top: 20px;
+    }
+    ion-card-title{
+        color:#005d99 ;
+    }
+
+    ion-button{
+        margin: 20px auto;
+        display: block;
+        width: 150px;
+        --background:#005d99 ;
+        color: #ddb307;
+    }
+
+    ion-card{
+        --background: #ECF7FF;
+    }
+    ion-item{
+        --background: #ECF7FF;
+    }
+}

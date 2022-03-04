@@ -1,0 +1,83 @@
+<aside class="left-sidebar bg" data-sidebarbg="skin6" >
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav ">
+            <ul id="sidebarnav">
+                <!-- User Profile-->
+                <li class="sidebar-item pt-2">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link  nav_link" href="accueil"
+                        aria-expanded="false" >
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="bi bg1">Accueil</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-item" *ngIf = "userConnect.type==='super_admin'"> 
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestionAdmin"
+                        aria-expanded="false">
+                        <i class="fa fa-user " aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion admin</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestionUtilisateur"
+                        aria-expanded="false">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion utilisateur</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestionDon"
+                        aria-expanded="false">
+                        <i class="  fas fa-hand-holding" aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion des dons</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestionecole"
+                        aria-expanded="false">
+                        <i class="fas fa-university" aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion des ecoles</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestioneleve"
+                        aria-expanded="false">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion des eleves</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestioncategorie"
+                        aria-expanded="false">
+                        <i class=" fas fa-book" aria-hidden="true"></i>
+                        <span class="hide-menu bg1">Gestion des categories</span>
+                    </a>
+                </li>
+
+                
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="/gestionNiveau"
+                        aria-expanded="false">
+                        <i class=" fas fa-book" aria-hidden="true"></i>
+                        <span class="hide-menu bg1" >Gestion des niveau</span>
+                    </a>
+                </li>
+             
+                <li class="text-center p-20 upgrade-btn dec">
+                 <a (click)="deconnexion()"class="btn d-grid btn-danger text-white">
+                   <i class="fas fa-sign-out-alt" aria-hidden="true"></i>Déconexion</a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

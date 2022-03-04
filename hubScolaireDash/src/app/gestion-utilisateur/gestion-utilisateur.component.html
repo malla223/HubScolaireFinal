@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <div class="page-wrapper bg">
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title txt1"><b>UTILISATEURS</b></h4>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title txt1">Liste des Utilisateurs</h3>
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0 txt">#</th>
+                                            <th class="border-top-0 txt">Photo</th>
+                                            <th class="border-top-0 txt">Nom</th>
+                                            <th class="border-top-0 txt">Login</th>
+                                            <th class="border-top-0 txt">Tel</th>
+                                            <th class="border-top-0 txt">Adresse</th>
+                                            <th class="border-top-0 txt">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr  *ngFor = "let list of listUser">
+                                            <td>{{list.id_user}}</td>
+                                            <td><img src="{{photo}}+ {{list.id_user}}"></td>
+                                            <td>{{list.nom_complet}}</td>
+                                            <td>{{list.login_user}}</td>
+                                            <td>{{list.tel_user}}</td>
+                                            <td>{{list.adresse_user}}</td>
+                                            <td> 
+                                                <i class="fa fa-trash fat" aria-hidden="true"(click)="alertConfirmation(list.id_user)"></i>
+                                                &nbsp;
+                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detailuser', list.id_user]"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse  <a
+                    href="https://www.hubscolaire.com/">&nbsp; hubscolaire.com</a>
+            </footer>
+        </div>
+    </div>

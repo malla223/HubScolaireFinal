@@ -1,0 +1,58 @@
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'acceuil',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'acceuil',
+    loadChildren: () => import('./pages/acceuil/acceuil.module').then( m => m.AcceuilPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'demande/:id_don',
+    loadChildren: () => import('./pages/demande/demande.module').then( m => m.DemandePageModule)
+  },
+  {
+    path: 'attente/:id_don',
+    loadChildren: () => import('./pages/attente/attente.module').then( m => m.AttentePageModule)
+  },
+  {
+    path: 'apropos',
+    loadChildren: () => import('./pages/apropos/apropos.module').then( m => m.AproposPageModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'demande-confirmer/:id_demande',
+    loadChildren: () => import('./pages/demande-confirmer/demande-confirmer.module').then( m => m.DemandeConfirmerPageModule)
+  },
+  {
+    path: 'edit-profil/:id_user',
+    loadChildren: () => import('./pages/edit-profil/edit-profil.module').then( m => m.EditProfilPageModule)
+  }
+
+
+  
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

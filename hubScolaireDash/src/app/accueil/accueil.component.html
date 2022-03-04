@@ -1,0 +1,108 @@
+<app-menu></app-menu>
+<app-header></app-header>
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+    <div class="page-wrapper bg">
+
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title txt1">Accueil</h4>
+                </div>
+              
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row justify-content-center ">
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des administrateurs</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{nombreAdmin}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des utilisateurs</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{nombreUser}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des dons</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{donC}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des demandes de don reçu</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{nombreDonRecu}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des dons en attente</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{nombreDonAR}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title txt">Total des demandes en attente</h3>
+                        <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <li>
+                                <div id="sparklinedash"><canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                            </li>
+                            <li class="ms-auto"><span class="counter text-success">{{demandeAttenteR}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+            
+            </div>
+          
+        
+        </div>
+        <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse  <a
+                href="https://www.hubscolaire.com/">hubscolaire.com</a>
+        </footer>
+    </div>
+
+</div>

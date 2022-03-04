@@ -1,0 +1,31 @@
+ion-content{
+    --background: #ECF7FF;
+
+    .logo{
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+    }
+
+    .description{
+        text-align: center;
+        font-size: 15px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
+
+ion-header{
+    position: absolute;
+}
+ion-toolbar{
+    --backgroung: transparent;
+    --opacity: 0%  
+}
+ion-icon{
+    color: #005d99 ;
+    width: 30px;
+    height: 30px;
+}

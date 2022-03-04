@@ -1,0 +1,128 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+
+      <div class="page-wrapper">
+        <div class="page-breadcrumb bloc1">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title txt1">ELEVE</h4>
+              <div class="">
+                <button type="button" class="btn btn1" routerLink="/gestioneleve">
+                  <b>Retour</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid bg">
+
+
+          <div class="row">
+            <div class="col-lg-9 bloc">
+              <div class="card">
+                <form class="form-horizontal" [formGroup]="form" (ngSubmit)="saveCat()">
+                  <div class="card-body">
+                    <h4 class="card-title txt">Ajouter une nouvelle Eleve</h4>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Nom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="nom"
+                          name="Nom" formControlName="" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Prenom</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="prenom"
+                            name="Prenom" formControlName="" required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Classe</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="classe"
+                            name="Classe" formControlName="" required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Nom parent</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="nom_parent"
+                            name="Nom_parent" formControlName="" required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Cantat Parent</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="contact_parent"
+                            name="Contact_parent " formControlName="" required
+                          />
+                        </div>
+                      </div>
+                     
+                  </div>
+                  <div class="bouton">
+                    <div class="card-body">
+                      <button type="submit" class="btn btn-primary btn2" [disabled]="!form.valid">
+                        <b> Ajouter</b>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+
+        </div>
+        </div>
+
+      </div>
+
+    </div>

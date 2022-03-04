@@ -1,0 +1,102 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+   
+        <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+            data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+            <!-- ============================================================== -->
+            <div class="page-wrapper bg">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="page-breadcrumb bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title txt1"><b>DONS</b></h4>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="container-fluid">
+                    <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+                    <!-- ============================================================== -->
+                    <div class="row" >
+                        <div class="col-sm-12">
+                            <div class="white-box">
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ms-auto">
+                                    <label>Trier par : </label>
+                                    <select class="form-select shadow-none row border-top" [(ngModel)]="data_Don"  value="don" (change)="users($event)">
+                                        <option value="don" checked><b>Don en attente</b></option>
+                                        <option value="demande"><b>Demande en attente</b></option>
+                                    </select>
+                                </div>
+                            <div [ngSwitch]="data_Don" class="card-don">
+                                <div class="table-responsive"  *ngSwitchCase="'don'">
+                                    <h3 class="box-title txt1">Liste des dons en attentes</h3>
+                                    <table class="table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 txt">#</th>
+                                                <th class="border-top-0 txt">Photo</th>
+                                                <th class="border-top-0 txt">Libelle</th>
+                                                <th class="border-top-0 txt">Niveau</th>
+                                                <th class="border-top-0 txt">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let donA of donAttenteR" >
+                                                <td>{{donA.id_don}}</td>
+                                                <td><img src="{{photo}} + {{donA.id_don}}"></td>
+                                                <td>{{donA.libelle_don}}</td>
+                                                <td>{{donA.niveau.libelle_niveau}}</td>
+                                                <td> 
+                                                    <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detaildon', donA.id_don]"></i>&nbsp;
+                                                </td>
+                                            </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="table-responsive" *ngSwitchCase="'demande'">
+                                    <h3 class="box-title txt1">Liste des demandes en attentes</h3>
+                                    <table class="table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 txt">#</th>
+                                                <th class="border-top-0 txt">Photo</th>
+                                                <th class="border-top-0 txt">Libelle</th>
+                                                <th class="border-top-0 txt">Nom du Demandeur</th>
+                                                <th class="border-top-0 txt">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let demandeA of demandeAttenteR" >
+                                                <td>{{demandeA.id_demande}}</td>
+                                                <td><img src="{{photo}} + {{demandeA.id_demande}}"></td>
+                                                <td>{{demandeA.don.libelle_don}}</td>
+                                                <td>{{demandeA.user.nom_complet}}</td>
+                                                <td>  
+                                                    <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detailAttentedon', demandeA.id_demande]"></i>&nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse  <a
+                        href="https://www.hubscolaire.com/">&nbsp; hubscolaire.com</a>
+                </footer>
+            </div>
+        </div>
+
+    </div>
