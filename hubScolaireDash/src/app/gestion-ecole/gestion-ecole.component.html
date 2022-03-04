@@ -12,7 +12,7 @@
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto"> 
                             </ol>
-                            <a href="" target="_blank"
+                            <a href="addecole"
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light txt2">
                                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; <b>Ajouter</b></a>
                         </div>
@@ -47,7 +47,7 @@
                                             <td>{{ecole.email_ecole}}</td>
                                             <td>{{ecole.site_ecole}}</td>
                                             <td>  <i class=" fa fa-edit " aria-hidden="true" [routerLink]="['/editecole', ecole.id_ecole]"></i>&nbsp;
-                                                <i class="fa fa-trash fat" aria-hidden="true"  (click)="deleteEcole(e.id_ecole)"></i>&nbsp;
+                                                <i class="fa fa-trash fat" aria-hidden="true"  (click)="deleteEcole(ecole.id_ecole)"></i>&nbsp;
                                                 <i class=" fas fa-info-circle " aria-hidden="true" [routerLink] = "['/detailecole', ecole.id_ecole]  "></i>&nbsp;
                                             </td>
                                         </tr>

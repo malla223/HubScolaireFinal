@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AddCategoriesComponent } from './add-categories/add-categories.component';
+import { AddEcoleComponent } from './add-ecole/add-ecole.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAdminComponent } from './detail-admin/detail-admin.component';
@@ -91,7 +92,7 @@ const routes: Routes = [
   component: DetailAttenteDonComponent
 },
 {
-  path:'detailecole',
+  path:'detailecole/:id_ecole',
   component: DetailEcoleComponent
 },
 {
@@ -149,6 +150,10 @@ const routes: Routes = [
 {
   path:'addniveau',
  component: AddNiveauComponent
+},
+{
+  path:'addecole',
+ component: AddEcoleComponent
 },
 {
   path:'login',

@@ -1,1 +1,144 @@
-<p>add-ecole works!</p>
+<app-menu></app-menu>
+<app-header></app-header>
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+      >
+      <div class="page-wrapper">
+        <div class="page-breadcrumb bloc1">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title txt1">Ecole</h4>
+              <div class="">
+                <button type="button" class="btn btn1" routerLink="/gestionecole">
+                    <i class=" fas fa-chevron-left" aria-hidden="true"></i>&nbsp;
+                  <b>Retour</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid bg">
+          <div class="row">
+            <div class="col-lg-9 bloc">
+              <div class="card">
+                <form class="form-horizontal" [formGroup]="form" (ngSubmit)="saveEcole()" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <h4 class="card-title txt">Ajouter une ecole</h4>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Nom</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="nom"
+                          name="nom_ecole" formControlName="nom_ecole" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Adresse</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="adresse"
+                          name="adresse_ecole" formControlName="adresse_ecole" required
+                        />
+                      </div>
+                      
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Tel</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="tel"
+                          name="tel_ecole" formControlName="tel_ecole" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Login</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="login"
+                          name="login_ecole" formControlName="login_ecole" required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-3 text-end control-label col-form-label txt"
+                        >Email</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="email"
+                          name="email_ecole" formControlName="email_ecole" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Site</label
+                           >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="adresse site"
+                            name="site_ecole" formControlName="site_ecole" required />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label
+                          class="col-sm-3 text-end control-label col-form-label txt"
+                          >Mot de passe</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="password"
+                            class="form-control"
+                            placeholder="mot de passe"
+                            name="password_ecole" formControlName="password_ecole" required
+                          />
+                        </div>
+                      </div>
+                  </div>
+                  <div class="bouton">
+                    <div class="card-body">
+                      <button type="submit" class="btn btn-primary btn2" [disabled]="!form.valid">
+                        <b> Ajouter</b>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+      </div>
+    </div>
