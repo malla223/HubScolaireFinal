@@ -16,6 +16,11 @@ export class GestionAdminComponent implements OnInit {
   nombreF: any;
   photo = environment.photoAdmin;
 
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  tableSizes: any = [3, 6, 9, 12];
+
   constructor(
     public router: Router,
     private aService : AdminServiceService
@@ -71,8 +76,10 @@ export class GestionAdminComponent implements OnInit {
       title: 'ATTENTION',
       text: 'Vous êtes sûre de supprimé cet admin ?',
       icon: 'warning',
-      showCancelButton: true,
-      cancelButtonText: 'ANNULER',
+      iconColor:'#ddb307',
+      showCancelButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#d33',
       confirmButtonText: 'SUPPRIMER',
       
     }).then((result) => {
@@ -84,5 +91,15 @@ export class GestionAdminComponent implements OnInit {
         this.router.navigate(['gestionAdmin']));
       }
     });
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAdminActif();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAdminActif();
   }
 }

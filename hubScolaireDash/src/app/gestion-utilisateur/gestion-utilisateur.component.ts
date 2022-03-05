@@ -14,6 +14,11 @@ export class GestionUtilisateurComponent implements OnInit {
   listUser : any;
   photo = environment.photo_user;
 
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  tableSizes: any = [3, 6, 9, 12];
+
   constructor(
     public router: Router,
     private uService : UserServiceService
@@ -45,9 +50,11 @@ export class GestionUtilisateurComponent implements OnInit {
       title: 'ATTENTION',
       text: 'Vous êtes sûre de supprimé cet utilisateur ?',
       icon: 'warning',
-      showCancelButton: true,
-      cancelButtonText: 'NON',
-      confirmButtonText: 'OUI',
+      iconColor:'#ddb307',
+      showCancelButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'SUPPRIMER',
       
     }).then((result) => {
       if (result.value) {
@@ -55,5 +62,15 @@ export class GestionUtilisateurComponent implements OnInit {
         Swal.fire('Suppression!', 'supprimé avec succès.', 'success');
       }
     });
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllUser();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAllUser();
   }
 }

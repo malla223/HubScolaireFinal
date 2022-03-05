@@ -53,9 +53,11 @@ export class DetailAttenteDonComponent implements OnInit {
       title: 'ATTENTION',
       text: 'Vous êtes d\'annuler cette demande ?',
       icon: 'warning',
-      showCancelButton: true,
-      cancelButtonText: 'NON',
-      confirmButtonText: 'OUI',
+      iconColor:'#ddb307',
+      showCancelButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'ANNULER',
       
     }).then((result) => {
       if (result.value) {

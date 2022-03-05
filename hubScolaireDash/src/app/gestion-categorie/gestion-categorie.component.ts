@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CategorieService } from '../Services/categorie.service';
@@ -11,11 +12,24 @@ import { CategorieService } from '../Services/categorie.service';
 export class GestionCategorieComponent implements OnInit {
   
   cateR: any;
+  form:FormGroup;
+  validations_form: FormGroup;
+  id_cat: any;
+
 
   constructor(private catService : CategorieService,
-    private router : Router) { }
+    public router: Router,
+    private formBuilder : FormBuilder,) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      libelle_cat : ['']
+    })
+    this.validations_form = this.formBuilder.group({
+      libelle_cat: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
+    });
 
     this.catService.getAllCategorie().subscribe(res=>{
       this.cateR = res;
@@ -40,8 +54,10 @@ export class GestionCategorieComponent implements OnInit {
       title: 'ATTENTION',
       text: 'Vous êtes sûre de supprimer cette catégorie ?',
       icon: 'warning',
-      showCancelButton: true,
-      cancelButtonText: 'ANNULER',
+      iconColor:'#ddb307',
+      showCancelButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#d33',
       confirmButtonText: 'SUPPRIMER',
       
     }).then((result) => {
@@ -53,5 +69,22 @@ export class GestionCategorieComponent implements OnInit {
         this.router.navigate(['gestioncategorie']));
       }
     });
+  }
+
+  saveCat(){
+    this.catService.saveCAt(this.form.value).subscribe();
+    this.successConfirm();
+    this.router.navigateByUrl('gestioncategorie', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['gestioncategorie']));
+  }
+
+  successConfirm() {
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: 'Nouvelle catégorie ajouter avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }

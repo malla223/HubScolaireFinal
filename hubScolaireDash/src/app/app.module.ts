@@ -33,11 +33,10 @@ import { DetailNiveauComponent } from './detail-niveau/detail-niveau.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddCategoriesComponent } from './add-categories/add-categories.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -70,7 +69,6 @@ import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-d
     GestionNiveauComponent,
     EditNiveauComponent,
     DetailNiveauComponent,
-    AddCategoriesComponent,
     AddEleveComponent,
     AddNiveauComponent,
     DetailAttenteDonComponent
@@ -81,7 +79,8 @@ import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-d
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

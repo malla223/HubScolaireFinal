@@ -41,9 +41,11 @@ export class GestionNiveauComponent implements OnInit {
       title: 'ATTENTION',
       text: 'Vous êtes sûre de supprimé ce niveau ?',
       icon: 'warning',
-      showCancelButton: true,
-      cancelButtonText: 'NON',
-      confirmButtonText: 'OUI',
+      iconColor:'#ddb307',
+      showCancelButton: false,
+      showCloseButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: 'SUPPRIMER',
       
     }).then((result) => {
       if (result.value) {

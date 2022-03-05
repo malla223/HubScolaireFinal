@@ -20,6 +20,10 @@ export class GestionDonComponent implements OnInit {
   id_don: any;
   id_demande :any;
   photo = environment.photoDon;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  tableSizes: any = [3, 6, 9, 12];
 
   constructor(private donService : DonServiceService, private route : Router) { }
 
@@ -71,5 +75,15 @@ export class GestionDonComponent implements OnInit {
 
   demandeDetail(id_demande: any){
     this.route.navigateByUrl('/detailAttentedon', id_demande);
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllDonA();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getDemandeDonA();
   }
 }

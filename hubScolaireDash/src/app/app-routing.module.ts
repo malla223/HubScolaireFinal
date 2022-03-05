@@ -1,7 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
-import { AddCategoriesComponent } from './add-categories/add-categories.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAdminComponent } from './detail-admin/detail-admin.component';
@@ -141,10 +140,6 @@ const routes: Routes = [
 {
   path:'addeleve',
  component: AddEleveComponent
-},
-{
-  path:'addcat',
- component: AddCategoriesComponent
 },
 {
   path:'addniveau',

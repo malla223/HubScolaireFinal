@@ -82,7 +82,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor = "let list of listAdmin">
+                                        <tr *ngFor = "let list of listAdmin | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
                                             <td>{{list.id_admin}}</td>
                                             <td><img src="{{photo}}+{{list.id_admin}}"></td>
                                             <td>{{list.nom_admin}}</td>
@@ -96,6 +96,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center">
+                                    <pagination-controls 
+                                        previousLabel="Précedent"
+                                        nextLabel="Suivant"
+                                        (pageChange)="onTableDataChange($event)">
+                                    </pagination-controls>
+                                </div>
                             </div>
                         </div>
                     </div>

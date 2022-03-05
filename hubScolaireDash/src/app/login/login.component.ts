@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
-
     this.aService.connexion(form.value["login"], form.value["password"]).subscribe((res:any)=>{
       if(res){
         //mettre l'utilisateur connecté dans le localstorage
         //JSON.stringify converti l'objet en string
+        
         localStorage.setItem("user", JSON.stringify(res));
         this.router.navigateByUrl('/accueil');
         this.successConfirm();
@@ -55,9 +55,10 @@ export class LoginComponent implements OnInit {
       position: 'center',
       icon: 'error',
       title: 'Connexion echoué, verifiez votre mot de passe',
-      showConfirmButton: true
+      showConfirmButton: true,
+      confirmButtonText: 'REESAYER',
+      confirmButtonColor: '#ddb307',
     })
   }
-
 
 }
