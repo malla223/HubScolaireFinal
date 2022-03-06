@@ -9,64 +9,43 @@
     data-header-position="absolute"
     data-boxed-layout="full"
   >
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
     <div class="page-wrapper">
-      <!-- ============================================================== -->
-      <!-- Bread crumb and right sidebar toggle -->
-      <!-- ============================================================== -->
       <div class="page-breadcrumb bloc1">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
             <h4 class="page-title txt1">INFORMATION DE L'ELEVE</h4>
             <div class="ms-auto text-end">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Library
-                  </li>
-                </ol>
-              </nav>
             </div>
           </div>
         </div>
       </div>
-      <!-- ============================================================== -->
-      <!-- End Bread crumb and right sidebar toggle -->
-      <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- Container fluid  -->
-      <!-- ============================================================== -->
       <div class="container-fluid bg">
- <!-- Column -->
  <div class="col-lg-8 col-xlg-9 col-md-12 bloc">
     <div class="card">
         <div class="card-body">
-            <form class="form-horizontal form-material">
+            <form class="form-horizontal form-material txt">
                 <div class="form-group mb-4">
-                    <label for="example-email" class="col-md-12 p-0"><b>Nom : </b></label>
+                    <label for="example-email" class="col-md-12 p-0"><b>Nom : </b>{{detailEleve?.nom_eleve}}</label>
                     <div class="col-md-12 border-bottom p-0">
                     </div>
                 </div>
                 <div class="form-group mb-4">
-                    <label class="col-md-12 p-0"><b>Prenom : </b></label>
+                    <label class="col-md-12 p-0"><b>Prenom : </b>{{detailEleve?.prenom_eleve}}</label>
                     <div class="col-md-12 border-bottom p-0">
                     </div>
                 </div>
                 <div class="form-group mb-4">
-                  <label class="col-md-12 p-0"><b>Classe : </b></label>
+                  <label class="col-md-12 p-0"><b>Classe : </b>{{detailEleve?.classe_eleve}}</label>
                   <div class="col-md-12 border-bottom p-0">
                   </div>
               </div>
                 <div class="form-group mb-4">
-                    <label class="col-md-12 p-0"> <b>Nom parent: </b></label>
+                    <label class="col-md-12 p-0"> <b>Nom parent: </b>{{detailEleve?.nomcomplet_parent}}</label>
                     <div class="col-md-12 border-bottom p-0">
                     </div>
                 </div>
                 <div class="form-group mb-4">
-                  <label class="col-md-12 p-0"><b>Contact Parent : </b> </label>
+                  <label class="col-md-12 p-0"><b>Contact Parent : </b>{{detailEleve?.contact_parent}} </label>
                   <div class="col-md-12 border-bottom p-0">
                   </div>
               </div>  
@@ -80,8 +59,4 @@
         </div>
     </div>
   </div>
-  <!-- Column -->
   </div>
-  <!-- ============================================================== -->
-  <!-- End Wrapper -->
-  <!-- ============================================================== -->

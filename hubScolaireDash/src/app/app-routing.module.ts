@@ -96,7 +96,7 @@ const routes: Routes = [
   component: DetailEcoleComponent
 },
 {
-  path:'detaileleve',
+  path:'detaileleve/:id_eleve',
   component: DetailEleveComponent
 },
 {
