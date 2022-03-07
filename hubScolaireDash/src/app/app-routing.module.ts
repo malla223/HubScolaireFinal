@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
-import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAdminComponent } from './detail-admin/detail-admin.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { DetailCategorieComponent } from './detail-categorie/detail-categorie.component';
@@ -140,10 +139,6 @@ const routes: Routes = [
 {
   path:'addeleve',
  component: AddEleveComponent
-},
-{
-  path:'addniveau',
- component: AddNiveauComponent
 },
 {
   path:'login',

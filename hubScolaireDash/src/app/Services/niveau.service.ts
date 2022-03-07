@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Niveau } from '../Classes/niveau';
 
-const url = 'http://localhost:8080//api/niveau'
+const url = 'http://localhost:8080/api/niveau'
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,10 @@ export class NiveauService {
 
   public getNiveauById(id_niveau: any): Observable<Niveau> {
     return this.http.get(`${url + '/getNiveauById'}/${id_niveau}`);
+  }
+
+  public getNiveauByLibelle(libelle: any): Observable<Niveau> {
+    return this.http.get(url + '/getNiveauByLibelle' + '/' + libelle) as any;
   }
 
   

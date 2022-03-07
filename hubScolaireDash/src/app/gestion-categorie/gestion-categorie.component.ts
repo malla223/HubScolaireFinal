@@ -15,6 +15,12 @@ export class GestionCategorieComponent implements OnInit {
   form:FormGroup;
   validations_form: FormGroup;
   id_cat: any;
+  categorie: any;
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 3;
+  tableSizes: any = [3, 6, 9, 12];
 
 
   constructor(private catService : CategorieService,
@@ -47,6 +53,9 @@ export class GestionCategorieComponent implements OnInit {
 
   deleteCat(id_cat: any){
     this.catService.delteCat(id_cat).subscribe();
+    window.location.reload();
+        this.router.navigateByUrl('gestioncategorie', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['gestioncategorie']));
   }
 
   alertConfirmation(id_admin : any) {
@@ -71,11 +80,27 @@ export class GestionCategorieComponent implements OnInit {
     });
   }
 
-  saveCat(){
-    this.catService.saveCAt(this.form.value).subscribe();
-    this.successConfirm();
-    this.router.navigateByUrl('gestioncategorie', {skipLocationChange: true}).then(()=>
-    this.router.navigate(['gestioncategorie']));
+  async saveCat(){
+    this.categorie = await this.catService.getCategorieByLibelle(this.form.value.libelle_cat).toPromise();
+    if(this.categorie!=null){
+      this.errorConfirm();
+    }else{
+      await this.catService.saveCAt(this.form.value).toPromise();
+      this.successConfirm();
+      this.router.navigateByUrl('gestioncategorie', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['gestioncategorie']));
+      window.location.reload();
+    }
+  }
+  errorConfirm() {
+    Swal.fire({
+      position: 'top-right',
+      icon: 'error',
+      title: 'ERREUR',
+      text:'Cette catégorie existe déjà',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   successConfirm() {
@@ -86,5 +111,15 @@ export class GestionCategorieComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.cateR;
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.cateR;
   }
 }

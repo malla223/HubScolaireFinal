@@ -1,20 +1,9 @@
 <app-menu></app-menu>
 <app-header></app-header>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div>
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
         <div class="page-wrapper bg">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -34,7 +23,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="white-box">
                             <h3 class="box-title txt1">Liste des niveaux</h3>
                             <div class="table-responsive">
@@ -47,50 +36,66 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr  *ngFor= "let niveau of niveauR">
+                                        <tr  *ngFor= "let niveau of niveauR | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
                                             <td>{{niveau?.id_niveau}}</td>
                                             <td>{{niveau?.libelle_niveau}}</td>
-                                            <td>  <i class=" fa fa-edit " aria-hidden="true" [routerLink]="['/editNiveau', niveau?.id_niveau]"></i>&nbsp;
+                                            <td>  <i class=" fa fa-edit fat2" aria-hidden="true" [routerLink]="['/editNiveau', niveau?.id_niveau]"></i>&nbsp;
                                                 <i class="fa fa-trash fat" aria-hidden="true" (click)="alertConfirmation(niveau?.id_niveau)"></i>&nbsp;
-                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detailNiveau', niveau?.id_niveau]"></i>&nbsp;
+                                                <i class=" fas fa-info-circle  fat2" aria-hidden="true" [routerLink]="['/detailNiveau', niveau?.id_niveau]"></i>&nbsp;
                                             </td>   
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center">
+                                    <pagination-controls 
+                                        previousLabel="Précedent"
+                                        nextLabel="Suivant"
+                                        (pageChange)="onTableDataChange($event)">
+                                    </pagination-controls>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-6 bloc">
+                        <div class="card">
+                          <form class="form-horizontal" [formGroup]="form" (ngSubmit)="saveNiveau()">
+                            <div *ngIf="!submitted" class="card-body">
+                              <h4 class="card-title txt">Ajouter un niveau</h4>
+                              <div class="form-group row">
+                                <label
+                                  class="col-sm-3 text-end control-label col-form-label txt"
+                                  >Libelle</label
+                                >
+                                <div class="col-sm-9">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="libelle"
+                                    name="libelle_niveau" formControlName="libelle_niveau" required
+                                  />
+                                </div>
+                              </div>
+                               
+                            </div>
+                            <div class="bouton">
+                              <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn2" [disabled]="!form.valid">
+                                  <b> Ajouter</b>
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                  </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
               
             
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse  <a
                     href="https://www.hubscolaire.com/">&nbsp; hubscolaire.com</a>
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
    
 

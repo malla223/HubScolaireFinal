@@ -24,6 +24,10 @@ export class CategorieService {
     return this.http.get(`${url + '/getCatById'}/${id_cat}`);
   }
 
+  public getCategorieByLibelle(libelle: any): Observable<Categorie> {
+    return this.http.get(`${url + '/getCatByLibelle'}/${libelle}`);
+  }
+
   
   public delteCat(id_cat:any):Observable<any>{
     return this.http.delete(`${url + '/deleteCat'}/${id_cat}`);

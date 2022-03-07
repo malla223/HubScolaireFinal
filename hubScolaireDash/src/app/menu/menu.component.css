@@ -6,9 +6,10 @@
     font-size:18px;
     font-weight: bold;
 }
-.dec{
+.deconnexion{
     width: 200px;
-    color:white;
+    color:#005D99;
+    background-color: #ddb307;
     display: block;
     margin: 50px auto;
 }
@@ -35,7 +36,7 @@ a:before {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     inset: 0 0 0 0;
-    background: hsl(200 100% 80%);
+    background: rgba(3, 110, 163, 0.555);
     z-index: -1;
     transition: transform .7s ease;
   }

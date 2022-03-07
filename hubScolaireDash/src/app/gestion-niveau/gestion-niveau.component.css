@@ -14,7 +14,10 @@
     font-weight: bold;
 }
 .fat{
-    color: red;
+    color: #ddb307;
+}
+.fat2{
+    color: #005D99;
 }
 .txt2{
     color:white;
@@ -23,4 +26,12 @@
 }
 .blc{
     position:absolute;
+}
+.btn2{
+    background-color:#005D99;
+    width: 300px;
+    color:#ddb307;
+}
+.bouton{
+    display: block;
 }

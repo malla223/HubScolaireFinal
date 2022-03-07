@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
+import { AcceuilPage } from '../pages/acceuil/acceuil.page';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-tab3',
@@ -11,13 +14,19 @@ export class Tab3Page {
 
   userConnect: any;
   photo = environment.photoUser;
+  demandeUserR: any;
+  dataFromModal: string;
 
-  constructor(private route : Router) {}
+  constructor(private route : Router,
+     private uService : UserServiceService,
+    private alertModal : AlertController) {}
 
   ngOnInit() : void {
     //recuperer les données du user connecté
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
+
+    this.getDemandeByUser();
   }
   
   onLogout(){
@@ -30,5 +39,13 @@ export class Tab3Page {
   detailUser(id_user){
     this.route.navigateByUrl('edit-profil',id_user);
   }
+
+
+  getDemandeByUser(){
+    this.uService.getAllEleveByUser(this.userConnect.id_user).subscribe(res=>{
+      this.demandeUserR = res;
+    })
+  }
+
 
 }

@@ -34,7 +34,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
-import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -70,7 +69,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EditNiveauComponent,
     DetailNiveauComponent,
     AddEleveComponent,
-    AddNiveauComponent,
     DetailAttenteDonComponent
   ],
   imports: [

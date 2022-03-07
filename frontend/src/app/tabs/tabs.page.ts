@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
+  userConnect : any;
   constructor() {
+  }
+  ngOnInit() {
+    let us = localStorage.getItem('user');
+    this.userConnect = JSON.parse(us);
   }
 
 }

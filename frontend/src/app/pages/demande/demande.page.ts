@@ -89,6 +89,71 @@ msg:any;
   
   }
 
+
+  async alertCE(id_don : any){
+    //permet de recuperer l'id du don avant confirmation de la  demande
+    this.userService.getDonById(id_don).subscribe((dr: any)=>{
+      this.don_recuperer = dr;
+    })
+    const load = await this.alertController.create({
+      header: 'Demande de don',
+      inputs:[
+        {
+          name: 'nom_eleve',
+          placeholder : 'Nom & Prénom élève'
+        },
+        {
+          name: 'classe',
+          placeholder : 'Classe de l\'élève'
+        },
+        {
+          name: 'nom_ecole',
+          placeholder : 'Etablissement'
+        },
+        {
+          name: 'adresse_ecole',
+          placeholder : 'Adresse Etablissement'
+        },
+        {
+          name: 'nom_parent',
+          placeholder : 'Nom complet d\'un parent'
+        },
+        {
+          name: 'tel_parent',
+          placeholder : 'Téléphone du parent'
+        },
+      ],
+      buttons: [
+        {
+          text: 'ANNULER'
+        },
+        {
+          text: 'CONFITMER',
+          handler: data =>{
+            if(data.nom_eleve,data.classe, data.nom_parent , data.nom_ecole, data.tel_parent, data.adresse_ecole){
+              //permet de faire l'enregistrement avec l'id du don correspondant
+              this.demandeDon = {
+                'nom_eleve': data.nom_eleve,
+                'nom_ecole': data.nom_ecole,
+                'tel_parent':  data.tel_parent,
+                'classe': data.classe,
+                'adresse_ecole': data.adresse_ecole,
+                'don': this.don_recuperer,
+                'nom_parent': data.nom_parent,
+                'user': this.userConnect
+              };
+                this.effectuerDemande();
+               }
+            
+          }
+        }
+      ]
+    });
+ 
+    await load.present();
+  
+  }
+
 //fin                                           
     async effectuerDemande() {     
       this.demander = await this.userService.demandeDon(this.demandeDon).toPromise();

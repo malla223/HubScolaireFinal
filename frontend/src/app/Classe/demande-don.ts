@@ -4,4 +4,7 @@ export class DemandeDon {
     nom_ecole?: string;
     adresse_ecole?: string;
     tel_ecole?: any;
+    nom_parent?: any;
+    tel_parent?:any;
+    classe?: any;
 }

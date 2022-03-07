@@ -69,6 +69,9 @@ export class GestionAdminComponent implements OnInit {
 
   deleteA(id_admin:any){
     this.aService.delteAdmin(id_admin).subscribe();
+    window.location.reload();
+        this.router.navigateByUrl('gestionAdmin', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['gestionAdmin']));
   }
 
   alertConfirmation(id_admin : any) {

@@ -13,7 +13,7 @@
       <ion-label><b>DONS</b></ion-label>
     </ion-segment-button>
 
-    <ion-segment-button value="mes_dons">
+    <ion-segment-button value="mes_dons" *ngIf ="userConnect.type==='user'">
       <ion-label><b>MES DONS</b></ion-label>
     </ion-segment-button>
 

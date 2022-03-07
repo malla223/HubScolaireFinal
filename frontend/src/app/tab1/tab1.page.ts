@@ -27,6 +27,7 @@ export class Tab1Page {
   ngOnInit() {
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
+    
     this.id_user = this.userConnect.id_user;
 
     this.userService.getAllDonByUser(this.id_user).subscribe(response=>{
