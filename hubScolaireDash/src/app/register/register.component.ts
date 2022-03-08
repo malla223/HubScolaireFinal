@@ -107,7 +107,13 @@ export class RegisterComponent implements OnInit {
   }
 
   successNotification() {
-    Swal.fire('ENREGISTRER', 'Votre enregistrement a été effectué avec succès', 'success');
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: 'Enregistrer avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   // errorNotification() {

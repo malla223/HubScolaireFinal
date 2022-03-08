@@ -43,13 +43,6 @@ export class Tab1Page {
       
     })
   }
-  
-  onLogout(){
-    localStorage.removeItem('user');
-    localStorage.clear();
-    this.route.navigate(['login']);
-    console.log(localStorage.removeItem('user'));  
-  }
   segmentChanged(ev: any) {
   }
 

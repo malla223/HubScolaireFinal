@@ -82,12 +82,6 @@ export class Tab2Page {
     })
   }
 
-  onLogout(){
-    localStorage.removeItem('user');
-    localStorage.clear();
-    this.router.navigate(['login']); 
-  }
-
   async saveDon(){
     const load = await this.load.create({
       message: 'Patientez...',

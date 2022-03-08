@@ -47,6 +47,20 @@ msg:any;
           placeholder : 'Nom & Prénom élève'
         },
         {
+          name: 'nom_parent',
+          placeholder : 'Nom Complet d\'un parent'
+        },
+        
+        {
+          name: 'tel_parent',
+          placeholder : 'Contact du parent',
+          type: 'number'
+        },
+        {
+          name: 'classe',
+          placeholder : 'Classe de l\'élève'
+        },
+        {
           name: 'nom_ecole',
           placeholder : 'Etablissement'
         },
@@ -67,7 +81,10 @@ msg:any;
         {
           text: 'CONFITMER',
           handler: data =>{
-            if(data.nom_eleve, data.nom_ecole, data.tel_ecole, data.adresse_ecole){
+            if(data.nom_eleve, data.nom_ecole,
+               data.tel_ecole, data.adresse_ecole,
+               data.nom_parent, data.tel_parent,
+               data.classe){
               //permet de faire l'enregistrement avec l'id du don correspondant
               this.demandeDon = {
                 'nom_eleve': data.nom_eleve,
@@ -75,7 +92,10 @@ msg:any;
                 'tel_ecole':  data.tel_ecole,
                 'adresse_ecole': data.adresse_ecole,
                 'don': this.don_recuperer,
-                'user': this.userConnect
+                'user': this.userConnect,
+                'nom_parent':data.nom_parent,
+                'tel_parent':data.tel_parent,
+                'classe':data.classe
               };
                 this.effectuerDemande();
                }
@@ -120,7 +140,8 @@ msg:any;
         },
         {
           name: 'tel_parent',
-          placeholder : 'Téléphone du parent'
+          placeholder : 'Téléphone du parent',
+          type: 'number'
         },
       ],
       buttons: [

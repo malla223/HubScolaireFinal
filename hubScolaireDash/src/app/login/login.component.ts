@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     Swal.fire({
       position: 'center',
       icon: 'error',
-      title: 'Connexion echoué, verifiez votre mot de passe',
+      title: 'Connexion echoué, REESAYER',
       showConfirmButton: true,
       confirmButtonText: 'REESAYER',
       confirmButtonColor: '#ddb307',

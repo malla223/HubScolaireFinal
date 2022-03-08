@@ -28,13 +28,7 @@ export class Tab3Page {
 
     this.getDemandeByUser();
   }
-  
-  onLogout(){
-    localStorage.removeItem('user');
-    localStorage.clear();
-    this.route.navigate(['login']);
-    console.log(localStorage.removeItem('user'));
-  }
+
   
   detailUser(id_user){
     this.route.navigateByUrl('edit-profil',id_user);
