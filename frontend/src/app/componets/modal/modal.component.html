@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Modifier le profil</ion-title>
+    <ion-icon slot="end" (click)="fermer()" name="close"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-img src="assets/images/edit-profil.png"></ion-img>
+    <ion-item>
+      <ion-label><b>Nom : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.nom_complet"></ion-input>
+      
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Login : </b></ion-label>
+      <ion-input type="text" autocomplete="false" name="login_user" [(ngModel)]="userConnect.login_user"></ion-input>
+     
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Tél : </b></ion-label>
+      <ion-input type="number" autocomplete="false" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input>
+      
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Adresse : </b></ion-label>
+      <ion-input type="text" autocomplete="false" name="adresse_user" [(ngModel)]="userConnect.adresse_user"></ion-input>
+    </ion-item>
+        
+        <ion-button (click)="modUser()" class="btn1" >MODIFIER</ion-button>
+  </ion-card>
+
+</ion-content>

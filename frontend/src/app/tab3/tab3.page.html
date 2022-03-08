@@ -23,7 +23,7 @@
         <ion-col>{{list?.nom_eleve}}</ion-col>
         <ion-col>{{list?.classe}}</ion-col>
         <ion-col>
-          <ion-icon class="info"name="information-circle"></ion-icon>
+          <ion-icon [routerLink]="['/detail-eleve',list?.id_demande]" class="info"name="information-circle"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>

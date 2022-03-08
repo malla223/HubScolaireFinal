@@ -3,22 +3,26 @@ ion-header{
 }
 ion-toolbar{
     --backgroung: transparent;
-    --opacity: 0%
+    --opacity: 0%;
+        ion-icon{
+            color: #005d99;
+            font-size: 30px;
+        }
+
+        ion-title{
+            color: #005d99;
+        }
+    
 }
 ion-content{
     --background: #ECF7FF;
-
-    .dessin{
-        margin-left: 30%;
-    }
     h1{
         color: #005d99;
     }
 
-    ion-icon{
-        color: #005d99;
-        width: 70px;
-        height: 70px;
+    ion-img{
+        width: 100px;
+        height: 100px;
         margin: 10px auto;
         display: block;
     }
@@ -41,6 +45,7 @@ ion-content{
 
     ion-card{
         --background: #ECF7FF;
+        margin-top: 100px;
     }
     ion-item{
         --background: #ECF7FF;

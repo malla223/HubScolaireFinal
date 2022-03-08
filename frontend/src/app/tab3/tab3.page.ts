@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
-import { AcceuilPage } from '../pages/acceuil/acceuil.page';
+import { DetailElevePage } from '../pages/detail-eleve/detail-eleve.page';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class Tab3Page {
 
   constructor(private route : Router,
      private uService : UserServiceService,
-    private alertModal : AlertController) {}
+    private modal : ModalController, ) {}
 
   ngOnInit() : void {
     //recuperer les données du user connecté
@@ -39,6 +39,15 @@ export class Tab3Page {
     this.uService.getAllEleveByUser(this.userConnect.id_user).subscribe(res=>{
       this.demandeUserR = res;
     })
+  }
+
+  async detailEleve(id_demande:any){
+    this.route.navigateByUrl('/detail-eleve', id_demande);
+    const popup = await this.modal.create({
+      component: DetailElevePage,
+      swipeToClose:true
+    })
+    await popup.present();
   }
 
 
