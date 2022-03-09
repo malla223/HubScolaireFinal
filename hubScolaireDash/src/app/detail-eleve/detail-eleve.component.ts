@@ -10,17 +10,20 @@ import { DemandeDonService } from '../Services/demande-don.service';
 export class DetailEleveComponent implements OnInit {
 
   id_demande: any;
-  detailEleve: any;
+  detailDemande: any;
 
   constructor(private router : ActivatedRoute,
-    private eService : DemandeDonService) { }
+    private dService : DemandeDonService) { }
 
   
     ngOnInit() {
-      // this.id_eleve = this.router.snapshot.params['id_eleve'];
-      
-      // this.eService.getEleveById(this.id_eleve).subscribe(res=>{
-      //   this.detailEleve = res;     
-      // })
-    }
+
+       this.id_demande = this.router.snapshot.params['id_demande'];
+    
+    this.dService.getDemandeByid(this.id_demande).subscribe(res=>{
+      this.detailDemande = res;     
+    })
   }
+
+    }
+  

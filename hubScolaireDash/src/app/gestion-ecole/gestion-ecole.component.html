@@ -3,7 +3,7 @@
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <div class="page-wrapper bg">
-            <div class="page-breadcrumb bg-white">
+            <div class="page-breadcrumb bloc1">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title txt1"><b>ECOLES</b></h4>
@@ -19,13 +19,13 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid ">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="white-box">
+                        <div class="white-box bloc1">
                             <h3 class="box-title txt1">Liste des ecoles</h3>
                             <div class="table-responsive">
-                                <table class="table text-nowrap">
+                                <table class="table text-nowrap ">
                                     <thead>
                                         <tr>
                                             <th class="border-top-0 txt">#</th>
@@ -43,12 +43,12 @@
                                             <td>{{ecole.nom_ecole}}</td>
                                             <td>{{ecole.adresse_ecole}}</td>
                                             <td>{{ecole.tel_ecole}}</td>
-                                            <td>{{ecole.email_ecole}}</td>
+                                            <td>{{ecole.email}}</td>
                                             <td>{{ecole.site_ecole}}</td>
                                             <td>  <i class=" fa fa-edit " aria-hidden="true" [routerLink]="['/editecole', ecole.id_ecole]"></i>&nbsp;
                                                 <i class="fa fa-trash fat" aria-hidden="true"  (click)="deleteEcole(ecole.id_ecole)"></i>&nbsp;
                                                 <i class=" fas fa-info-circle " aria-hidden="true" [routerLink] = "['/detailecole', ecole.id_ecole]"></i>&nbsp;
-                                            </td>
+                                            </td>   
                                         </tr>
                                     </tbody>
                                 </table>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center"> 2022 © Copyright Mohamed L Kone & Thomas Cisse <a
+            <footer class="footer text-center bloc1"> 2022 © Copyright Mohamed L Kone & Thomas Cisse <a
                     href="https://www.hubscolaire.com/">&nbsp; hubscolaire.com</a>
             </footer>
         </div>

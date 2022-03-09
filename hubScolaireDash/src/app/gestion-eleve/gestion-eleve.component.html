@@ -31,11 +31,11 @@
                                         <tr *ngFor="let list of listDemande">
                                             <td>{{list?.id_demande}}</td>
                                             <td>{{list?.nom_eleve}}</td>
-                                            <td>{{list?.classe_eleve}}</td>
+                                            <td>{{list?.classe}}</td>
                                             <td>{{list?.nom_ecole}}</td>
                                             <td>{{list?.tel_ecole}}</td>
                                             <td> 
-                                                <i class=" fas fa-info-circle " aria-hidden="true" routerLink="/detaileleve"></i>&nbsp;
+                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detaileleve',list.id_demande]"></i>&nbsp;
                                             </td>
                                         </tr>
                                     </tbody>
