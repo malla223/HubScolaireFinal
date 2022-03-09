@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
-import { DetailElevePage } from '../pages/detail-eleve/detail-eleve.page';
+import { DetailElevePageModule } from '../pages/detail-eleve/detail-eleve.module';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class Tab3Page {
   photo = environment.photoUser;
   demandeUserR: any;
   dataFromModal: string;
+  filterTerm: string;
 
   constructor(private route : Router,
      private uService : UserServiceService,
@@ -29,12 +30,6 @@ export class Tab3Page {
     this.getDemandeByUser();
   }
 
-  
-  detailUser(id_user){
-    this.route.navigateByUrl('edit-profil',id_user);
-  }
-
-
   getDemandeByUser(){
     this.uService.getAllEleveByUser(this.userConnect.id_user).subscribe(res=>{
       this.demandeUserR = res;
@@ -42,13 +37,10 @@ export class Tab3Page {
   }
 
   async detailEleve(id_demande:any){
-    this.route.navigateByUrl('/detail-eleve', id_demande);
+    await this.route.navigateByUrl('/detail-eleve', id_demande);
     const popup = await this.modal.create({
-      component: DetailElevePage,
-      swipeToClose:true
+      component: DetailElevePageModule
     })
     await popup.present();
   }
-
-
 }

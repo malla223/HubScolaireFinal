@@ -40,10 +40,15 @@ const routes: Routes = [
   {
     path: 'demande-confirmer/:id_demande',
     loadChildren: () => import('./pages/demande-confirmer/demande-confirmer.module').then( m => m.DemandeConfirmerPageModule)
-  },   {
+  },   
+  {
     path: 'detail-eleve/:id_demande',
     loadChildren: () => import('./pages/detail-eleve/detail-eleve.module').then( m => m.DetailElevePageModule)
-  }
+  },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
+  },
 
 ];
 @NgModule({

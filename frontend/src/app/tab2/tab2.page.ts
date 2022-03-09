@@ -110,6 +110,7 @@ export class Tab2Page {
           this.alertD();
         }else{
           load.dismiss();
+          this.alertError();
         }
       })
     })
@@ -125,8 +126,21 @@ export class Tab2Page {
         {
           text: 'OK',
           handler: () =>{
-            this.router.navigate(['/tabs']);
+            this.router.navigate(['tabs']);
           }
+        }
+      ]
+    });
+    await load.present();
+  }
+
+  async alertError(){
+    const load = await this.alertController.create({
+      header:'ERREUR',
+      message:'Votre don n\'a pas été éffectué, REESAYER',
+      buttons : [
+        {
+          text: 'OK'
         }
       ]
     });

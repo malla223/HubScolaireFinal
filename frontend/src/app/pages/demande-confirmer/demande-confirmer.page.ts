@@ -30,10 +30,7 @@ export class DemandeConfirmerPage implements OnInit {
 
 
   public annulerD(id_demande:any){
-    this.userService.annulerDemande(id_demande).subscribe(data=>{
-      console.log(data);
-      this.router.navigate(['tabs']);
-    })
+    this.userService.annulerDemande(id_demande).subscribe();
   }
 
   async alertA(){
@@ -49,6 +46,7 @@ export class DemandeConfirmerPage implements OnInit {
           text: 'OUI',
           handler: () =>{
             this.annulerD(this.id_demande);
+            this.router.navigate(['tabs']);
           }
         }
       ]

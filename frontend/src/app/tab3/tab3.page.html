@@ -6,10 +6,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <ion-img class="demande" src="assets/images/don.png"></ion-img>
-  </div>
   <ion-card>
+    <ion-card-header>
+      <h4>LISTE DES ELEVES
+        <ion-icon name="document-text"></ion-icon>
+      </h4>
+      <h6>{{userConnect?.nom_complet}}</h6>
+      <ion-searchbar  [(ngModel)]="filterTerm" animated="true" placeholder="Recherche"></ion-searchbar>
+    </ion-card-header>
     <ion-grid >
       <ion-list>
         <ion-row >
@@ -19,7 +23,7 @@
         </ion-row>
      </ion-list>
   
-      <ion-row *ngFor="let list of demandeUserR">
+      <ion-row *ngFor="let list of demandeUserR |filter:filterTerm">
         <ion-col>{{list?.nom_eleve}}</ion-col>
         <ion-col>{{list?.classe}}</ion-col>
         <ion-col>

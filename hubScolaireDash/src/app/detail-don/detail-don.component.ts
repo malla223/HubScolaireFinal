@@ -33,12 +33,14 @@ export class DetailDonComponent implements OnInit {
     this.successConfirm();
     this.route.navigateByUrl('gestionDon', {skipLocationChange: true}).then(()=>
     this.route.navigate(['gestionDon']));
+    window.location.reload();
   }
 
   annulerDon(){
     this.donService.annulerDon(this.id_don).subscribe();
     this.route.navigateByUrl('gestionDon', {skipLocationChange: true}).then(()=>
     this.route.navigate(['gestionDon']));
+    window.location.reload();
   }
 
   successConfirm() {

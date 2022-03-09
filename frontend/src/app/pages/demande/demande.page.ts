@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { environment } from 'src/environments/environment';
@@ -21,6 +21,7 @@ export class DemandePage implements OnInit {
 msg:any;
   constructor(private alertController : AlertController,
      private router: ActivatedRoute,
+     private route : Router,
      private userService : UserServiceService) { }
 
   ngOnInit() {
@@ -98,6 +99,7 @@ msg:any;
                 'classe':data.classe
               };
                 this.effectuerDemande();
+                this.route.navigate(['/tabs']);
                }
             
           }
@@ -164,6 +166,7 @@ msg:any;
                 'user': this.userConnect
               };
                 this.effectuerDemande();
+                this.route.navigate(['tabs']);
                }
             
           }
@@ -186,6 +189,11 @@ msg:any;
         const load = await this.alertController.create({
           header: 'Message',
           subHeader :this.msg,
+          buttons:[
+            {
+              text:'OK'
+            }
+          ]
         })
           await load.present();     
     }

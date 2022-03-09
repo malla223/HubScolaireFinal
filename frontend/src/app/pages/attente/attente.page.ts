@@ -28,10 +28,7 @@ export class AttentePage implements OnInit {
   }
 
   public annulerDon(id_don:any){
-    this.uservice.annulerDon(id_don).subscribe(response=>{
-      console.log(response);
-      
-    })
+    this.uservice.annulerDon(id_don).subscribe();
   }
 
   async alertA(){

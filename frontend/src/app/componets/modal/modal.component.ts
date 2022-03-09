@@ -33,17 +33,12 @@ export class ModalComponent implements OnInit {
       message: 'Patientez...',
     });
     await load.present();
-    console.log("idUserConnect=========",this.userConnect.id_user);
     
     this.userService.updateUser(this.userConnect.id_user, this.userConnect).subscribe(data=>{
-      console.log(data);
       if(data){
         load.dismiss();
         this.presentAlert();
-      }else{
-        console.log("else===========",data);
-      }
-        
+      }    
     })
   }
 
@@ -61,7 +56,6 @@ export class ModalComponent implements OnInit {
         }
       ]
     });
-
     await alert.present();
   }
 }

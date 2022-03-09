@@ -27,13 +27,13 @@ ion-content{
         padding-top: 40px;
     }
     .first_div{
-        padding-top: 50px;
+        padding-top: 40px;
         .username{
             font-size: 18px;
             color: #005d99;
             font-weight: 600;
         }
-        .info{
+        .usern{
             font-size: 12px;
             color: #ddb307;
             font-weight: 600;
@@ -63,6 +63,10 @@ ion-content{
             padding: 10px;
             ion-grid{
                 padding: 0;
+                h4{
+                    font-weight: 600;
+                    color: #005d99;
+                }
                 ion-col{
                     padding: 10px;
                 }
@@ -90,12 +94,12 @@ ion-content{
                         padding-left: 5px;
                         .bold_label{
                             font-weight: 600;
-                            font-size: 12px;
+                            font-size: 10px;
                             color: #005d99;
                         }
                         .small_label{
                             font-size: 10px;
-                            color: #005d99;
+                            color: #ddb307;
 
                         } 
                     }

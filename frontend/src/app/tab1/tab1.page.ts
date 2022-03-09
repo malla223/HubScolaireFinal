@@ -37,7 +37,7 @@ export class Tab1Page {
 
     this.type = 'don';
     this.getListDonConfirmer();
-    this.userService.getAllDemandeDonAttente(this.id_user).subscribe(res=>{
+    this.userService.getAllDemandeDonAttenteByUser(this.id_user).subscribe(res=>{
       this.demande = res;
       this.listDemandeDonA = this.demande;
       

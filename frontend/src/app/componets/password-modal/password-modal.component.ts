@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoadingController, ModalController } from '@ionic/angular';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-password-modal',
@@ -8,12 +10,47 @@ import { ModalController } from '@ionic/angular';
 })
 export class PasswordModalComponent implements OnInit {
 
-  constructor(private modal : ModalController) { }
+  userConnect: any;
+  form : FormGroup;
+  validations_form: FormGroup;
 
-  ngOnInit() {}
+  constructor(private modal : ModalController,
+    private fb : FormBuilder,
+    private load : LoadingController,
+    private uService : UserServiceService) { }
+
+  ngOnInit() {
+    let us = localStorage.getItem('user');
+    this.userConnect = JSON.parse(us);
+
+    this.form = this.fb.group({
+      password_user: [''],
+    })
+    this.validations_form = this.fb.group({
+      password_user: new FormControl('', Validators.compose([
+        Validators.required,
+      ]))
+
+    })
+  }
 
   fermer(){
     this.modal.dismiss();
   }
 
+ async updatePassword(){
+      const loading = await this.load.create({
+        message : 'Patientez......'
+      })
+      await loading.present();
+      console.log("Password=========",this.form);
+      
+      this.uService.updateUser(this.userConnect.id_user, this.userConnect).subscribe(res=>{
+        if(res){
+          loading.dismiss();
+          console.log("res=========",res);
+          
+        }
+      })
+  }
 }

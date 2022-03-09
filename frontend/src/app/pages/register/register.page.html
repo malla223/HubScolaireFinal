@@ -15,7 +15,6 @@
         <ion-item>
           <ion-label position="floating" autocomplete="false" >Nom & Prénom</ion-label>
           <ion-input type="text" autocomplete="false" name="nom_complet" formControlName="nom_complet" required></ion-input>
-          
         </ion-item>
         <ion-item>
           <ion-label position="floating" autocomplete="false">Nom d'utilisateur</ion-label>
@@ -24,8 +23,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating" autocomplete="false">Mot de passe</ion-label>
-          <ion-input type="password" autocomplete="false" name="password_user" formControlName="password_user" required ></ion-input>
-          
+          <ion-input type="password" autocomplete="false" name="password_user" formControlName="password_user" maxlength="10" pattern="(?=.*\d).{6,}" required ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" autocomplete="false">Téléphone</ion-label>

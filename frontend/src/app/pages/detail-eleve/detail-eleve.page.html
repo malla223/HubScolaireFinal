@@ -1,11 +1,12 @@
 <ion-content [fullscreen]="true">
   <div class="main_content_div">
-    <ion-buttons slot="start" class="menu_btn">
-      <ion-icon class="titre" slot="end" name="close" (click)="fermer()"></ion-icon>
-    </ion-buttons>
+      <ion-icon class="titre menu_btn" slot="end" name="close" (click)="fermer()"></ion-icon>
     <div class="user_div">
       <div class="first_div">
-        <ion-label class="username">{{demandeR?.don?.libelle_don}}</ion-label>
+        <ion-label class="username">Détail Don</ion-label>
+        <ion-label class="usern">Libellé : {{demandeR?.don?.libelle_don}}</ion-label>
+        <ion-label class="usern">Catégorie : {{demandeR?.don?.categorie.libelle_cat}}</ion-label>
+        <ion-label class="usern">Niveau : {{demandeR?.don?.niveau.libelle_niveau}}</ion-label>
       </div>
       <ion-img class="user_back" src="{{photo}}+{{demandeR?.id_demande}}"></ion-img>
     </div>
@@ -13,15 +14,43 @@
     <div class="content_div">
       <div class="details">
         <ion-grid fixed>
+          <h4>Information de  l'élève</h4>
           <ion-row>
             <ion-col size="6">
               <div class="flex_div">
                 <div class="round_div">
-                  <ion-icon name="hand-left"></ion-icon>
+                  <ion-icon name="accessibility"></ion-icon>
                 </div>
                 <div class="detail">
-                  <ion-label class="bold_label">{{nombreDemande}}</ion-label>
-                  <ion-label class="small_label">Demande</ion-label>
+                  <ion-label class="bold_label">Nom Elève</ion-label>
+                  <ion-label class="small_label">{{demandeR?.nom_eleve}}</ion-label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <div class="flex_div">
+                <div class="round_div">
+                  <ion-icon name="storefront"></ion-icon>
+                </div>
+                <div class="detail">
+                  <ion-label class="bold_label">Classe</ion-label>
+                  <ion-label class="small_label">{{demandeR?.classe}}</ion-label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <div class="flex_div">
+                <div class="round_div">
+                  <ion-icon name="male-female"></ion-icon>
+                </div>
+                <div class="detail">
+                  <ion-label class="bold_label">Nom parent</ion-label>
+                  <ion-label class="small_label">{{demandeR?.nom_parent}}</ion-label>
 
                 </div>
               </div>
@@ -32,11 +61,11 @@
             <ion-col size="6">
               <div class="flex_div">
                 <div class="round_div">
-                  <ion-icon name="checkmark-done-circle"></ion-icon>
+                  <ion-icon name="call"></ion-icon>
                 </div>
                 <div class="detail">
-                  <ion-label class="bold_label">{{demandeR?.nom_eleve}}</ion-label>
-                  <ion-label class="small_label">Don Reçu</ion-label>
+                  <ion-label class="bold_label">Contact Parent</ion-label>
+                  <ion-label class="small_label">{{demandeR?.tel_parent}}</ion-label>
                 </div>
               </div>
             </ion-col>
