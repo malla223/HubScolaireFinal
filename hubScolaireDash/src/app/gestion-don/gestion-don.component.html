@@ -1,28 +1,24 @@
 <app-menu></app-menu>
 <app-header></app-header>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-   
         <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
             data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-            <!-- ============================================================== -->
             <div class="page-wrapper bg">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="page-breadcrumb bg-white">
                     <div class="row align-items-center">
-                        <div class="col-lg-6col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title txt1"><b>DONS</b></h4>
                         </div>
+                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                            <div class="d-md-flex">
+                                <ol class="breadcrumb ms-auto"> 
+                                </ol>
+                                <a class="btn d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light txt2" routerLink="/adddon">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; <b>Ajouter</b></a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
                 <div class="container-fluid">
-                    <!-- ============================================================== -->
-                    <!-- Start Page Content -->
-                    <!-- ============================================================== -->
                     <div class="row" >
                         <div class="col-sm-12">
                             <div class="white-box">
@@ -61,8 +57,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-
-
                                 <div class="table-responsive" *ngSwitchCase="'demande'">
                                     <h3 class="box-title txt1">Liste des demandes en attentes</h3>
                                     <table class="table text-nowrap">

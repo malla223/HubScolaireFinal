@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EleveServiceService } from '../Services/eleve-service.service';
+import { DemandeDonService } from '../Services/demande-don.service';
 
 @Component({
   selector: 'app-detail-eleve',
@@ -9,18 +9,18 @@ import { EleveServiceService } from '../Services/eleve-service.service';
 })
 export class DetailEleveComponent implements OnInit {
 
-  id_eleve: any;
+  id_demande: any;
   detailEleve: any;
 
   constructor(private router : ActivatedRoute,
-    private eService : EleveServiceService) { }
+    private eService : DemandeDonService) { }
 
   
     ngOnInit() {
-      this.id_eleve = this.router.snapshot.params['id_eleve'];
+      // this.id_eleve = this.router.snapshot.params['id_eleve'];
       
-      this.eService.getEleveById(this.id_eleve).subscribe(res=>{
-        this.detailEleve = res;     
-      })
+      // this.eService.getEleveById(this.id_eleve).subscribe(res=>{
+      //   this.detailEleve = res;     
+      // })
     }
   }

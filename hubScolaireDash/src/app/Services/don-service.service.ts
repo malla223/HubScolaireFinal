@@ -60,4 +60,19 @@ export class DonServiceService {
   public annulerDemandeDon(id_demande : any) : Observable<any>{
     return this.http.get(`${url + '/annulerD'}/${id_demande}`);
   }
+
+  public saveDon(form : FormData) : Observable<any>{
+    return this.http.post(url + '/saveDon', form);
+  }
+
+  public updateDon(id_don: any, data: any): Observable<any> {
+    return this.http.put(`${url + '/modifierDon'}/${id_don}`, data);
+  } 
+  
+  public getAllNiveau(){
+    return this.http.get(url + '/getAllNiveau');
+  }
+  public getAllCategorie(){
+    return this.http.get(url + '/getAllCat');
+  }
 }

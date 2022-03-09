@@ -38,6 +38,7 @@ import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { AddNiveauComponent } from './add-niveau/add-niveau.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { AddEcoleComponent } from './add-ecole/add-ecole.component';
+import { AddDonComponent } from './add-don/add-don.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { AddEcoleComponent } from './add-ecole/add-ecole.component';
     AddEleveComponent,
     AddNiveauComponent,
     DetailAttenteDonComponent,
-    AddEcoleComponent
+    AddEcoleComponent,
+    AddDonComponent
   ],
   imports: [
     BrowserModule,

@@ -47,5 +47,4 @@ export class AdminServiceService {
     public delteAdmin(id_admin:any):Observable<any>{
       return this.http.delete(`${url + '/deleteAdmin'}/${id_admin}`);
     }
-
 }

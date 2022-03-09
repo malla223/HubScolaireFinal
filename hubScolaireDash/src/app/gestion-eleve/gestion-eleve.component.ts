@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EleveServiceService } from '../Services/eleve-service.service';
+import { DemandeDonService } from '../Services/demande-don.service';
+
 
 @Component({
   selector: 'app-gestion-eleve',
@@ -9,31 +10,31 @@ import { EleveServiceService } from '../Services/eleve-service.service';
 })
 export class GestionEleveComponent implements OnInit {
 
-  listEleve : any;
+  listDemande : any;
 
   constructor(  
     public router : Router,
-    public eService : EleveServiceService
+    public dService : DemandeDonService
   ) {
     this.router.navigateByUrl ('/gestioneleve')
    }
 
   ngOnInit() {
-    this.getEleveActif();
+    this.getAllDemande();
   }
-  getEleveActif(){
-    this.eService.getAllEleve().subscribe(data=>{
-      this.listEleve = data;
+  getAllDemande(){
+    this.dService.getAllDemande().subscribe(data=>{
+      this.listDemande = data;
     })
   }
   
-  detailEleve(id_eleve:any){
-    this.router.navigateByUrl('/detaileleve', id_eleve);
+  detailDemande(id_demande:any){
+    this.router.navigateByUrl('/detaileleve', id_demande);
   }
   
-  deleteEleve(id_eleve:any){
-    this.eService.deleteEleve(id_eleve).subscribe();
-  }
+  // deleteEleve(id_eleve:any){
+  //   this.eService.deleteEleve(id_eleve).subscribe();
+  // }
 
 }
  

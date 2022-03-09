@@ -20,25 +20,22 @@
                                     <thead>
                                         <tr>
                                             <th class="border-top-0 txt">#</th>
-                                            <th class="border-top-0 txt">Nom</th>
-                                            <th class="border-top-0 txt">Prenom</th>
+                                            <th class="border-top-0 txt">Nom & Prenom</th>
                                             <th class="border-top-0 txt">Classe</th>
-                                            <th class="border-top-0 txt">Nom parent</th>
-                                            <th class="border-top-0 txt">contact parent</th>
+                                            <th class="border-top-0 txt">Nom ecole</th>
+                                            <th class="border-top-0 txt">contact ecole</th>
                                             <th class="border-top-0 txt">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor = "let list of listEleve">
-                                            <td>{{list.id_eleve}}</td>
-                                            <td>{{list.nom_eleve}}</td>
-                                            <td>{{list.prenom_eleve}}</td>
-                                            <td>{{list.classe_eleve}}</td>
-                                            <td>{{list.nomcomplet_parent}}</td>
-                                            <td>{{list.contact_parent}}</td>
+                                        <tr *ngFor="let list of listDemande">
+                                            <td>{{list?.id_demande}}</td>
+                                            <td>{{list?.nom_eleve}}</td>
+                                            <td>{{list?.classe_eleve}}</td>
+                                            <td>{{list?.nom_ecole}}</td>
+                                            <td>{{list?.tel_ecole}}</td>
                                             <td> 
-                                                <i class="fa fa-trash fat" aria-hidden="true"(click)="deleteEleve(list?.id_eleve)"></i>&nbsp;
-                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detaileleve', list.id_eleve]"></i>&nbsp;
+                                                <i class=" fas fa-info-circle " aria-hidden="true" routerLink="/detaileleve"></i>&nbsp;
                                             </td>
                                         </tr>
                                     </tbody>
@@ -53,4 +50,3 @@
             </footer>
         </div>
     </div>
-   
