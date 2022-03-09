@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DemandeDonService } from '../Services/demande-don.service';
 
 @Component({
   selector: 'app-detail-eleve',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailEleveComponent implements OnInit {
 
-  constructor() { }
+  id_demande: any;
+  detailDemande: any;
 
-  ngOnInit() {
+  constructor(private router : ActivatedRoute,
+    private dService : DemandeDonService) { }
+
+  
+    ngOnInit() {
+
+       this.id_demande = this.router.snapshot.params['id_demande'];
+    
+    this.dService.getDemandeByid(this.id_demande).subscribe(res=>{
+      this.detailDemande = res;     
+    })
   }
 
-}
+    }
+  

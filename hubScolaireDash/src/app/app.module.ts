@@ -36,6 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddEcoleComponent } from './add-ecole/add-ecole.component';
+import { AddDonComponent } from './add-don/add-don.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EditNiveauComponent,
     DetailNiveauComponent,
     AddEleveComponent,
-    DetailAttenteDonComponent
+    DetailAttenteDonComponent,
+    DetailAttenteDonComponent,
+    AddEcoleComponent,
+    AddDonComponent
   ],
   imports: [
     BrowserModule,

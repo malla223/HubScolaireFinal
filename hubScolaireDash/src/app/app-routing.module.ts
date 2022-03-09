@@ -1,6 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AddDonComponent } from './add-don/add-don.component';
+import { AddEcoleComponent } from './add-ecole/add-ecole.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { DetailAdminComponent } from './detail-admin/detail-admin.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
@@ -89,11 +91,11 @@ const routes: Routes = [
   component: DetailAttenteDonComponent
 },
 {
-  path:'detailecole',
+  path:'detailecole/:id_ecole',
   component: DetailEcoleComponent
 },
 {
-  path:'detaileleve',
+  path:'detaileleve/:id_demande',
   component: DetailEleveComponent
 },
 {
@@ -139,6 +141,14 @@ const routes: Routes = [
 {
   path:'addeleve',
  component: AddEleveComponent
+},
+{
+  path:'addecole',
+ component: AddEcoleComponent
+},
+{
+  path:'adddon',
+ component: AddDonComponent
 },
 {
   path:'login',

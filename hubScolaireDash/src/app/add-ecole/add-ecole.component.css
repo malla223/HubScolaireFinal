@@ -6,6 +6,11 @@
     position: center;
     margin-left: 33%;
 }
+.btns{
+    display: flex;
+    margin: 0 0 auto;
+    
+}
 .btn1{
     margin-left: 50px;
     background-color: #ddb307;
@@ -31,10 +36,7 @@
     font-weight: bold;
 }
 .bloc1{
-    background-color:#ECF7FF;
-}
-footer{
-    margin-top: 5%;
+    background-color:white;
 }
 .bloc1{
     background-color:#ECF7FF;
