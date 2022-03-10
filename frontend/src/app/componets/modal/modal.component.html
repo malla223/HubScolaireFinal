@@ -11,18 +11,27 @@
     <ion-img src="assets/images/edit-profil.png"></ion-img>
     <ion-item>
       <ion-label><b>Nom : </b></ion-label>
-      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.nom_complet"></ion-input>
-      
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.nom_user"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Prenom : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.prenom_user"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>E-mail : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.email_user"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Date de naissance : </b></ion-label>
+      <ion-input type="date" autocomplete="false" [(ngModel)]="userConnect.datenaiss"></ion-input> 
     </ion-item>
     <ion-item>
       <ion-label><b>Login : </b></ion-label>
-      <ion-input type="text" autocomplete="false" name="login_user" [(ngModel)]="userConnect.login_user"></ion-input>
-     
+      <ion-input type="text" autocomplete="false" name="login_user" [(ngModel)]="userConnect.login_user"></ion-input> 
     </ion-item>
     <ion-item>
-      <ion-label><b>Tél : </b></ion-label>
-      <ion-input type="number" autocomplete="false" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input>
-      
+      <ion-label><b>Téléphone : </b></ion-label>
+      <ion-input type="number" autocomplete="false" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input> 
     </ion-item>
     <ion-item>
       <ion-label><b>Adresse : </b></ion-label>

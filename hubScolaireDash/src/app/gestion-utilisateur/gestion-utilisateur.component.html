@@ -23,6 +23,7 @@
                                             <th class="border-top-0 txt">#</th>
                                             <th class="border-top-0 txt">Photo</th>
                                             <th class="border-top-0 txt">Nom</th>
+                                            <th class="border-top-0 txt">Prenom</th>
                                             <th class="border-top-0 txt">Login</th>
                                             <th class="border-top-0 txt">Tel</th>
                                             <th class="border-top-0 txt">Adresse</th>
@@ -33,7 +34,8 @@
                                         <tr  *ngFor = "let list of listUser | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
                                             <td>{{list.id_user}}</td>
                                             <td><img src="{{photo}}+ {{list.id_user}}"></td>
-                                            <td>{{list.nom_complet}}</td>
+                                            <td>{{list.nom_user}}</td>
+                                            <td>{{list.prenom_user}}</td>
                                             <td>{{list.login_user}}</td>
                                             <td>{{list.tel_user}}</td>
                                             <td>{{list.adresse_user}}</td>
