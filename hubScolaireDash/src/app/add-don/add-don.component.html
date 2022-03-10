@@ -51,9 +51,9 @@
                         >Niveau</label
                       >
                       <div class="col-sm-9">
-                        <select formControlName="niveau" *ngFor="let niveau of niveauR" required >
-                          <option [value]="" disabled>Selectionner</option>
-                          <option style="color:black">{{niveau?.libelle_niveau}}</option>
+                        <select formControlName="niveau" required class="form-control">
+                          <option disabled>Selectionner</option>
+                          <option *ngFor= "let niveau of niveauR">{{niveau?.libelle_niveau}}</option>
                         </select>
 
                       </div>
@@ -64,9 +64,9 @@
                         >Categorie</label
                       >
                       <div class="col-sm-9">
-                        <select formControlName="cat" required *ngFor= "let cat of cateR">
-                          <option [value]="" disabled>Selectionner</option>
-                          <option style="color:black">{{cat?.libelle_cat}}</option>
+                        <select formControlName="cat" required class="form-control">
+                          <option disabled>Selectionner</option>
+                          <option *ngFor= "let cat of cateR">{{cat?.libelle_cat}}</option>
                         </select>
 
                       </div>

@@ -153,12 +153,15 @@ msg:any;
         {
           text: 'CONFITMER',
           handler: data =>{
-            if(data.nom_eleve,data.classe, data.nom_parent , data.nom_ecole, data.tel_parent, data.adresse_ecole){
+            if(data.nom_eleve,data.classe, data.nom_parent , 
+              data.nom_ecole, data.tel_parent,
+               data.adresse_ecole, data.tel_ecole){
               //permet de faire l'enregistrement avec l'id du don correspondant
               this.demandeDon = {
                 'nom_eleve': data.nom_eleve,
                 'nom_ecole': data.nom_ecole,
                 'tel_parent':  data.tel_parent,
+                'tel_ecole':data.tel_ecole,
                 'classe': data.classe,
                 'adresse_ecole': data.adresse_ecole,
                 'don': this.don_recuperer,

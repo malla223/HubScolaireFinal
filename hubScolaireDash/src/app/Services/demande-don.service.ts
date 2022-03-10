@@ -13,8 +13,8 @@ export class DemandeDonService {
   constructor(
     private http : HttpClient) { }
 
-    public getAllDemande(){
-      return this.http.get(url + '/getAllDemande');
+    public getAllEleveByUser(id_user: any): Observable<any>{
+      return this.http.get(url + '/getAllEleveUser/' + id_user);
     }
     
     public getDemandeByid(id_demande:any):Observable<any>{

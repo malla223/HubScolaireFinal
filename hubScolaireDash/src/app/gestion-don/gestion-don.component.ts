@@ -47,13 +47,6 @@ export class GestionDonComponent implements OnInit {
       this.demandeEtat = true;
       this.don = this.data_Don;
     }
-
-    if(event.target.value == 'Don confirmer'){
-      this.donEtat = false;
-      this.demandeEtat = false;
-      this.donConfirmerEtat = true;
-      this.don = this.data_Don;
-    }
   }
 
 
