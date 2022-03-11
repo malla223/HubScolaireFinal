@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { EcoleServiceService } from 'src/app/services/ecole-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { environment } from 'src/environments/environment';
 
@@ -22,7 +23,8 @@ msg:any;
   constructor(private alertController : AlertController,
      private router: ActivatedRoute,
      private route : Router,
-     private userService : UserServiceService) { }
+     private userService : UserServiceService,
+     private ecoleService :EcoleServiceService) { }
 
   ngOnInit() {
     this.id_don = this.router.snapshot.params['id_don'];
@@ -129,14 +131,6 @@ msg:any;
           placeholder : 'Classe de l\'élève'
         },
         {
-          name: 'nom_ecole',
-          placeholder : 'Etablissement'
-        },
-        {
-          name: 'adresse_ecole',
-          placeholder : 'Adresse Etablissement'
-        },
-        {
           name: 'nom_parent',
           placeholder : 'Nom complet d\'un parent'
         },
@@ -153,22 +147,23 @@ msg:any;
         {
           text: 'CONFITMER',
           handler: data =>{
-            if(data.nom_eleve,data.classe, data.nom_parent , 
-              data.nom_ecole, data.tel_parent,
-               data.adresse_ecole, data.tel_ecole){
+            if(data.nom_eleve,
+              data.classe, 
+              data.nom_parent ,
+               data.tel_parent){
+                 console.log("data======",data);
+                 
               //permet de faire l'enregistrement avec l'id du don correspondant
               this.demandeDon = {
                 'nom_eleve': data.nom_eleve,
-                'nom_ecole': data.nom_ecole,
                 'tel_parent':  data.tel_parent,
-                'tel_ecole':data.tel_ecole,
                 'classe': data.classe,
-                'adresse_ecole': data.adresse_ecole,
                 'don': this.don_recuperer,
                 'nom_parent': data.nom_parent,
-                'user': this.userConnect
+                'ecole': this.userConnect,
+                
               };
-                this.effectuerDemande();
+                this.effectuerDemandeEcole();
                 this.route.navigate(['tabs']);
                }
             
@@ -184,6 +179,26 @@ msg:any;
 //fin                                           
     async effectuerDemande() {     
       this.demander = await this.userService.demandeDon(this.demandeDon).toPromise();
+        if(this.demander.id_demande){
+          this.msg='Votre demande de don a été effectué avec succès.';
+        }else{
+          this.msg='Vous avez déjà fait la demande de ce don';
+        }
+        const load = await this.alertController.create({
+          header: 'Message',
+          subHeader :this.msg,
+          buttons:[
+            {
+              text:'OK'
+            }
+          ]
+        })
+          await load.present();     
+    }
+
+
+    async effectuerDemandeEcole() {     
+      this.demander = await this.ecoleService.demandeDon(this.demandeDon).toPromise();
         if(this.demander.id_demande){
           this.msg='Votre demande de don a été effectué avec succès.';
         }else{

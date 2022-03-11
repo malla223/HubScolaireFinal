@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { ModalComponent } from '../componets/modal/modal.component';
 import { PasswordModalComponent } from '../componets/password-modal/password-modal.component';
+import { EcoleServiceService } from '../services/ecole-service.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -17,9 +18,12 @@ export class Tab4Page {
   photo = environment.photoUser;
   nombreDemande: any;
   donRecu: any;
+  nombreDemandeE: any;
+  donRecuE: any;
 
   constructor(private route : Router, private modal : ModalController,
-    private userService : UserServiceService) {}
+    private userService : UserServiceService,
+    private ecoleService : EcoleServiceService) {}
 
   ngOnInit() : void {
     //recuperer les données du user connecté
@@ -28,6 +32,8 @@ export class Tab4Page {
 
     this.getNombreUser();
     this.getDonRecuUser();
+    this.getNombreEcole();
+    this.getDonRecuEcole();
   }
   
   onLogout(){
@@ -64,4 +70,17 @@ export class Tab4Page {
       this.donRecu = data;
     })
   }
+
+  getNombreEcole(){
+    this.ecoleService.getNombreDEmandeByEcole(this.userConnect.id_ecole).subscribe(res=>{
+      this.nombreDemandeE = res;
+    })
+  }
+
+  getDonRecuEcole(){
+    this.ecoleService.getNombreDonRecuByEcole(this.userConnect.id_ecole).subscribe(data=>{
+      this.donRecuE = data;
+    })
+  }
+
 }

@@ -16,7 +16,8 @@
       <div class="text">
         <h3><b>{{demandedon?.don.libelle_don}}</b></h3>
         <ion-label><b>Nom élève : </b>{{demandedon?.nom_eleve}}</ion-label><br>
-        <ion-label><b>Nom école : </b>{{demandedon?.nom_ecole}}</ion-label>
+        <ion-label *ngIf ="userConnect.type==='user'"><b>Nom école : </b>{{demandedon?.nom_ecole}}</ion-label>
+        <ion-label *ngIf ="userConnect.type==='ecole'"><b>Nom école : </b>{{demandedon?.ecole?.nom_ecole}}</ion-label>
       </div>
       <ion-button type="submit" (click)="alertA()"><b>ANNULER</b></ion-button>
     </ion-card-content>

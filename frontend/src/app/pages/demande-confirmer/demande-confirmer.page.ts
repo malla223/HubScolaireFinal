@@ -14,6 +14,7 @@ export class DemandeConfirmerPage implements OnInit {
   id_demande: any;
   demandedon: any;
   photo = environment.urlPhotoDon;
+  userConnect: any;
 
   constructor(
     private alertController: AlertController, 
@@ -22,10 +23,15 @@ export class DemandeConfirmerPage implements OnInit {
      private userService : UserServiceService) { }
 
   ngOnInit() {
+    let us = localStorage.getItem('user');
+    this.userConnect = JSON.parse(us);
+    
     this.id_demande = this.route.snapshot.params['id_demande'];
     this.userService.getDemandeById(this.id_demande).subscribe(res=>{
       this.demandedon = res;
     })
+
+    
   }
 
 

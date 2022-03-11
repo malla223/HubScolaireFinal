@@ -40,10 +40,6 @@ export class UserServiceService {
     return this.http.get<Don[]>(urlDon + '/getDonByUser/' + id_user);
   }
 
-  public getAllEleveByUser(id_user: any): Observable<DemandeDon[]>{
-    return this.http.get<DemandeDon[]>(urlDon + '/getAllEleveUser/' + id_user);
-  }
-
   public getNombreDEmandeByUser(id_user: any): Observable<DemandeDon[]>{
     return this.http.get<DemandeDon[]>(urlDon + '/nbreDemandeAttente/' + id_user);
   }

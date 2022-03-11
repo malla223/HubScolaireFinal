@@ -27,6 +27,7 @@
                                     <select class="form-select shadow-none row border-top" [(ngModel)]="data_Don"  value="don" (change)="users($event)">
                                         <option value="don" checked><b>Don en attente</b></option>
                                         <option value="demande"><b>Demande en attente</b></option>
+                                        <option value="demandeE"><b>Demande Ecole en attente </b></option>
                                     </select>
                                 </div>
                             <div [ngSwitch]="data_Don" class="card-don">
@@ -80,7 +81,39 @@
                                                 <td>{{demandeA.id_demande}}</td>
                                                 <td><img src="{{photo}} + {{demandeA.id_demande}}"></td>
                                                 <td>{{demandeA.don.libelle_don}}</td>
-                                                <td>{{demandeA.user.nom_complet}}</td>
+                                                <td>{{demandeA.user.nom_user}} {{demandeA.user.prenom_user}}</td>
+                                                <td>  
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailAttentedon', demandeA.id_demande]"></i>&nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls 
+                                            previousLabel="Précedent"
+                                            nextLabel="Suivant"
+                                            (pageChange)="onTableDataChange($event)">
+                                        </pagination-controls>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" *ngSwitchCase="'demandeE'">
+                                    <h3 class="box-title txt1">Liste des demandes d'écoles en attentes</h3>
+                                    <table class="table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 txt">#</th>
+                                                <th class="border-top-0 txt">Photo</th>
+                                                <th class="border-top-0 txt">Libelle</th>
+                                                <th class="border-top-0 txt">Nom de l'établissement</th>
+                                                <th class="border-top-0 txt">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let demandeA of demandeEcoleAttenteR | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
+                                                <td>{{demandeA.id_demande}}</td>
+                                                <td><img src="{{photo}} + {{demandeA?.id_demande}}"></td>
+                                                <td>{{demandeA.don.libelle_don}}</td>
+                                                <td>{{demandeA.ecole.nom_ecole}}</td>
                                                 <td>  
                                                     <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailAttentedon', demandeA.id_demande]"></i>&nbsp;
                                                 </td>
