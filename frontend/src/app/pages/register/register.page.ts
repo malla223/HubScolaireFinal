@@ -27,15 +27,31 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() : void{
     this.form = this.formBuilder.group({
-      nom_complet : [''],
+      nom_user : [''],
+      prenom_user : [''],
+      genre : [''],
+      email_user : [''],
       login_user: [''],
       tel_user: [''],
       adresse_user: [''],
       password_user: [''],
       photo:[''],
+      datenaiss:[''],
     })
     this.validations_form = this.formBuilder.group({
-      nom_complet: new FormControl('', Validators.compose([
+      nom_user: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      prenom_user: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      datenaiss: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      genre: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      email_user: new FormControl('', Validators.compose([
         Validators.required
       ])),
       login_user: new FormControl('', Validators.compose([
@@ -66,17 +82,25 @@ export class RegisterPage implements OnInit {
     const dataUser = this.form.value;
     uploadFile.append('image',this.selectedFile, this.selectedFile.name);
     uploadFile.append('data', JSON.stringify(dataUser));
-   let nom_complet = this.form.value['nom_complet'];
+   let nom_user = this.form.value['nom_user'];
+   let prenom_user = this.form.value['prenom_user'];
    let tel_user = this.form.value['tel_user'];
    let login_user = this.form.value['login_user'];
    let password_user = this.form.value['password_user'];
    let adresse_user = this.form.value['adresse_user'];
+   let genre = this.form.value['genre'];
+   let email_user = this.form.value['email_user'];
+   let datenaiss = this.form.value['datenaiss'];
     
     this.userService.saveUser(uploadFile).subscribe(data=>{
-      data.nom_complet =  nom_complet,
+      data.nom_user =  nom_user,
+      data.prenom_user =  prenom_user,
       data.tel_user = tel_user,
       data.login_user = login_user,
       data.password_user = password_user,
+      data.genre = genre,
+      data.email_user = email_user,
+      data.datenaiss = datenaiss,
       data.adresse_user = adresse_user
       
       this.userService.updateUser(data.id_user, data).subscribe(res=>{

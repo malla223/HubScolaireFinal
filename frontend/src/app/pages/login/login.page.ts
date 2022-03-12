@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { EcoleServiceService } from 'src/app/services/ecole-service.service';
+import { ResgiEcolePage } from '../resgi-ecole/resgi-ecole.page';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,9 @@ export class LoginPage implements OnInit {
     private userService: UserServiceService,
     private router : Router,
     private load : LoadingController,
-    private alert : AlertController)
+    private alert : AlertController,
+    private ecoleService : EcoleServiceService,
+    private modal : ModalController)
      { 
       localStorage.clear;
       localStorage.removeItem("login");
@@ -36,11 +40,25 @@ export class LoginPage implements OnInit {
         //mettre l'utilisateur connecté dans le localstorage
         //JSON.stringify converti l'objet en string
         localStorage.setItem("user", JSON.stringify(res));
+        console.log("userConnect========", res);
         this.router.navigateByUrl('/tabs');
       }else{
-        loading.dismiss();
-        this.alertError();
-      } 
+        this.ecoleService.connexion(form.value["login"], form.value["password"]).subscribe(data=>{
+          if(data){
+            loading.dismiss();
+            //mettre l'utilisateur connecté dans le localstorage
+            //JSON.stringify converti l'objet en string
+            localStorage.setItem("user", JSON.stringify(data));
+            console.log("ecoleConnect========", data);
+            
+            this.router.navigateByUrl('/tabs');
+          }else{
+            loading.dismiss();
+            this.alertError(); 
+          }
+        })
+      }
+      
     });
   }
 
@@ -56,6 +74,35 @@ export class LoginPage implements OnInit {
       
     })
     await error.present();
+  }
+
+  async alertInscri(){
+    const load = await this.alert.create({
+      header:'Vous êtes ???',
+      buttons:[
+        {
+          text:'Utilisateur',
+          handler:()=>{
+              this.router.navigate(['register']);
+          }
+        },
+        {
+          text:'Une ECOLE',
+          handler:()=>{
+            this.modalF();
+          }
+          
+        }
+      ]
+    })
+    await load.present();
+  }
+
+  async modalF(){
+    const popup =  await this.modal.create({
+      component: ResgiEcolePage
+    })
+    await popup.present();
   }
 
 }

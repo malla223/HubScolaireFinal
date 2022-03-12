@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Don } from '../Classe/don';
+import { EcoleServiceService } from '../services/ecole-service.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -20,29 +21,51 @@ export class Tab1Page {
   userConnect:any;
   attente:any;
   photo = environment.urlPhotoDon;
+  photou= environment.photoUser;
+  id_ecole : any;
 
   constructor(private userService : UserServiceService,
-    private route : Router) {}
+    private route : Router,
+    private ecoleService : EcoleServiceService) {}
 
   ngOnInit() {
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
     
     this.id_user = this.userConnect.id_user;
+    this.id_ecole = this.userConnect.id_ecole;
 
-    this.userService.getAllDonByUser(this.id_user).subscribe(response=>{
-      this.attente = response;
-      this.listDonA = this.attente;
-    })
+    this.getDonByUser();
 
     this.type = 'don';
     this.getListDonConfirmer();
-    this.userService.getAllDemandeDonAttenteByUser(this.id_user).subscribe(res=>{
+    this.getDemandeAttente();
+    this.getDemandeAttenteEcole();
+    
+    
+  }
+
+  getDonByUser(){
+      this.userService.getAllDonByUser(this.id_user).subscribe(response=>{
+        this.attente = response;
+        this.listDonA = this.attente;
+      })
+  }
+
+  getDemandeAttente(){
+      this.userService.getAllDemandeDonAttenteByUser(this.id_user).subscribe(res=>{
+        this.demande = res;
+        this.listDemandeDonA = this.demande; 
+      })
+  }
+
+  getDemandeAttenteEcole(){
+    this.ecoleService.getAllDemandeDonAttenteByEcole(this.id_ecole).subscribe(res=>{
       this.demande = res;
-      this.listDemandeDonA = this.demande;
-      
+      this.listDemandeDonA = this.demande; 
     })
   }
+
   segmentChanged(ev: any) {
   }
 

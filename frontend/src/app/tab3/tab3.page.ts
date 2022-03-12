@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { DetailElevePageModule } from '../pages/detail-eleve/detail-eleve.module';
-import { UserServiceService } from '../services/user-service.service';
+import { EcoleServiceService } from '../services/ecole-service.service';
 
 @Component({
   selector: 'app-tab3',
@@ -14,12 +14,12 @@ export class Tab3Page {
 
   userConnect: any;
   photo = environment.photoUser;
-  demandeUserR: any;
+  demandeEcoleR: any;
   dataFromModal: string;
   filterTerm: string;
 
   constructor(private route : Router,
-     private uService : UserServiceService,
+     private ecoleService : EcoleServiceService,
     private modal : ModalController, ) {}
 
   ngOnInit() : void {
@@ -27,12 +27,12 @@ export class Tab3Page {
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
 
-    this.getDemandeByUser();
+    this.getListeEleveByEcole();
   }
 
-  getDemandeByUser(){
-    this.uService.getAllEleveByUser(this.userConnect.id_user).subscribe(res=>{
-      this.demandeUserR = res;
+  getListeEleveByEcole(){
+    this.ecoleService.getAllEleveByEcole(this.userConnect.id_ecole).subscribe(res=>{
+      this.demandeEcoleR = res;
     })
   }
 

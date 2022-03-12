@@ -21,6 +21,11 @@ export class DonServiceService {
     return this.http.get(url + '/getDemandeAttente');
   }
 
+
+  public getAllDemandeDonEcoleAttente(){
+    return this.http.get(url + '/getDemandeAttenteEcole');
+  }
+
   public getAllNombreDonConfirmer(){
     return this.http.get(url + '/nbreDonC');
   }

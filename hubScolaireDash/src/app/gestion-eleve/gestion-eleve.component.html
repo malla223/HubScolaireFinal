@@ -14,8 +14,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ms-auto">
+                                <label>Trier par : </label>
+                                <select class="form-select shadow-none row border-top" [(ngModel)]="data_Eleve"  value="utilisateur" (change)="users($event)">
+                                    <option value="utilisateur" checked><b>Utilisateur Simple</b></option>
+                                    <option value="ecole"><b>Etablissement</b></option>
+                                </select>
+                            </div>
+                        <div [ngSwitch]="data_Eleve">
                             <h3 class="box-title txt1">Liste des eleves</h3>
-                            <div class="table-responsive">
+                            <div class="table-responsive" *ngSwitchCase="'utilisateur'">
                                 <table class="table text-nowrap">
                                     <thead>
                                         <tr>
@@ -28,7 +36,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let list of listDemande">
+                                        <tr *ngFor="let list of listDemande | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
                                             <td>{{list?.id_demande}}</td>
                                             <td>{{list?.nom_eleve}}</td>
                                             <td>{{list?.classe}}</td>
@@ -40,7 +48,48 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center">
+                                    <pagination-controls 
+                                        previousLabel="Précedent"
+                                        nextLabel="Suivant"
+                                        (pageChange)="onTableDataChange($event)">
+                                    </pagination-controls>
+                                </div>
                             </div>
+                            <div class="table-responsive" *ngSwitchCase="'ecole'">
+                                <table class="table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0 txt">#</th>
+                                            <th class="border-top-0 txt">Nom & Prenom</th>
+                                            <th class="border-top-0 txt">Classe</th>
+                                            <th class="border-top-0 txt">Nom ecole</th>
+                                            <th class="border-top-0 txt">contact ecole</th>
+                                            <th class="border-top-0 txt">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let list of listDemande | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
+                                            <td>{{list?.id_demande}}</td>
+                                            <td>{{list?.nom_eleve}}</td>
+                                            <td>{{list?.classe}}</td>
+                                            <td>{{list?.nom_ecole}}</td>
+                                            <td>{{list?.user.tel_user}}</td>
+                                            <td> 
+                                                <i class=" fas fa-info-circle " aria-hidden="true" [routerLink]="['/detaileleve',list.id_demande]"></i>&nbsp;
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-center">
+                                    <pagination-controls 
+                                        previousLabel="Précedent"
+                                        nextLabel="Suivant"
+                                        (pageChange)="onTableDataChange($event)">
+                                    </pagination-controls>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

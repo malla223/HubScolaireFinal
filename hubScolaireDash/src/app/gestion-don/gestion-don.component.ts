@@ -24,6 +24,7 @@ export class GestionDonComponent implements OnInit {
   count: number = 0;
   tableSize: number = 5;
   tableSizes: any = [3, 6, 9, 12];
+  demandeEcoleAttenteR : any;
 
   constructor(private donService : DonServiceService, private route : Router) { }
 
@@ -31,6 +32,7 @@ export class GestionDonComponent implements OnInit {
     this.data_Don = 'don';
     this.getAllDonA();
     this.getDemandeDonA();
+    this.getDemandeDonEcoleA();
   }
 
   users(event: any){
@@ -47,13 +49,6 @@ export class GestionDonComponent implements OnInit {
       this.demandeEtat = true;
       this.don = this.data_Don;
     }
-
-    if(event.target.value == 'Don confirmer'){
-      this.donEtat = false;
-      this.demandeEtat = false;
-      this.donConfirmerEtat = true;
-      this.don = this.data_Don;
-    }
   }
 
 
@@ -66,6 +61,12 @@ export class GestionDonComponent implements OnInit {
   getDemandeDonA(){
     this.donService.getAllDemandeDonAttente().subscribe(data=>{
       this.demandeAttenteR = data;
+    })
+  }
+
+  getDemandeDonEcoleA(){
+    this.donService.getAllDemandeDonEcoleAttente().subscribe(data=>{
+      this.demandeEcoleAttenteR = data;
     })
   }
 

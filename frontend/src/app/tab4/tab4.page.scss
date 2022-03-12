@@ -33,9 +33,19 @@ ion-content{
             color: #005d99;
             font-weight: 600;
         }
+        .usernameE{
+            font-size: 20px;
+            color: #ddb307;
+            font-weight: 600;
+        }
         .info{
             font-size: 12px;
             color: #ddb307;
+            font-weight: 600;
+        }
+        .infoE{
+            font-size: 14px;
+            color: #005d99;
             font-weight: 600;
         }
     }
@@ -43,6 +53,7 @@ ion-content{
         height: 100px;
         width: 100px;
         border: 3px solid #ddb307;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
         background-position: top;
         background-size: cover;
         background-repeat: no-repeat;

@@ -1,25 +1,51 @@
-<ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
-    <ion-icon slot="end" name="notifications-circle"></ion-icon>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div>
-    <ion-img class="demande" src="assets/images/don.png"></ion-img>
-  </div>
-
-  <ion-card>
-    <ion-card-content>
-      <ion-img class="image" src="{{photo}} + {{don?.id_don}}"></ion-img>
-      <div class="text">
-        <h3><b>{{don?.libelle_don}}</b></h3>
-        <ion-label>Catégorie : {{don?.categorie.libelle_cat}}</ion-label><br>
-        <ion-label>Niveau : {{don?.niveau.libelle_niveau}}</ion-label>
+<ion-content [fullscreen]="true" >
+  <div class="main_content_div">
+      <ion-buttons slot="start" class="menu_btn">
+        <ion-icon class="titre" name="arrow-back" slot="end" (click)="goBack()"></ion-icon>
+        <ion-icon class="titre" slot="end" name="notifications-circle"></ion-icon>
+      </ion-buttons>
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="username">{{don?.libelle_don}}</ion-label>
       </div>
-      <ion-button type="submit" (click)="alertC(don?.id_don)" *ngIf ="userConnect.type==='user'"><b>DEMANDER</b></ion-button>
-      <ion-button type="submit" (click)="alertCE(don?.id_don)" *ngIf ="userConnect.type==='ecole'"><b>DEMANDER</b></ion-button>
-    </ion-card-content>
-  </ion-card>
+      <ion-img class="user_back" src="{{photo}}+{{don?.id_don}}"></ion-img>
+    </div>
+
+    <div class="content_div">
+      <div class="details">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6">
+              <div class="flex_div">
+                <div class="detail">
+                  <ion-label class="bold_label">{{don?.niveau.libelle_niveau}}</ion-label>
+                  <ion-label class="small_label">Niveau</ion-label>
+
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <div class="flex_div">
+                <div class="detail">
+                  <ion-label class="bold_label">{{don?.categorie.libelle_cat}}</ion-label>
+                  <ion-label class="small_label">Catégorie</ion-label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="list_div">
+        <ion-label (click)="alertCE(don?.id_don)" *ngIf ="userConnect.type==='ecole'">DEMANDER</ion-label>
+        <ion-label (click)="alertC(don?.id_don)" *ngIf ="userConnect.type==='user'">DEMANDER</ion-label>
+      </div>
+    </div>
+  </div>
+ 
+  
 </ion-content>

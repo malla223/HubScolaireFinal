@@ -1,6 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hub.png"></ion-img>
+    <ion-img *ngIf ="userConnect.type==='ecole'" [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hub.png"></ion-img>
+    <ion-img *ngIf ="userConnect.type==='user'" [routerLink]="['/apropos']" class="logoU" slot="start" src="{{photou}}+{{userConnect?.id_user}}"></ion-img>
     <ion-icon slot="end" name="notifications-circle"></ion-icon>
   </ion-toolbar>
 </ion-header>
@@ -65,7 +66,8 @@
                   <ion-img class="image" src="{{photo}} + {{list?.id_demande}}" [routerLink]="['/demande-confirmer',list?.id_demande]"></ion-img>
                   <h3><b>{{list.don.libelle_don}}</b></h3>
                 <ion-label><b>Nom élève : </b>{{list.nom_eleve}}</ion-label><br>
-                <ion-label><b>Nom école : </b>{{list.nom_ecole}}</ion-label>
+                <ion-label *ngIf ="userConnect.type==='user'"><b>Nom école : </b>{{list.nom_ecole}}</ion-label>
+                <ion-label *ngIf ="userConnect.type==='ecole'"><b>Nom école : </b>{{list?.ecole.nom_ecole}}</ion-label>
                 </ion-card-content>
               </ion-card>
           </ion-col>

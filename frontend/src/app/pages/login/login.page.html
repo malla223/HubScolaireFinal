@@ -25,7 +25,7 @@
           
           <ion-button type="submit" class="btn1" [disabled]="loginForm.invalid">CONNEXION</ion-button>
         </form>
-            <p>Vous n'avez pas de compte <br><a [routerLink]="['/register']">INSCRIVEZ-VOUS</a></p>
+            <p>Vous n'avez pas de compte <br><a (click)="alertInscri()">INSCRIVEZ-VOUS</a></p>
         </div>
       </ion-card-content>
     </ion-card>

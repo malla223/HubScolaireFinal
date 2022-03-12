@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img class="dessin" src="assets/images/dessin.png"></ion-img>
+
+  <ion-card>
+    <ion-icon name="school"></ion-icon>
+    <form [formGroup]="form" (ngSubmit)="saveEcole()" enctype="multipart/form-data">
+        <ion-item>
+          <ion-label position="floating">Nom de l'établissement</ion-label>
+          <ion-input type="text" autocomplete="false" name="nom_ecole" formControlName="nom_ecole" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Localité de l'établissement</ion-label>
+          <ion-input type="text" autocomplete="false" name="adresse_ecole" formControlName="adresse_ecole" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" autocomplete="false" name="email_ecole" formControlName="email_ecole" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Identifiant</ion-label>
+          <ion-input type="text" autocomplete="false" name="login_ecole" formControlName="login_ecole" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" autocomplete="false" name="password_ecole" formControlName="password_ecole" maxlength="10" placeholder="10 caractères au maximum" required ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input type="number" autocomplete="false" name="tel_ecole" formControlName="tel_ecole" required></ion-input> 
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Lien du Site de l'école</ion-label>
+          <ion-input type="text" autocomplete="false" name="site_ecole" placeholder="facultatif" formControlName="site_ecole"></ion-input> 
+        </ion-item>
+        <ion-item>
+          <ion-input type="file" name="contrat_ecole" (change)="onFileChanged($event)" accept="application/pdf" formControlName="contrat_ecole"></ion-input> 
+        </ion-item>
+        
+        <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
+    </form>
+          <p>Vous avez déjà un compte <br><a (click)="login()">CONNECTEZ-VOUS</a></p>
+  </ion-card>
+
+</ion-content>

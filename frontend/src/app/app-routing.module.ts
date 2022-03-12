@@ -48,7 +48,15 @@ const routes: Routes = [
   {
     path: 'tab3',
     loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
+  },  {
+    path: 'resgi-ecole',
+    loadChildren: () => import('./pages/resgi-ecole/resgi-ecole.module').then( m => m.ResgiEcolePageModule)
   },
+  {
+    path: 'edit-profil-ecole',
+    loadChildren: () => import('./pages/edit-profil-ecole/edit-profil-ecole.module').then( m => m.EditProfilEcolePageModule)
+  },
+
 
 ];
 @NgModule({
