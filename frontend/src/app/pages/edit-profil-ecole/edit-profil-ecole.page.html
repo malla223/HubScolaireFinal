@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Modifier le profil</ion-title>
+    <ion-icon slot="end" (click)="fermer()" name="close"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-img src="assets/images/edit-profil.png"></ion-img>
+    <ion-item>
+      <ion-label><b>Nom Etablissement: </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.nom_ecole"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Adresse : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.adresse_ecole"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>E-mail : </b></ion-label>
+      <ion-input type="email" autocomplete="false" [(ngModel)]="userConnect.email_ecole"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Login : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.login_ecole"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Lien site : </b></ion-label>
+      <ion-input type="text" autocomplete="false" [(ngModel)]="userConnect.site_ecole"></ion-input> 
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Téléphone : </b></ion-label>
+      <ion-input type="number" autocomplete="false" [(ngModel)]="userConnect.tel_ecole"></ion-input> 
+    </ion-item>
+        
+        <ion-button (click)="modEcole()" class="btn1" >MODIFIER</ion-button>
+  </ion-card>
+
+</ion-content>

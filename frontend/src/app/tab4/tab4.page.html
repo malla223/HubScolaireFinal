@@ -38,6 +38,20 @@
                   <ion-icon name="checkmark-done-circle"></ion-icon>
                 </div>
                 <div class="detail">
+                  <ion-label class="bold_label">{{donAttenteUser}}</ion-label>
+                  <ion-label class="small_label">Don en attente</ion-label>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <div class="flex_div">
+                <div class="round_div">
+                  <ion-icon name="checkmark-done-circle"></ion-icon>
+                </div>
+                <div class="detail">
                   <ion-label class="bold_label">{{donRecu}}</ion-label>
                   <ion-label class="small_label">Don Reçu</ion-label>
                 </div>
@@ -103,6 +117,10 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+      </div>
+      <div class="list_div">
+        <ion-label (click)="detaiEcole()">Modifier le profil</ion-label>
+        <ion-icon name="information-circle" (click)="detailUser()"></ion-icon>
       </div>
 
       <div class="list_div">

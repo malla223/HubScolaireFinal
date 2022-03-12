@@ -48,6 +48,10 @@ export class UserServiceService {
     return this.http.get<DemandeDon[]>(urlDon + '/nbreDonRecu/' + id_user);
   }
 
+  public getNombreDonAttenteUser(id_user: any): Observable<Don[]>{
+    return this.http.get<Don[]>(urlDon + '/nbreDonAttente/' + id_user);
+  }
+
   public getAllDonEncours(): Observable<Don[]>{
     return this.http.get<Don[]>(urlDon + '/getDonEncours');
   }

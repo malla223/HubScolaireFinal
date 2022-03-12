@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'resgi-ecole',
     loadChildren: () => import('./pages/resgi-ecole/resgi-ecole.module').then( m => m.ResgiEcolePageModule)
   },
+  {
+    path: 'edit-profil-ecole',
+    loadChildren: () => import('./pages/edit-profil-ecole/edit-profil-ecole.module').then( m => m.EditProfilEcolePageModule)
+  },
 
 
 ];

@@ -216,4 +216,8 @@ msg:any;
           await load.present();     
     }
 
+    goBack(){
+      this.route.navigate(['tabs']);
+    }
+
 }

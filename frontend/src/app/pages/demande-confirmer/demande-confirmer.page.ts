@@ -39,6 +39,10 @@ export class DemandeConfirmerPage implements OnInit {
     this.userService.annulerDemande(id_demande).subscribe();
   }
 
+  goBack(){
+    this.router.navigate(['tabs']);
+  }
+
   async alertA(){
     const load = await this.alertController.create({
       header: 'Alerte',

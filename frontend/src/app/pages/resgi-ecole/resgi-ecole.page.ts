@@ -68,7 +68,6 @@ export class ResgiEcolePage implements OnInit {
   
   
   async saveEcole(){
-    console.log("FormVAlue==============",this.form.value);
     const load = await this.load.create({
       message: 'Patientez...',
     });
@@ -76,7 +75,6 @@ export class ResgiEcolePage implements OnInit {
 
     const uploadFile = new FormData();
     const dataEcole = this.form.value;
-    console.log("dataEcole======",dataEcole);
     
     uploadFile.append('contrat',this.selectedFile, this.selectedFile.name);
     uploadFile.append('data', JSON.stringify(dataEcole));
@@ -96,12 +94,10 @@ export class ResgiEcolePage implements OnInit {
       data.adresse_ecole = adresse_ecole,
       data.email_ecole = email_ecole,
       data.site_ecole = site_ecole,
-      console.log("dataSAVE==========", data);
       
       
       this.eService.updateEcole(data.id_ecole, data).subscribe(res=>{
         if(res){
-          console.log("dataUPDATE==========", data);
           load.dismiss();
           this.presentAlert();
         }
