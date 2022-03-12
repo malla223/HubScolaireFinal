@@ -39,6 +39,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AddEcoleComponent } from './add-ecole/add-ecole.component';
 import { AddDonComponent } from './add-don/add-don.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,7 @@ import { AddDonComponent } from './add-don/add-don.component';
     DetailAttenteDonComponent,
     DetailAttenteDonComponent,
     AddEcoleComponent,
-    AddDonComponent
+    AddDonComponent,
   ],
   imports: [
     BrowserModule,

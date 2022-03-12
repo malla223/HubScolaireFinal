@@ -143,7 +143,7 @@ const routes: Routes = [
  component: AddEleveComponent
 },
 {
-  path:'addecole',
+  path:'adduser',
  component: AddEcoleComponent
 },
 {
