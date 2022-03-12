@@ -46,7 +46,7 @@
         
         <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
     </form>
-          <p>Vous avez déjà un compte <br><a [routerLink]="['/login']">CONNECTEZ-VOUS</a></p>
+          <p>Vous avez déjà un compte <br><a (click)="login()">CONNECTEZ-VOUS</a></p>
   </ion-card>
 
 </ion-content>

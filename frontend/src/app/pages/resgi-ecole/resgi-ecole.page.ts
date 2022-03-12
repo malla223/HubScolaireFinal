@@ -143,4 +143,9 @@ export class ResgiEcolePage implements OnInit {
    }
  }
 
+
+ login(){
+   this.router.navigate(['/login']);
+ }
+
 }
