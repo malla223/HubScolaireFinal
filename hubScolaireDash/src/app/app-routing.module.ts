@@ -12,6 +12,7 @@ import { DetailEcoleComponent } from './detail-ecole/detail-ecole.component';
 import { DetailEleveComponent } from './detail-eleve/detail-eleve.component';
 import { DetailNiveauComponent } from './detail-niveau/detail-niveau.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
+import { DetaileleveEcoleComponent } from './detaileleve-ecole/detaileleve-ecole.component';
 import { EditAdminComponent } from './edit-admin/edit-admin.component';
 import { EditCategorieComponent } from './edit-categorie/edit-categorie.component';
 import { EditDonComponent } from './edit-don/edit-don.component';
@@ -97,6 +98,10 @@ const routes: Routes = [
 {
   path:'detaileleve/:id_demande',
   component: DetailEleveComponent
+},
+{
+  path:'detaileleveecole/:id_demande',
+  component: DetaileleveEcoleComponent
 },
 {
   path:'detailuser/:id_user',

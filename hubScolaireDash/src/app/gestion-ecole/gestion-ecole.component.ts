@@ -11,6 +11,10 @@ import Swal from 'sweetalert2';
 export class GestionEcoleComponent implements OnInit {
 
   ecole:any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  tableSizes: any = [3, 6, 9, 12];
 
   constructor(
     public router: Router,
@@ -63,5 +67,13 @@ export class GestionEcoleComponent implements OnInit {
     });
   }
 
-
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllEcole();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAllEcole();
+  }
 }

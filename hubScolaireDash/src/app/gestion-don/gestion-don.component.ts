@@ -22,7 +22,7 @@ export class GestionDonComponent implements OnInit {
   photo = environment.photoDon;
   page: number = 1;
   count: number = 0;
-  tableSize: number = 5;
+  tableSize: number = 10;
   tableSizes: any = [3, 6, 9, 12];
   demandeEcoleAttenteR : any;
 

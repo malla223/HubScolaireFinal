@@ -11,15 +11,11 @@ import { DemandeDonService } from '../Services/demande-don.service';
 export class GestionEleveComponent implements OnInit {
 
   listDemande : any;
+  listeDemandeU : any;
   page: number = 1;
   count: number = 0;
-  tableSize: number = 5;
+  tableSize: number = 10;
   tableSizes: any = [3, 6, 9, 12];
-  eleveEtat = false;
-  demandeEtat = false;
-  don : any;
-  data_Eleve : any;
-  userConnect : any;
 
   constructor(  
     public router : Router,
@@ -29,37 +25,27 @@ export class GestionEleveComponent implements OnInit {
    }
 
   ngOnInit() {
-    
-    let us = localStorage.getItem('user');
-    this.userConnect = JSON.parse(us);
-    console.log("idUser=======",this.userConnect);
-    
-
     this.getAllDemande();
-    this.data_Eleve = 'utilisateur';
+    this.getAllDemandeU();
   }
   getAllDemande(){
-    this.dService.getAllEleveByUser(this.userConnect.id_user).subscribe(data=>{
+    this.dService.getAllEleve().subscribe(data=>{
       this.listDemande = data;
     })
   }
   
+  getAllDemandeU(){
+    this.dService.getAllEleveU().subscribe(data=>{
+      this.listeDemandeU = data;
+    })
+  }
+
   detailDemande(id_demande:any){
     this.router.navigateByUrl('/detaileleve', id_demande);
   }
 
-  users(event: any){
-    this.don=[];
-    if(event.target.value == 'Utilisateur Simple' || event.target.value == ''){
-      this.demandeEtat = false;
-      this.eleveEtat = true;
-      this.don = this.data_Eleve;
-    }
-    if(event.target.value == 'Etablissement'){
-      this.eleveEtat = false;
-      this.demandeEtat = true;
-      this.don = this.data_Eleve;
-    }
+  detaileleve(id_demande:any){
+    this.router.navigateByUrl('/detaileleveecole', id_demande);
   }
   
   onTableDataChange(event: any) {
