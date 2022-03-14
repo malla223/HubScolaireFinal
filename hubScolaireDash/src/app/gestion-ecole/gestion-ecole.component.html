@@ -14,8 +14,50 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box bloc1">
-                            <h3 class="box-title txt1">Liste des ecoles</h3>
-                            <div class="table-responsive">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ms-auto">
+                                <label>Trier par : </label>
+                                <select class="form-select shadow-none row border-top" [(ngModel)]="data_Ecole"  value="attente" (change)="users($event)">
+                                    <option value="attente" checked><b>Etablissement en Attente</b></option>
+                                    <option value="actif"><b>Etablissement actif</b></option>
+                                </select>
+                            </div>
+                        <div [ngSwitch]="data_Ecole" class="card-don">
+                            <div class="table-responsive" *ngSwitchCase="'attente'">
+                                <h3 class="box-title txt1">Liste des établissements en attente</h3>
+                                <table class="table text-nowrap ">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0 txt">#</th>
+                                            <th class="border-top-0 txt">Nom</th>
+                                            <th class="border-top-0 txt">adresse</th>
+                                            <th class="border-top-0 txt">Tel</th>
+                                            <th class="border-top-0 txt">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor = "let ecole of ecoleAttente | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}">
+                                            <td>{{ecole.id_ecole}}</td>
+                                            <td>{{ecole.nom_ecole}}</td>
+                                            <td>{{ecole.adresse_ecole}}</td>
+                                            <td>{{ecole.tel_ecole}}</td>
+                                            <td>
+                                                <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink] = "['/detail-ecole-attente', ecole.id_ecole]"></i>&nbsp;
+                                            </td>   
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-center">
+                                    <pagination-controls 
+                                        previousLabel="Précedent"
+                                        nextLabel="Suivant"
+                                        (pageChange)="onTableDataChange($event)">
+                                    </pagination-controls>
+                                </div>
+                            </div>
+
+
+                            <div class="table-responsive" *ngSwitchCase="'actif'">
+                                <h3 class="box-title txt1">Liste des établissements actif</h3>
                                 <table class="table text-nowrap ">
                                     <thead>
                                         <tr>
@@ -47,6 +89,7 @@
                                     </pagination-controls>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>

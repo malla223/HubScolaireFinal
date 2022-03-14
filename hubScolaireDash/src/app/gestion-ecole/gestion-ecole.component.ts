@@ -11,10 +11,16 @@ import Swal from 'sweetalert2';
 export class GestionEcoleComponent implements OnInit {
 
   ecole:any;
+  ecoles: any;
+  ecoleAttente: any;
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
   tableSizes: any = [3, 6, 9, 12];
+  ecoleEnAttente = false;
+  ecoleActif = false;
+  data_Ecole : any;
+  ecoleEtat: any;
 
   constructor(
     public router: Router,
@@ -25,6 +31,8 @@ export class GestionEcoleComponent implements OnInit {
 
   ngOnInit() {
     this.getAllEcole();
+    this.getAllEcoleAttente();
+    this.data_Ecole = 'attente';
   }
 
   getAllEcole(){
@@ -33,8 +41,18 @@ export class GestionEcoleComponent implements OnInit {
     })
   }
 
+  getAllEcoleAttente(){
+    this.ecoleService.getAllEcoleAttente().subscribe(data=>{
+      this.ecoleAttente = data;
+    })
+  }
+
   detailEcole(id_ecole:any){
     this.router.navigateByUrl('/detailecole', id_ecole);
+  }
+
+  detailEcoleAttente(id_ecole:any){
+    this.router.navigateByUrl('/detail-ecole-attente', id_ecole);
   }
 
   editeEcole(id_ecole:any){
@@ -75,5 +93,21 @@ export class GestionEcoleComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getAllEcole();
+  }
+
+  users(event: any){
+    this.ecoles=[];
+    if(event.target.value == 'Etablissement en Attente' || event.target.value == ''){
+      this.ecoleEnAttente = false;
+      this.ecoleActif = false;
+      this.ecoleEtat = true;
+      this.ecoles = this.data_Ecole;
+    }
+    if(event.target.value == 'Etablissement actif'){
+      this.ecoleEtat = false;
+      this.ecoleActif = false;
+      this.ecoleEnAttente = true;
+      this.ecoles = this.data_Ecole;
+    }
   }
 }

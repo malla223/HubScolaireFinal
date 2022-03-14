@@ -17,6 +17,10 @@ export class EcoleService {
       return this.http.get(url + '/getAllEcole');
     }
 
+    public getAllEcoleAttente(){
+      return this.http.get(url + '/getAllEcoleAttente');
+    }
+
     public saveEcole(form : FormData) : Observable<any>{
       return this.http.post(url + '/saveEcole', form);
     }
@@ -31,5 +35,13 @@ export class EcoleService {
 
     public deleteEcole(id_ecole:any):Observable<any>{
       return this.http.delete(`${url + '/deleteEcole'}/${id_ecole}`);
+    }
+
+    public activerC(id_ecole : any) : Observable<any>{
+      return this.http.get(`${url + '/restaurerEcole'}/${id_ecole}`);
+    }
+  
+    public annulerC(id_ecole : any) : Observable<any>{
+      return this.http.get(`${url + '/deleteEcole'}/${id_ecole}`);
     }
 }
