@@ -8,7 +8,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title txt1"><b>ECOLES</b></h4>
                     </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <!-- <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <div class="d-md-flex">
                             <ol class="breadcrumb ms-auto"> 
                             </ol>
@@ -16,7 +16,7 @@
                                 class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light txt2">
                                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; <b>Ajouter</b></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="container-fluid ">
@@ -43,7 +43,7 @@
                                             <td>{{ecole.nom_ecole}}</td>
                                             <td>{{ecole.adresse_ecole}}</td>
                                             <td>{{ecole.tel_ecole}}</td>
-                                            <td>{{ecole.email}}</td>
+                                            <td>{{ecole.email_ecole}}</td>
                                             <td>{{ecole.site_ecole}}</td>
                                             <td>  <i class=" fa fa-edit " aria-hidden="true" [routerLink]="['/editecole', ecole.id_ecole]"></i>&nbsp;
                                                 <i class="fa fa-trash fat" aria-hidden="true"  (click)="deleteEcole(ecole.id_ecole)"></i>&nbsp;
