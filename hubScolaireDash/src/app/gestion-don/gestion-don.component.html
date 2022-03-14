@@ -77,13 +77,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor = "let demandeA of demandeAttenteR | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
-                                                <td>{{demandeA.id_demande}}</td>
-                                                <td><img src="{{photo}} + {{demandeA.id_demande}}"></td>
-                                                <td>{{demandeA.don.libelle_don}}</td>
-                                                <td>{{demandeA.user.nom_user}} {{demandeA.user.prenom_user}}</td>
+                                            <tr *ngFor = "let demandeU of demandeAttenteR | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
+                                                <td>{{demandeU?.id_demande}}</td>
+                                                <td><img src="{{photo}} + {{demandeU?.id_demande}}"></td>
+                                                <td>{{demandeU?.don?.libelle_don}}</td>
+                                                <td>{{demandeU?.user?.nom_user}} {{demandeU?.user?.prenom_user}}</td>
                                                 <td>  
-                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailAttentedon', demandeA.id_demande]"></i>&nbsp;
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailAttentedon', demandeU?.id_demande]"></i>&nbsp;
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -115,7 +115,7 @@
                                                 <td>{{demandeA.don.libelle_don}}</td>
                                                 <td>{{demandeA.ecole.nom_ecole}}</td>
                                                 <td>  
-                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailAttentedon', demandeA.id_demande]"></i>&nbsp;
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/attente-ecole', demandeA.id_demande]"></i>&nbsp;
                                                 </td>
                                             </tr>
                                         </tbody>

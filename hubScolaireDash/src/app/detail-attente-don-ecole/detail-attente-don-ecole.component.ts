@@ -5,57 +5,52 @@ import Swal from 'sweetalert2';
 import { DonServiceService } from '../Services/don-service.service';
 
 @Component({
-  selector: 'app-detail-don',
-  templateUrl: './detail-don.component.html',
-  styleUrls: ['./detail-don.component.css']
+  selector: 'app-detail-attente-don-ecole',
+  templateUrl: './detail-attente-don-ecole.component.html',
+  styleUrls: ['./detail-attente-don-ecole.component.css']
 })
-export class DetailDonComponent implements OnInit {
+export class DetailAttenteDonEcoleComponent implements OnInit {
 
-  id_don:any;
-  donR: any;
+  id_demande : any;
+  demandeR : any;
   photo = environment.photoDon;
-
-  constructor(
-    private router : ActivatedRoute,
-    private donService : DonServiceService,
-    private route : Router) { }
+  
+  constructor(private router : ActivatedRoute, private donService : DonServiceService, private route : Router) { }
 
   ngOnInit() {
-    this.id_don = this.router.snapshot.params['id_don'];
-    
-    this.donService.getDonAttenteById(this.id_don).subscribe(res=>{
-      this.donR = res;
+    this.id_demande = this.router.snapshot.params['id_demande'];
+    this.donService.getDemandeDonById(this.id_demande).subscribe(res=>{
+      this.demandeR = res;
     })
   }
 
-  confirmerDon(){
-    this.donService.confimerDon(this.id_don).subscribe();
+  confirmerDemande(){
+    this.donService.confimerDemadeDon(this.id_demande).subscribe();
     this.successConfirm();
     this.route.navigateByUrl('gestionDon', {skipLocationChange: true}).then(()=>
     this.route.navigate(['gestionDon']));
   }
 
-  annulerDon(){
-    this.donService.annulerDon(this.id_don).subscribe();
+  annulerDemande(){
+    this.donService.annulerDemandeDon(this.id_demande).subscribe();
     this.route.navigateByUrl('gestionDon', {skipLocationChange: true}).then(()=>
     this.route.navigate(['gestionDon']));
-    window.location.reload();
   }
 
   successConfirm() {
     Swal.fire({
       position: 'top-right',
       icon: 'success',
-      title: 'Don confirmer avec succès',
+      title: 'Demande accepter avec succès',
       showConfirmButton: false,
-      timer: 2000
+      timer: 1500
     })
   }
 
   alertConfirmation() {
     Swal.fire({
       title: 'ATTENTION',
-      text: 'Vous êtes d\'annuler ce don ?',
+      text: 'Vous êtes d\'annuler cette demande ?',
       icon: 'warning',
       iconColor:'#ddb307',
       showCancelButton: false,
@@ -65,8 +60,8 @@ export class DetailDonComponent implements OnInit {
       
     }).then((result) => {
       if (result.value) {
-        this.annulerDon();
-        Swal.fire('ALERTE!', 'Don annuler avec succès.', 'success');
+        this.annulerDemande();
+        Swal.fire('ALERTE!', 'Demande de don annuler.', 'success');
       }
     });
   }

@@ -4,6 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AddDonComponent } from './add-don/add-don.component';
 import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { DetailAdminComponent } from './detail-admin/detail-admin.component';
+import { DetailAttenteDonEcoleComponent } from './detail-attente-don-ecole/detail-attente-don-ecole.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { DetailCategorieComponent } from './detail-categorie/detail-categorie.component';
 import { DetailDonComponent } from './detail-don/detail-don.component';
@@ -148,6 +149,11 @@ const routes: Routes = [
 {
   path:'login',
   component: LoginComponent
+}
+,
+{
+  path:'attente-ecole/:id_demande',
+  component: DetailAttenteDonEcoleComponent
 }
 ];
 

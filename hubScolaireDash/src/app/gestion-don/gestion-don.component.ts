@@ -78,6 +78,10 @@ export class GestionDonComponent implements OnInit {
     this.route.navigateByUrl('/detailAttentedon', id_demande);
   }
 
+  demandeEcoleAttente(id_demande: any){
+    this.route.navigateByUrl('/attente-ecole', id_demande);
+  }
+
   onTableDataChange(event: any) {
     this.page = event;
     this.getAllDonA();

@@ -16,12 +16,9 @@ export class DetailEcoleComponent implements OnInit {
 
   ngOnInit() {
     this.id_ecole = this.router.snapshot.params['id_ecole'];
-    console.log("idR=============",this.id_ecole);
 
     this.eService.getEcoleById(this.id_ecole).subscribe(res=>{
       this.detailEcole = res;
-      console.log(this.detailEcole);
-
     })
   }
 

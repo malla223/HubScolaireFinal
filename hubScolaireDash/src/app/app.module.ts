@@ -37,6 +37,7 @@ import { AddEleveComponent } from './add-eleve/add-eleve.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddDonComponent } from './add-don/add-don.component';
+import { DetailAttenteDonEcoleComponent } from './detail-attente-don-ecole/detail-attente-don-ecole.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { AddDonComponent } from './add-don/add-don.component';
     DetailAttenteDonComponent,
     DetailAttenteDonComponent,
     AddDonComponent,
+    DetailAttenteDonEcoleComponent,
   ],
   imports: [
     BrowserModule,

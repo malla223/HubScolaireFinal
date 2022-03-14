@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EcoleService } from '../Services/ecole.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Ecole} from '../Classes/ecole'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-ecole',
@@ -26,6 +27,17 @@ export class EditEcoleComponent implements OnInit {
   updateEcole(){
 
     this.ecoleService.updateEcole(this.id_ecole,  this.getEcoleById).subscribe();
-    this.route.navigate(['gestionecole']);
+    this.route.navigateByUrl('gestionecole', {skipLocationChange: true}).then(()=>
+    this.route.navigate(['gestionecole']));
+    this.successConfirm();
+  }
+  successConfirm() {
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: 'Modification effectué avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
