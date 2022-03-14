@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ModalController } from '@ionic/angular';
-import { ResgiEcolePage } from '../resgi-ecole/resgi-ecole.page';
+import { AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-acceuil',
@@ -11,8 +10,7 @@ import { ResgiEcolePage } from '../resgi-ecole/resgi-ecole.page';
 export class AcceuilPage implements OnInit {
 
   constructor(private alert: AlertController,
-    private router : Router,
-    private modal : ModalController) { }
+    private router : Router) { }
 
   ngOnInit() {
   }
@@ -30,7 +28,7 @@ export class AcceuilPage implements OnInit {
         {
           text:'Une ECOLE',
           handler:()=>{
-            this.modalF();
+            this.router.navigate(['resgi-ecole']);
           }
           
         }
@@ -39,10 +37,4 @@ export class AcceuilPage implements OnInit {
     await load.present();
   }
 
-  async modalF(){
-    const popup =  await this.modal.create({
-      component: ResgiEcolePage
-    })
-    await popup.present();
-  }
 }

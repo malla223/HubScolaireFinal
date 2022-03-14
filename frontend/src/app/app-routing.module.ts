@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -35,7 +34,6 @@ const routes: Routes = [
   {
     path: 'apropos',
     loadChildren: () => import('./pages/apropos/apropos.module').then( m => m.AproposPageModule),
-    canActivate: [AuthGuard],
   },
   {
     path: 'demande-confirmer/:id_demande',
@@ -48,7 +46,8 @@ const routes: Routes = [
   {
     path: 'tab3',
     loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
-  },  {
+  },
+  {
     path: 'resgi-ecole',
     loadChildren: () => import('./pages/resgi-ecole/resgi-ecole.module').then( m => m.ResgiEcolePageModule)
   },

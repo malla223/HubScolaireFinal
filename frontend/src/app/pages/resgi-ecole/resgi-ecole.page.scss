@@ -3,7 +3,11 @@ ion-header{
 }
 ion-toolbar{
     --backgroung: transparent;
-    --opacity: 0%
+    --opacity: 0%;
+
+    ion-back-button{
+        color: #005d99;
+    }
 }
 ion-content{
     --background: #ECF7FF;

@@ -1,7 +1,6 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-img *ngIf ="userConnect.type==='ecole'" [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hub.png"></ion-img>
-    <ion-img *ngIf ="userConnect.type==='user'" [routerLink]="['/apropos']" class="logoU" slot="start" src="{{photou}}+{{userConnect?.id_user}}"></ion-img>
+    <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hubS.png"></ion-img>
     <ion-icon slot="end" name="notifications-circle"></ion-icon>
   </ion-toolbar>
 </ion-header>

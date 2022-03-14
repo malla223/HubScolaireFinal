@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController } from '@ionic/angular';
 import { EcoleServiceService } from 'src/app/services/ecole-service.service';
 
 @Component({
@@ -22,7 +22,8 @@ export class ResgiEcolePage implements OnInit {
     public router: Router,
     private load : LoadingController,
     private formBuilder : FormBuilder,
-    private eService : EcoleServiceService
+    private eService : EcoleServiceService,
+    private modal : ModalController
   ) { }
 
   ngOnInit() {
@@ -122,6 +123,10 @@ export class ResgiEcolePage implements OnInit {
     await alert.present();
   }
 
+  fermer(){
+    this.modal.dismiss();
+  }
+
   async errorAlert() {
     const alert = await this.alertController.create({
       header: 'ERREUR',
@@ -145,7 +150,7 @@ export class ResgiEcolePage implements OnInit {
 
 
  login(){
-   this.router.navigate(['/login']);
+   this.router.navigate(['login']);
  }
 
 }
