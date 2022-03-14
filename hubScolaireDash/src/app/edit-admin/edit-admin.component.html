@@ -107,8 +107,8 @@
                         >Genre</label
                       >
                       <div class="col-sm-9">
-                        <select >
-                          <option [value]="" disabled >{{getAdminId.genre}}</option>
+                        <select class="form-control" [(ngModel)]="getAdminId.genre" >
+                          <option [value]="" disabled ></option>
                           <option value="Homme">Homme</option>
                           <option  value="Femme">Femme</option>
                         </select>
@@ -120,9 +120,9 @@
                         class="col-sm-3 text-end control-label col-form-label txt"
                         >Type</label
                       >
-                      <div class="col-sm-9">
-                        <select>
-                          <option [value]="" disabled >{{getAdminId.type}}</option>
+                      <div class="col-sm-9" >
+                        <select class="form-control" [(ngModel)]="getAdminId.type">
+                          <option [value]="" disabled ></option>
                           <option value="admin">admin</option>
                           <option  value="super_admin">super_admin</option>
                         </select>

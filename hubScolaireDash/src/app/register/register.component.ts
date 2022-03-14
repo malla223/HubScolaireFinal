@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
     this.form = this.formBuilder.group({
       libelle_don : [''],
       prenom_admin: [''],
+      nom_admin: [''],
       tel_admin: [''],
       login_admin: [''],
       password_admin: [''],

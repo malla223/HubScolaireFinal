@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Admin } from '../Classes/admin';
 import { AdminServiceService } from '../Services/admin-service.service';
 
@@ -25,7 +26,19 @@ export class EditAdminComponent implements OnInit {
   }
   updateA(){
     this.aService.updateAdmin(this.id_admin,  this.getAdminId).subscribe();
-    this.route.navigate(['gestionAdmin']);
+    this.route.navigateByUrl('gestionAdmin', {skipLocationChange: true}).then(()=>
+    this.route.navigate(['gestionAdmin']));
+    this.successConfirm();
+  }
+
+  successConfirm() {
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: 'Modification effectué avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
