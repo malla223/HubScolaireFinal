@@ -35,14 +35,14 @@ export class Tab1Page {
     this.id_user = this.userConnect.id_user;
     this.id_ecole = this.userConnect.id_ecole;
 
-    this.getDonByUser();
-
-    this.type = 'don';
+    if(this.id_user){
+      this.getDonByUser();
+      this.getDemandeAttente();
+    }else{
+      this.getDemandeAttenteEcole();
+    }
+    this.type = 'don'; 
     this.getListDonConfirmer();
-    this.getDemandeAttente();
-    this.getDemandeAttenteEcole();
-    
-    
   }
 
   getDonByUser(){

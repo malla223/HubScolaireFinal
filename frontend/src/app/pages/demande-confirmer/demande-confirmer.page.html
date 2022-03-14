@@ -7,6 +7,8 @@
     <div class="user_div">
       <div class="first_div">
         <ion-label class="username">{{demandedon?.don.libelle_don}}</ion-label>
+        <ion-label class="username_"><h4>Catégorie : </h4>{{demandedon?.don.categorie.libelle_cat}}</ion-label>
+        <ion-label class="username_"><h4>Niveau : </h4>{{demandedon?.don.niveau.libelle_niveau}}</ion-label>
       </div>
       <ion-img class="user_back" src="{{photo}}+{{demandedon?.id_demande}}"></ion-img>
     </div>
@@ -14,6 +16,7 @@
     <div class="content_div">
       <div class="details">
         <ion-grid fixed>
+          <ion-label class="detailE">Détail de l'élève</ion-label>
           <ion-row>
             <ion-col size="6">
               <div class="flex_div">
@@ -31,28 +34,6 @@
                 <div class="detail">
                   <ion-label class="bold_label">{{demandedon?.classe}}</ion-label>
                   <ion-label class="small_label">Classe de l'élève</ion-label>
-                </div>
-              </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="6">
-              <div class="flex_div">
-                <div class="detail">
-                  <ion-label class="bold_label">{{demandedon?.don.niveau.libelle_niveau}}</ion-label>
-                  <ion-label class="small_label">Niveau</ion-label>
-
-                </div>
-              </div>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col size="6">
-              <div class="flex_div">
-                <div class="detail">
-                  <ion-label class="bold_label">{{demandedon?.don.categorie.libelle_cat}}</ion-label>
-                  <ion-label class="small_label">Catégorie</ion-label>
                 </div>
               </div>
             </ion-col>

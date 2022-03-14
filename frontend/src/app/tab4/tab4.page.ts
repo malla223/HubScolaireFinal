@@ -22,6 +22,8 @@ export class Tab4Page {
   nombreDemandeE: any;
   donRecuE: any;
   donAttenteUser: any;
+  id_user: any;
+  id_ecole: any;
 
   constructor(private route : Router, private modal : ModalController,
     private userService : UserServiceService,
@@ -32,11 +34,16 @@ export class Tab4Page {
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
 
-    this.getNombreUser();
-    this.getDonRecuUser();
-    this.getNombreEcole();
-    this.getDonRecuEcole();
-    this.getDonAttenteUser();
+    this.id_user = this.userConnect.id_user;
+    this.id_ecole = this.userConnect.id_ecole;
+    if(this.id_user){
+      this.getNombreUser();
+      this.getDonRecuUser();
+      this.getDonAttenteUser();
+    }else{
+      this.getNombreEcole();
+      this.getDonRecuEcole();
+    }
   }
   
   onLogout(){
