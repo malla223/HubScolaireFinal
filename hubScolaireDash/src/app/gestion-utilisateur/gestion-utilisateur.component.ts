@@ -42,7 +42,9 @@ export class GestionUtilisateurComponent implements OnInit {
 
   deleteU(id_user:any){
     this.uService.deleteUser(id_user).subscribe();
-      this.router.navigate(['gestionUtilisateur']);
+      this.router.navigateByUrl('gestionUtilisateur', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['gestionUtilisateur']));
+        window.location.reload();
   }
 
   alertConfirmation(id_admin : any) {

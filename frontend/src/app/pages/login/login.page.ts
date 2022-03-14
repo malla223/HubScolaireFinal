@@ -40,7 +40,6 @@ export class LoginPage implements OnInit {
         //mettre l'utilisateur connecté dans le localstorage
         //JSON.stringify converti l'objet en string
         localStorage.setItem("user", JSON.stringify(res));
-        console.log("userConnect========", res);
         this.router.navigateByUrl('/tabs');
       }else{
         this.ecoleService.connexion(form.value["login"], form.value["password"]).subscribe(data=>{
@@ -49,10 +48,12 @@ export class LoginPage implements OnInit {
             //mettre l'utilisateur connecté dans le localstorage
             //JSON.stringify converti l'objet en string
             localStorage.setItem("user", JSON.stringify(data));
-            console.log("ecoleConnect========", data);
-            
             this.router.navigateByUrl('/tabs');
           }else{
+            // if(res.etat === 'inactif'){
+            //   console.log("inactif");
+              
+            // }
             loading.dismiss();
             this.alertError(); 
           }
