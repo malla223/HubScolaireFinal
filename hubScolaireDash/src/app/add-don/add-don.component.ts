@@ -32,6 +32,7 @@ ngOnInit() {
   this.form = this.formBuilder.group({
     libelle_don : [''],
     niveau: [''],
+    cat: [''],
     photo_don: [''],
   })
   this.validations_form = this.formBuilder.group({
@@ -40,6 +41,10 @@ ngOnInit() {
     ])),
 
     niveau: new FormControl('', Validators.compose([
+      Validators.required
+    ])),
+
+    cat: new FormControl('', Validators.compose([
       Validators.required
     ])),
 
