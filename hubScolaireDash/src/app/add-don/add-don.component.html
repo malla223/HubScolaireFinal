@@ -52,7 +52,7 @@
                       >
                       <div class="col-sm-9">
                         <select formControlName="niveau" required class="form-control">
-                          <option disabled>Selectionner</option>
+                          <option disabled value="">Selectionner</option>
                           <option *ngFor= "let niveau of niveauR">{{niveau?.libelle_niveau}}</option>
                         </select>
 
@@ -64,8 +64,8 @@
                         >Categorie</label
                       >
                       <div class="col-sm-9">
-                        <select formControlName="cat" required class="form-control">
-                          <option disabled>Selectionner</option>
+                        <select formControlName="categorie" required class="form-control">
+                          <option disabled value="">Selectionner</option>
                           <option *ngFor="let cat of cateR">{{cat?.libelle_cat}}</option>
                         </select>
 
