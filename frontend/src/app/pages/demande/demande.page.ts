@@ -29,7 +29,7 @@ msg:any;
   ngOnInit() {
     this.id_don = this.router.snapshot.params['id_don'];
     this.userService.getDonById(this.id_don).subscribe( data => {
-      this.don = data;
+      this.don = data; 
     });
     //recuperer l'utilisateur connécté dans le local storage
     //JSON.parse converti en Object les données de userconnect qui etait en strng
@@ -177,23 +177,29 @@ msg:any;
   }
 
 //fin                                           
-    async effectuerDemande() {     
-      this.demander = await this.userService.demandeDon(this.demandeDon).toPromise();
+    async effectuerDemande() {  
+      if(this.userConnect.id_user == this.don.user.id_user){
+        this.msg ='IMPOSSIBLE de faire cette demande, Vous êtes le donnateur';
+      }else{
+        this.demander = await this.userService.demandeDon(this.demandeDon).toPromise();
         if(this.demander.id_demande){
           this.msg='Votre demande de don a été effectué avec succès.';
         }else{
           this.msg='Vous avez déjà fait la demande de ce don';
         }
-        const load = await this.alertController.create({
-          header: 'Message',
-          subHeader :this.msg,
-          buttons:[
-            {
-              text:'OK'
-            }
-          ]
-        })
-          await load.present();     
+      }
+     
+      const load = await this.alertController.create({
+        header: 'Message',
+        subHeader :this.msg,
+        buttons:[
+          {
+            text:'OK'
+          }
+        ]
+      })
+      await load.present(); 
+
     }
 
 
