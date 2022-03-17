@@ -29,9 +29,11 @@ constructor(
   private niveauService : NiveauService,) {}
 
 ngOnInit() {
+
   this.form = this.formBuilder.group({
     libelle_don : [''],
     niveau: [''],
+    categorie: [''],
     photo_don: [''],
   })
   this.validations_form = this.formBuilder.group({
@@ -40,6 +42,10 @@ ngOnInit() {
     ])),
 
     niveau: new FormControl('', Validators.compose([
+      Validators.required
+    ])),
+
+    categorie: new FormControl('', Validators.compose([
       Validators.required
     ])),
 
@@ -52,8 +58,8 @@ ngOnInit() {
     this.cateR = res;
   }),
 
-  this.niveauService.getAllNiveau().subscribe(res=>{
-    this.niveauR = res;
+  this.niveauService.getAllNiveau().subscribe(data=>{
+    this.niveauR = data;
   })
 
 }
@@ -62,15 +68,27 @@ ngOnInit() {
 saveDon(){
   const uploadFile = new FormData();
   const dataUser = this.form.value;
+
+  console.log("dataUser=========",dataUser);
+  
   uploadFile.append('image',this.selectedFile, this.selectedFile.name);
   uploadFile.append('data', JSON.stringify(dataUser));
+
  let libelle_don = this.form.value['libelle_don'];
  let niveau = this.form.value['niveau'];
+ let categorie = this.form.value['categorie']
   
   this.dService.saveDon(uploadFile).subscribe(data=>{
     data.libelle_don =  libelle_don,
     data.niveau = niveau,
-      this.save = this.dService.updateDon(data.id_don, data).toPromise();
+    data.categorie = categorie,
+    
+    console.log("dataSave=========",data);
+    
+    this.dService.updateDon(data.id_don, data).subscribe(resUpdate=>{
+      console.log("update==========",resUpdate);
+    });
+ 
       this.router.navigate(['/gestionDon']);  
   })
   this.form.reset();
