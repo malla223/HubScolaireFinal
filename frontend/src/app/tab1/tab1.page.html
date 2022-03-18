@@ -29,6 +29,7 @@
     
         <ion-card  *ngSwitchCase="'don'" >
           <ion-card-content>
+            <h6 class="recu" *ngIf="liste.etat==='demandeConfirmer'">Don déjà Reçu</h6>
             <ion-img class="image" src="{{photo}} + {{liste?.id_don}}"  [routerLink]="['/demande',liste?.id_don]"></ion-img>
             <h3><b>{{liste.libelle_don}} </b></h3>
             <ion-label>Catégorie : {{liste.categorie.libelle_cat}}</ion-label><br>
@@ -44,7 +45,7 @@
           <ion-col size="6" *ngFor="let lista of listDonA | filter:filterTerm">
             
               <ion-card  *ngSwitchCase="'mes_dons'">
-                <ion-card-content>
+                <ion-card-content >
                   <ion-img class="image" src="{{photo}} + {{lista?.id_don}}" [routerLink]="['/attente', lista?.id_don]"></ion-img>
                   <h3><b>{{lista.libelle_don}}</b></h3>
                   <ion-label><b>Catégorie : </b>{{lista.categorie.libelle_cat}}</ion-label><br>

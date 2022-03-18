@@ -14,6 +14,7 @@ export class AttentePage implements OnInit {
   id_don: any;
   don_attente:any;
   photo = environment.urlPhotoDon;
+  userConnect : any;
   constructor(
     private alertController: AlertController,
      private router : Router,
@@ -24,7 +25,10 @@ export class AttentePage implements OnInit {
     this.id_don = this.route.snapshot.params['id_don'];
     this.uservice.getDonById(this.id_don).subscribe(res=>{
       this.don_attente = res;
-    })
+    });
+
+    let us = localStorage.getItem('user');
+    this.userConnect = JSON.parse(us);
   }
 
   public annulerDon(id_don:any){
@@ -43,6 +47,7 @@ export class AttentePage implements OnInit {
           text: 'OUI',
           handler: () =>{
             this.annulerDon(this.id_don);
+            this.messageALert();
             this.router.navigate(['tabs']);
           }
         }
@@ -50,5 +55,22 @@ export class AttentePage implements OnInit {
     });
 
     await load.present();
+  }
+
+  async messageALert(){
+    const load = await this.alertController.create({
+      header:'Message',
+      message:'Votre don a été annuler',
+      buttons:[
+        {
+          text:'OK'
+        }
+      ]
+    })
+      await load.present();
+  }
+
+  goBack(){
+    this.router.navigate(['tabs']);
   }
 }

@@ -33,7 +33,14 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"></ion-input>
+        <ion-label class="custom-file-upload">
+          Choisir la photo
+          <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"/>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" autocomplete="false">Storie</ion-label>
+        <ion-input type="textarea" autocomplete="false" name="storie" formControlName="storie" placeholder="Facultatif : Donner l'histoire derrière votre manuel"></ion-input>
       </ion-item>
       <ion-button type="submit" [disabled]="!form.valid"><b>CONFIRMER</b></ion-button>
     </form>

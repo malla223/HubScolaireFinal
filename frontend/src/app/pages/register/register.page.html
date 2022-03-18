@@ -53,7 +53,10 @@
           <ion-input type="text" autocomplete="false" name="adresse_user" formControlName="adresse_user" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="file" name="image" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"></ion-input> 
+          <ion-label class="custom-file-upload">
+            Choisir une photo
+            <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"/>
+          </ion-label>
         </ion-item>
         
         <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
