@@ -51,10 +51,6 @@ export class LoginPage implements OnInit {
             localStorage.setItem("user", JSON.stringify(data));
             this.router.navigateByUrl('/tabs');
           }else{
-            // if(res.etat === 'inactif'){
-            //   console.log("inactif");
-              
-            // }
             loading.dismiss();
             this.alertError(); 
           }

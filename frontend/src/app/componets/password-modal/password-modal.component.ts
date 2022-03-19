@@ -25,11 +25,19 @@ export class PasswordModalComponent implements OnInit {
 
     this.form = this.fb.group({
       password_user: [''],
+      password_: [''],
+      password: [''],
     })
     this.validations_form = this.fb.group({
       password_user: new FormControl('', Validators.compose([
         Validators.required,
-      ]))
+      ])),
+      password_: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
 
     })
   }
@@ -43,14 +51,14 @@ export class PasswordModalComponent implements OnInit {
         message : 'Patientez......'
       })
       await loading.present();
-      console.log("Password=========",this.form);
+      console.log("Password=========",this.form.value);
       
-      this.uService.updateUser(this.userConnect.id_user, this.userConnect).subscribe(res=>{
-        if(res){
-          loading.dismiss();
-          console.log("res=========",res);
+      // this.uService.updateUser(this.userConnect.id_user, this.form.value['password_user']).subscribe(res=>{
+      //   if(res){
+      //     loading.dismiss();
+      //     console.log("res=========",res);
           
-        }
-      })
+      //   }
+      // })
   }
 }
