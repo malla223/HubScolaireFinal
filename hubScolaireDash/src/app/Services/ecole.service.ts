@@ -42,6 +42,6 @@ export class EcoleService {
     }
   
     public annulerC(id_ecole : any) : Observable<any>{
-      return this.http.get(`${url + '/deleteEcole'}/${id_ecole}`);
+      return this.http.get(`${url + '/inactiver'}/${id_ecole}`);
     }
 }
