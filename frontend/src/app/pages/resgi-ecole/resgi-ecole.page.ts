@@ -111,8 +111,8 @@ export class ResgiEcolePage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Inscription Reussi',
-      subHeader: 'Votre compte est en attente de verification',
-      message:'Patientez s\'il vous plait.......',
+      subHeader: 'Votre compte est en attente de verification du contrat.',
+      message:'Vous allez recevoir un email après verification et activation de votre compte, MERCI de patientez d\ici là...',
       buttons: [
         {
           text: 'OK',

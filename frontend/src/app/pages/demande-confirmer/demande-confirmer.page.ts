@@ -46,8 +46,7 @@ export class DemandeConfirmerPage implements OnInit {
   async alertA(){
     const load = await this.alertController.create({
       header: 'Alerte',
-      subHeader: 'Vous êtes sure d annuler',
-      message: 'votre demande en cours ?',
+      message: 'Vous êtes sure d\'annuler votre demande en cours ?',
       buttons: [
         {
           text: 'NON'
@@ -56,6 +55,7 @@ export class DemandeConfirmerPage implements OnInit {
           text: 'OUI',
           handler: () =>{
             this.annulerD(this.id_demande);
+            this.message();
             this.router.navigate(['tabs']);
           }
         }
@@ -63,5 +63,18 @@ export class DemandeConfirmerPage implements OnInit {
     });
 
     await load.present();
+  }
+
+  async message(){
+    const loading = await this.alertController.create({
+      header:'Message',
+      message:'Votre demande a été annuler',
+      buttons:[
+        {
+          text:'OK',
+        }
+      ]
+    }) 
+    await loading.present();
   }
 }

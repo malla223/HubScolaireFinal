@@ -32,14 +32,14 @@ export class DetailecoleAttenteComponent implements OnInit {
     this.route.navigate(['gestionecole']));
   }
 
-  annulerC(){
-    this.eService.annulerC(this.id_ecole).subscribe();
-    this.route.navigateByUrl('gestionecole', {skipLocationChange: true}).then(()=>
-    this.route.navigate(['gestionecole']));
-    window.location.reload();
+  annulerC(id_ecole :any){
+    this.eService.annulerC(id_ecole).subscribe();
+    // this.route.navigateByUrl('gestionecole', {skipLocationChange: true}).then(()=>
+    // this.route.navigate(['gestionecole']));
+    // window.location.reload();
   }
 
-  alertConfirmation() {
+  alertConfirmation(id_ecole :any) {
     Swal.fire({
       title: 'ATTENTION',
       text: 'Vous allez annuler la demande d\'activation de ce compte ?',
@@ -52,7 +52,7 @@ export class DetailecoleAttenteComponent implements OnInit {
       
     }).then((result) => {
       if (result.value) {
-        this.annulerC();
+        this.annulerC(id_ecole);
         Swal.fire('ALERTE!', 'Compte inactiver.', 'success');
       }
     });

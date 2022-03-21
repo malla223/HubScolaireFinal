@@ -41,7 +41,10 @@
           <ion-input type="text" autocomplete="false" name="site_ecole" placeholder="facultatif" formControlName="site_ecole"></ion-input> 
         </ion-item>
         <ion-item>
-          <ion-input type="file" name="contrat_ecole" (change)="onFileChanged($event)" accept="application/pdf" formControlName="contrat_ecole"></ion-input> 
+          <ion-label class="custom-file-upload">
+            Joindre le contrat
+            <input type="file" (change)="onFileChanged($event)" accept="application/pdf" formControlName="contrat_ecole"/>
+          </ion-label>
         </ion-item>
         
         <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>

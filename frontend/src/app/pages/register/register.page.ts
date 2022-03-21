@@ -124,13 +124,13 @@ export class RegisterPage implements OnInit {
       message: 'Connectez-vous pour voir les dons en cours...',
       buttons: [
         {
-          text: 'NON',
+          text: 'RETOUR',
           handler: () =>{
             this.router.navigate(['/register']);
           }
         },
         {
-          text: 'OK',
+          text: 'CONNEXION',
           handler: () =>{
             this.router.navigate(['/login']);
           }
@@ -156,10 +156,8 @@ export class RegisterPage implements OnInit {
   }
 
   public  onFileChanged(event) {
-   if(event.target.files.length>0){
      const file = event.target.files[0];
      this.selectedFile = file;
-   }
  }
 
 }

@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
     });
     await loading.present();
     this.userService.connexion(form.value["login"], form.value["password"]).subscribe((res:any)=>{
+ 
       if(res){
         loading.dismiss();
         //mettre l'utilisateur connecté dans le localstorage
@@ -50,10 +51,6 @@ export class LoginPage implements OnInit {
             localStorage.setItem("user", JSON.stringify(data));
             this.router.navigateByUrl('/tabs');
           }else{
-            // if(res.etat === 'inactif'){
-            //   console.log("inactif");
-              
-            // }
             loading.dismiss();
             this.alertError(); 
           }
