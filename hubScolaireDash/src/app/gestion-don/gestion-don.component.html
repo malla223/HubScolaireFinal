@@ -26,10 +26,11 @@
                                     <label>Trier par : </label>
                                     <select class="form-select shadow-none row border-top" [(ngModel)]="data_Don"  value="don" (change)="users($event)">
                                         <option value="don" checked><b>Don en attente</b></option>
-                                        <option value="donC" checked><b>Dons confirmé</b></option>
+                                        <option value="donC" checked><b>Don confirmé</b></option>
                                         <option value="demande"><b>Demande en attente</b></option>
                                         <option value="demandeE"><b>Demande Ecole en attente </b></option>
-                                        <option value="demandeC"><b>Demande confirmé </b></option>
+                                        <option value="demandeEC"><b>Demande Ecole confirmée </b></option>
+                                        <option value="demandeUC"><b>Demande User confirmé </b></option>
                                     </select>
                                 </div>
                             <div [ngSwitch]="data_Don" class="card-don">
@@ -152,6 +153,72 @@
                                                 <td><img src="{{photo}} + {{demandeA?.id_demande}}"></td>
                                                 <td>{{demandeA.don.libelle_don}}</td>
                                                 <td>{{demandeA.ecole.nom_ecole}}</td>
+                                                <td>  
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/attente-ecole', demandeA.id_demande]"></i>&nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls 
+                                            previousLabel="Précedent"
+                                            nextLabel="Suivant"
+                                            (pageChange)="onTableDataChange($event)">
+                                        </pagination-controls>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive" *ngSwitchCase="'demandeEC'">
+                                    <h3 class="box-title txt1">Liste des demandes confirmées</h3>
+                                    <table class="table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 txt">#</th>
+                                                <th class="border-top-0 txt">Photo</th>
+                                                <th class="border-top-0 txt">Libelle</th>
+                                                <th class="border-top-0 txt">Nom de l'établissement</th>
+                                                <th class="border-top-0 txt">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let demandeCE of demandeConfirmerE | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
+                                                <td>{{demandeCE.id_demande}}</td>
+                                                <td><img src="{{photo}} + {{demandeCE?.id_demande}}"></td>
+                                                <td>{{demandeCE.don.libelle_don}}</td>
+                                                <td>{{demandeCE.ecole.nom_ecole}}</td>
+                                                <td>  
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/attente-ecole', demandeA.id_demande]"></i>&nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls 
+                                            previousLabel="Précedent"
+                                            nextLabel="Suivant"
+                                            (pageChange)="onTableDataChange($event)">
+                                        </pagination-controls>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive" *ngSwitchCase="'demandeUC'">
+                                    <h3 class="box-title txt1">Liste des demandes d'utilisateur confirmées</h3>
+                                    <table class="table text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 txt">#</th>
+                                                <th class="border-top-0 txt">Photo</th>
+                                                <th class="border-top-0 txt">Libelle</th>
+                                                <th class="border-top-0 txt">Nom de l'établissement</th>
+                                                <th class="border-top-0 txt">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor = "let demandeUC of demandeConfirmerU | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
+                                                <td>{{demandeUC.id_demande}}</td>
+                                                <td><img src="{{photo}} + {{demandeCE?.id_demande}}"></td>
+                                                <td>{{demandeUC.don.libelle_don}}</td>
+                                                <td>{{demandeUC.ecole.nom_ecole}}</td>
                                                 <td>  
                                                     <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/attente-ecole', demandeA.id_demande]"></i>&nbsp;
                                                 </td>

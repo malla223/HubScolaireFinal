@@ -87,10 +87,10 @@ export class DonServiceService {
   public getAllDonConfirmer(){
     return this.http.get(url + '/getDonConfirmer')
   }
-  public getDemandeConfirmerEcole(){
-    return this.http.get(url + '/getDemandeConfirmerE')
+  public getDemandeConfirmerE(){
+    return this.http.get(url + '/getDemandeConfirmerEcole')
   }
-  public getDemandeConfirmerUser(){
-    return this.http.get(url + '/getDemandeConfirmerU')
+  public getDemandeConfirmerU(){
+    return this.http.get(url + '/getDemandeConfirmerUser')
   }
 }
