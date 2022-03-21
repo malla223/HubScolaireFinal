@@ -38,6 +38,10 @@ export class EcoleServiceService {
       return this.http.post(urlDon + '/demandeDon', data);
       }
 
+      public demandeDonEcole(data: any): Observable<any>{
+        return this.http.post(urlDon + '/demandeDonE', data);
+        }
+
       public getNombreDEmandeByEcole(id_ecole: any): Observable<DemandeDon[]>{
         return this.http.get<DemandeDon[]>(urlDon + '/nbreDemandeAttenteEcole/' + id_ecole);
       }

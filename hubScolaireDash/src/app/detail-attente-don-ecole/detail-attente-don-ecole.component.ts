@@ -25,7 +25,7 @@ export class DetailAttenteDonEcoleComponent implements OnInit {
   }
 
   confirmerDemande(){
-    this.donService.confimerDemadeDon(this.id_demande).subscribe();
+    this.donService.confimerDemadeDonEcole(this.id_demande).subscribe();
     this.successConfirm();
     this.route.navigateByUrl('gestionDon', {skipLocationChange: true}).then(()=>
     this.route.navigate(['gestionDon']));

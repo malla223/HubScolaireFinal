@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
   async alertError(){
     const error = await this.alert.create({
       header : 'Erreur de Connexion',
-      message : 'Votre connexion a échoué...',
+      message : 'Vérifier votre login et votre mot de passe.',
       buttons : [
         {
           text : 'REESSAYER'

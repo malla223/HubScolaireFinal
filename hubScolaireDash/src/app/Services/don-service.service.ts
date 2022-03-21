@@ -62,6 +62,10 @@ export class DonServiceService {
     return this.http.get(`${url + '/confirmerD'}/${id_demande}`);
   }
 
+  public confimerDemadeDonEcole(id_demande : any) : Observable<any>{
+    return this.http.get(`${url + '/confirmerDonEcole'}/${id_demande}`);
+  }
+
   public annulerDemandeDon(id_demande : any) : Observable<any>{
     return this.http.get(`${url + '/annulerD'}/${id_demande}`);
   }

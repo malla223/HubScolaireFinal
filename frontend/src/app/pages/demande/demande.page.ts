@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { EcoleServiceService } from 'src/app/services/ecole-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { environment } from 'src/environments/environment';
@@ -24,7 +24,8 @@ msg:any;
      private router: ActivatedRoute,
      private route : Router,
      private userService : UserServiceService,
-     private ecoleService :EcoleServiceService) { }
+     private ecoleService :EcoleServiceService,
+     private load : LoadingController) { }
 
   ngOnInit() {
     this.id_don = this.router.snapshot.params['id_don'];
@@ -39,9 +40,9 @@ msg:any;
 
   async alertC(id_don : any){
     //permet de recuperer l'id du don avant confirmation de la  demande
-    this.userService.getDonById(id_don).subscribe((dr: any)=>{
-      this.don_recuperer = dr;
-    })
+    this.userService.getDonById(id_don).subscribe(res=>{
+      this.don_recuperer = res;
+    });
     const load = await this.alertController.create({
       header: 'Demande de don',
       inputs:[
@@ -83,7 +84,11 @@ msg:any;
         },
         {
           text: 'CONFITMER',
-          handler: data =>{
+          handler: async data =>{
+            const l = await this.load.create({
+              message:'Patientez.......',
+            })
+            await l.present();
             if(data.nom_eleve, data.nom_ecole,
                data.tel_ecole, data.adresse_ecole,
                data.nom_parent, data.tel_parent,
@@ -99,11 +104,23 @@ msg:any;
                 'nom_parent':data.nom_parent,
                 'tel_parent':data.tel_parent,
                 'classe':data.classe
-              };
-                this.effectuerDemande();
-                this.route.navigate(['/tabs']);
-               }
-            
+              };  
+            }
+            if(this.demandeDon){
+              l.dismiss();
+              this.effectuerDemande();
+            }else{
+              const a = await this.alertController.create({
+                header:'Erreur',
+                message:'Votre demande n\a pas été effectué, merci de correctement renseigner les champs.',
+                buttons:[
+                  {
+                    text:'OK',
+                  }
+                ]
+              })
+              a.present();
+            }
           }
         }
       ]
@@ -194,7 +211,10 @@ msg:any;
         subHeader :this.msg,
         buttons:[
           {
-            text:'OK'
+            text:'OK',
+            handler: ()=>{
+              this.route.navigate(['/tabs']);
+            }
           }
         ]
       })
@@ -204,7 +224,7 @@ msg:any;
 
 
     async effectuerDemandeEcole() {     
-      this.demander = await this.ecoleService.demandeDon(this.demandeDon).toPromise();
+      this.demander = await this.ecoleService.demandeDonEcole(this.demandeDon).toPromise();
         if(this.demander.id_demande){
           this.msg='Votre demande de don a été effectué avec succès.';
         }else{
