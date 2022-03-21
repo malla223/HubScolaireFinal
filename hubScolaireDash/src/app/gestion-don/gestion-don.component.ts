@@ -13,7 +13,6 @@ export class GestionDonComponent implements OnInit {
   donEtat = false;
   demandeEtat = false;
   donConfirmerEtat = false;
-  demandeConfirmerEtat = false;
   don : any;
   data_Don : any;
   donAttenteR: any;
@@ -27,7 +26,7 @@ export class GestionDonComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
   demandeEcoleAttenteR : any;
   donConfirmer : any;
-  demandeConfirmer : any;
+ 
 
   constructor(private donService : DonServiceService, private route : Router) { }
 
@@ -37,9 +36,6 @@ export class GestionDonComponent implements OnInit {
     this.getDemandeDonA();
     this.getDemandeDonEcoleA();
     this.getDonConfirmer();
-    this.getDemandeConfirmer();
-    console.log("DonC===========",this.getDonConfirmer());
-    
   }
 
   users(event: any){
@@ -47,29 +43,19 @@ export class GestionDonComponent implements OnInit {
     if(event.target.value == 'Don en attente' || event.target.value == ''){
       this.demandeEtat = false;
       this.donConfirmerEtat = false;
-      this.demandeConfirmerEtat = false;
       this.donEtat = true;
       this.don = this.data_Don;
     }
     if(event.target.value == 'Demande en attente'){
       this.donEtat = false;
       this.donConfirmerEtat = false;
-      this.demandeConfirmerEtat = false;
       this.demandeEtat = true;
       this.don = this.data_Don;
     }
     if(event.target.value == 'Don confirmés'){
       this.donEtat = false;
       this.demandeEtat = false;
-      this.demandeConfirmerEtat = false;
       this.donConfirmerEtat = true;
-      this.don = this.data_Don;
-    }
-    if(event.target.value == 'Demande comfirmer'){
-      this.donEtat = false;
-      this.demandeEtat = false;
-      this.donConfirmerEtat = false;
-      this.demandeConfirmerEtat = true;
       this.don = this.data_Don;
     }
   }
@@ -97,14 +83,6 @@ export class GestionDonComponent implements OnInit {
     this.donService.getAllDonConfirmer().subscribe(data=>{
       this.donConfirmer = data;
     })
-  }
-
-  getDemandeConfirmer(){
-    this.donService.getAllDemandeConfirmer().subscribe(data=>{
-      this.demandeConfirmer = data;
-      console.log(this.demandeConfirmer);
-      
-    }) 
   }
 
   donAttenteDetail(id_don : any){

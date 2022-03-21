@@ -166,39 +166,6 @@
                                         </pagination-controls>
                                     </div>
                                 </div>
-
-                                <div class="table-responsive" *ngSwitchCase="'demandeC'">
-                                    <h3 class="box-title txt1">Liste des demandes confirmés</h3>
-                                    <table class="table text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th class="border-top-0 txt">#</th>
-                                                <th class="border-top-0 txt">Photo</th>
-                                                <th class="border-top-0 txt">Libelle</th>
-                                                <th class="border-top-0 txt">Nom de l'établissement</th>
-                                                <th class="border-top-0 txt">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor = "let demandeC of DemandeConfirmer | paginate: {itemsPerPage: tableSize,currentPage: page,totalItems: count}" >
-                                                <td>{{demandeC.id_demande}}</td>
-                                                <td><img src="{{photo}} + {{demandeC?.id_demande}}"></td>
-                                                <td>{{demandeC.don.libelle_don}}</td>
-                                                <td>{{demandeC.ecole.nom_ecole}}</td>
-                                                <td>  
-                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="[]"></i>&nbsp;
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="d-flex justify-content-center">
-                                        <pagination-controls 
-                                            previousLabel="Précedent"
-                                            nextLabel="Suivant"
-                                            (pageChange)="onTableDataChange($event)">
-                                        </pagination-controls>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
