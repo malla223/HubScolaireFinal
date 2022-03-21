@@ -80,4 +80,10 @@ export class DonServiceService {
   public getAllCategorie(){
     return this.http.get(url + '/getAllCat');
   }
+  public getAllDonConfirmer(){
+    return this.http.get(url + '/getDonConfirmer')
+  }
+public getAllDemandeConfirmer(){
+  return this.http.get(url + '/getDemandeConfirmer')
+  }
 }
