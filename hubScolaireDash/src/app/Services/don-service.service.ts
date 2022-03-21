@@ -85,7 +85,7 @@ export class DonServiceService {
     return this.http.get(url + '/getAllCat');
   }
   public getAllDonConfirmer(){
-    return this.http.get(url + '/getDonConfirmer')
+    return this.http.get(url + '/getDonConfirmerPlateforme')
   }
   public getDemandeConfirmerE(){
     return this.http.get(url + '/getDemandeConfirmerEcole')
