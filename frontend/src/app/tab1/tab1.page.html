@@ -32,8 +32,8 @@
             <h6 class="recu" *ngIf="liste.etat==='demandeConfirmer'">Don déjà Reçu</h6>
             <ion-img class="image" src="{{photo}} + {{liste?.id_don}}"  [routerLink]="['/demande',liste?.id_don]"></ion-img>
             <h3><b>{{liste.libelle_don}} </b></h3>
-            <ion-label>Catégorie : {{liste.categorie.libelle_cat}}</ion-label><br>
-            <ion-label>Niveau : {{liste.niveau.libelle_niveau}}</ion-label>
+            <ion-label>Catégorie : {{liste?.categorie?.libelle_cat}}</ion-label><br>
+            <ion-label>Niveau : {{liste?.niveau?.libelle_niveau}}</ion-label>
           </ion-card-content>
         </ion-card>
       </ion-col>
