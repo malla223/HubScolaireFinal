@@ -13,7 +13,7 @@
       <div class="page-breadcrumb bloc1">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title txt1">INFORMATION DU DON CONFIRME</h4>
+            <h4 class="page-title txt1">INFORMATION DE LA DEMANDE CONFIRME</h4>
             <button type="button" class="btn btn-warning" class="btnR" routerLink="/gestionDon">
               <i class=" fas fa-chevron-left" aria-hidden="true"></i>&nbsp;
               <b>RETOUR</b>
@@ -29,7 +29,7 @@
                 <div class="user-bg">
                     <div class="overlay-box">
                         <div class="user-content">
-                            <img src="{{photo}} + {{demandeC?.id_don}}"
+                            <img src="{{photo}} + {{demandeC?.id_demande}}"
                                     >
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                     <label
                       for="fname"
                       class=" control-label col-form-label txt"
-                      ><b>Nom ecole : </b> {{demandeC?.ecole.nom_ecole}} </label
+                      ><b>Nom : </b> {{demandeC?.ecole.nom_ecole}} </label
                     >
                     <div class="col-sm-9">
                     </div>
@@ -109,7 +109,7 @@
                     <label
                       for="fname"
                       class=" control-label col-form-label txt"
-                      ><b>Adresse ecole : </b> {{demandeC?.ecole.adresse_ecole}} </label
+                      ><b>Adresse : </b> {{demandeC?.ecole.adresse_ecole}} </label
                     >
                     <div class="col-sm-9">
                     </div>
@@ -118,7 +118,25 @@
                     <label
                       for="fname"
                       class=" control-label col-form-label txt"
-                      ><b>Contact ecole: </b>  {{demandeC?.ecole.tel_ecole}}</label
+                      ><b>Contact : </b>  {{demandeC?.ecole.tel_ecole}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Email: </b>  {{demandeC?.ecole.email_ecole}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Site : </b>  {{demandeC?.ecole.site_ecole}}</label
                     >
                     <div class="col-sm-9">
                     </div>

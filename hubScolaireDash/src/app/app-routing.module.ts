@@ -8,6 +8,7 @@ import { DetailAttenteDonEcoleComponent } from './detail-attente-don-ecole/detai
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { DetailCategorieComponent } from './detail-categorie/detail-categorie.component';
 import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-ecole/detail-demande-confirme-ecole.component';
+import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
 import { DetailDonConfirmeComponent } from './detail-don-confirme/detail-don-confirme.component';
 import { DetailDonComponent } from './detail-don/detail-don.component';
 import { DetailEcoleComponent } from './detail-ecole/detail-ecole.component';
@@ -117,6 +118,10 @@ const routes: Routes = [
 {
   path:'detailDemandeCE/:id_demande',
  component: DetailDemandeConfirmeEcoleComponent
+},
+{
+  path:'detailDemandeCU/:id_demande',
+ component: DetailDemandeConfirmeUserComponent
 },
 {
   path:'detailuser/:id_user',
