@@ -117,7 +117,7 @@ export class ResgiEcolePage implements OnInit {
         {
           text: 'OK',
           handler: ()=>{
-            this.router.navigate(['acceuil']);
+            this.router.navigate(['/acceuil']);
           }
         }
       ]
