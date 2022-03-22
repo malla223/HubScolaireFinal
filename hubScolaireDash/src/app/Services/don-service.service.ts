@@ -50,6 +50,10 @@ export class DonServiceService {
     return this.http.get(`${url + '/getDemandeById'}/${id_demande}`);
   }
 
+  getDonConfimeById(id_don: any): Observable<any> {
+    return this.http.get(`${url + '/getDonId'}/${id_don}`);
+  }
+
   public confimerDon(id_don : any) : Observable<Don>{
     return this.http.get(`${url + '/confirmerDon'}/${id_don}`);
   }

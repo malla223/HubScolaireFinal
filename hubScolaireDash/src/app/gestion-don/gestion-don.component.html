@@ -30,7 +30,7 @@
                                         <option value="demande"><b>Demande Utilisateur en attente</b></option>
                                         <option value="demandeE"><b>Demande Ecole en attente </b></option>
                                         <option value="demandeEC"><b>Demande Ecole confirmée </b></option>
-                                        <option value="demandeUC"><b>Demande Utilisateur confirmé </b></option>
+                                        <option value="demandeUC"><b>Demande Utilisateur confirmée </b></option>
                                     </select>
                                 </div>
                             <div [ngSwitch]="data_Don" class="card-don">
@@ -87,7 +87,7 @@
                                                 <td>{{donC.libelle_don}}</td>
                                                 <td>{{donC.niveau.libelle_niveau}}</td>
                                                 <td> 
-                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="[]"></i>&nbsp;
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailDonConfirme' , donC?.id_don ]"></i>&nbsp;
                                                 </td>
                                             </tr>
                                         
@@ -187,7 +187,7 @@
                                                 <td>{{demandeCE.don.libelle_don}}</td>
                                                 <td>{{demandeCE.ecole.nom_ecole}}</td>
                                                 <td>  
-                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="[]"></i>&nbsp;
+                                                    <i class=" fas fa-info-circle fat2" aria-hidden="true" [routerLink]="['/detailDemandeCE',demandeCE.id_demande ]"></i>&nbsp;
                                                 </td>
                                             </tr>
                                         </tbody>
