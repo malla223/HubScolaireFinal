@@ -40,7 +40,9 @@ import { AddDonComponent } from './add-don/add-don.component';
 import { DetailAttenteDonEcoleComponent } from './detail-attente-don-ecole/detail-attente-don-ecole.component';
 import { DetaileleveEcoleComponent } from './detaileleve-ecole/detaileleve-ecole.component';
 import { DetailecoleAttenteComponent } from './detailecole-attente/detailecole-attente.component';
-
+import { DetailDonConfirmeComponent } from './detail-don-confirme/detail-don-confirme.component';
+import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-ecole/detail-demande-confirme-ecole.component';
+import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,9 @@ import { DetailecoleAttenteComponent } from './detailecole-attente/detailecole-a
     DetailAttenteDonEcoleComponent,
     DetaileleveEcoleComponent,
     DetailecoleAttenteComponent,
+    DetailDonConfirmeComponent,
+    DetailDemandeConfirmeEcoleComponent,
+    DetailDemandeConfirmeUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@ import { DetailAdminComponent } from './detail-admin/detail-admin.component';
 import { DetailAttenteDonEcoleComponent } from './detail-attente-don-ecole/detail-attente-don-ecole.component';
 import { DetailAttenteDonComponent } from './detail-attente-don/detail-attente-don.component';
 import { DetailCategorieComponent } from './detail-categorie/detail-categorie.component';
+import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-ecole/detail-demande-confirme-ecole.component';
+import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
+import { DetailDonConfirmeComponent } from './detail-don-confirme/detail-don-confirme.component';
 import { DetailDonComponent } from './detail-don/detail-don.component';
 import { DetailEcoleComponent } from './detail-ecole/detail-ecole.component';
 import { DetailEleveComponent } from './detail-eleve/detail-eleve.component';
@@ -109,6 +112,18 @@ const routes: Routes = [
   component: DetaileleveEcoleComponent
 },
 {
+  path:'detailcategorie/:id_cat',
+ component: DetailCategorieComponent
+},
+{
+  path:'detailDemandeCE/:id_demande',
+ component: DetailDemandeConfirmeEcoleComponent
+},
+{
+  path:'detailDemandeCU/:id_demande',
+ component: DetailDemandeConfirmeUserComponent
+},
+{
   path:'detailuser/:id_user',
   component: DetailUserComponent
 },
@@ -133,10 +148,6 @@ const routes: Routes = [
  component:EditCategorieComponent
 },
 {
-  path:'detailcategorie/:id_cat',
- component: DetailCategorieComponent
-},
-{
   path:'gestionNiveau',
  component: GestionNiveauComponent
 },
@@ -149,6 +160,10 @@ const routes: Routes = [
  component: DetailNiveauComponent
 },
 {
+  path:'detailDonConfirme/:id_don',
+ component: DetailDonConfirmeComponent
+},
+{
   path:'addeleve',
  component: AddEleveComponent
 },
@@ -159,8 +174,7 @@ const routes: Routes = [
 {
   path:'login',
   component: LoginComponent
-}
-,
+},
 {
   path:'attente-ecole/:id_demande',
   component: DetailAttenteDonEcoleComponent

@@ -13,6 +13,8 @@ export class GestionDonComponent implements OnInit {
   donEtat = false;
   demandeEtat = false;
   donConfirmerEtat = false;
+  demandeConfirmerEcoleEtat = false;
+  demandeConfirmerUserEtat = false;
   don : any;
   data_Don : any;
   donAttenteR: any;
@@ -26,6 +28,8 @@ export class GestionDonComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
   demandeEcoleAttenteR : any;
   donConfirmer : any;
+  demandeConfirmerE : any;
+  demandeConfirmerU : any;
  
 
   constructor(private donService : DonServiceService, private route : Router) { }
@@ -36,6 +40,8 @@ export class GestionDonComponent implements OnInit {
     this.getDemandeDonA();
     this.getDemandeDonEcoleA();
     this.getDonConfirmer();
+    this.getDemandeConfirmerEcole();
+    this.getDemandeConfirmerUser();
   }
 
   users(event: any){
@@ -43,23 +49,44 @@ export class GestionDonComponent implements OnInit {
     if(event.target.value == 'Don en attente' || event.target.value == ''){
       this.demandeEtat = false;
       this.donConfirmerEtat = false;
+      this.demandeConfirmerEcoleEtat = false;
+      this.demandeConfirmerUserEtat = false;
       this.donEtat = true;
       this.don = this.data_Don;
     }
     if(event.target.value == 'Demande en attente'){
       this.donEtat = false;
       this.donConfirmerEtat = false;
+      this.demandeConfirmerEcoleEtat = false;
+      this.demandeConfirmerUserEtat = false;
       this.demandeEtat = true;
       this.don = this.data_Don;
     }
     if(event.target.value == 'Don confirmés'){
       this.donEtat = false;
       this.demandeEtat = false;
+      this.demandeConfirmerEcoleEtat = false;
+      this.demandeConfirmerUserEtat = false;
       this.donConfirmerEtat = true;
       this.don = this.data_Don;
     }
+    if(event.target.value == 'DemadeE confirmé'){
+      this.donEtat = false;
+      this.demandeEtat = false;
+      this.donConfirmerEtat = false;
+      this.demandeConfirmerUserEtat = false;
+      this.demandeConfirmerEcoleEtat = true;
+      this.don = this.data_Don;
+    }
+    if(event.target.value == 'DemadeU confirmé'){
+      this.donEtat = false;
+      this.demandeEtat = false;
+      this.donConfirmerEtat = false;
+      this.demandeConfirmerEcoleEtat = false;
+      this.demandeConfirmerUserEtat = true;
+      this.don = this.data_Don;
+    }
   }
-
 
   getAllDonA(){
     this.donService.getAllDonAttente().subscribe(res=>{
@@ -82,6 +109,16 @@ export class GestionDonComponent implements OnInit {
   getDonConfirmer(){
     this.donService.getAllDonConfirmer().subscribe(data=>{
       this.donConfirmer = data;
+    })
+  }
+  getDemandeConfirmerEcole(){
+    this.donService.getDemandeConfirmerE().subscribe(data=>{
+      this.demandeConfirmerE = data;
+    })
+  }
+  getDemandeConfirmerUser(){
+    this.donService.getDemandeConfirmerU().subscribe(data=>{
+      this.demandeConfirmerU = data;
     })
   }
 

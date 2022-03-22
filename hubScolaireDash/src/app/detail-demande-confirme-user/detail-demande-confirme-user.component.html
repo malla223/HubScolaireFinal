@@ -1,0 +1,160 @@
+<app-menu></app-menu>
+<app-header></app-header>
+    <div
+    id="main-wrapper"
+    data-layout="vertical"
+    data-navbarbg="skin5"
+    data-sidebartype="full"
+    data-sidebar-position="absolute"
+    data-header-position="absolute"
+    data-boxed-layout="full"
+  >
+    <div class="page-wrapper">
+      <div class="page-breadcrumb bloc1">
+        <div class="row">
+          <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title txt1">INFORMATION DE LA DEMANDE CONFIRME</h4>
+            <button type="button" class="btn btn-warning" class="btnR" routerLink="/gestionDon">
+              <i class=" fas fa-chevron-left" aria-hidden="true"></i>&nbsp;
+              <b>RETOUR</b>
+            </button>
+           
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid bg">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="white-box">
+                <div class="user-bg">
+                    <div class="overlay-box">
+                        <div class="user-content">
+                            <img src="{{photo}} + {{demandeU?.id_demande}}"
+                                    >
+                        </div>
+                    </div>
+                </div>
+                <div class="user-btm-box mt-5 d-md-flex">
+                    <div class="text-center txt">
+                        <h4><b>Libelle don : </b> {{demandeU?.don.libelle_don}}</h4>
+                        <h4><b>Catégorie : </b> {{demandeU?.don.categorie.libelle_cat}}</h4>
+                        <h4><b>Niveau : </b>  {{demandeU?.don.niveau.libelle_niveau}}</h4>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="white-box">
+                    <div class="text-center">
+                        <h4 style="color: #005d99;"><b>Storie : </b><br>{{demandeU?.don.storie}}</h4>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card">
+              <form class="form-horizontal">
+                <div class="card-body">
+                <h3 style= "color:#005D99; margin:0 auto"><b>ELEVE</b></h3>&nbsp;
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Nom & Prénom : </b> {{demandeU?.nom_eleve}} </label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Classe : </b>  {{demandeU?.classe}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Nom parent : </b> {{demandeU?.nom_parent}} </label
+                    >
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Contact parent : </b> {{demandeU?.tel_parent}} </label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card">
+              <form class="form-horizontal">
+                <div class="card-body">
+                <h3 style= "color:#005D99; margin:0 auto"><b>UTILISATEUR</b></h3>&nbsp;
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Nom : </b> {{demandeU?.user.nom_user}} </label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Prenom : </b> {{demandeU?.user.prenom_user}} </label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Date de naissance : </b> {{demandeU?.user.datenaiss}} </label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Contact: </b>  {{demandeU?.user.tel_user}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Email: </b>  {{demandeU?.user.email_user}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="fname"
+                      class=" control-label col-form-label txt"
+                      ><b>Adresse: </b>  {{demandeU?.user.adresse_user}}</label
+                    >
+                    <div class="col-sm-9">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
