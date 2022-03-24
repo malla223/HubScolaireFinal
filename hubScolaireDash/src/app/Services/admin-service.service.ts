@@ -20,6 +20,10 @@ export class AdminServiceService {
       return this.http.get(url + '/getAllAdmin');
     }
 
+    public getAllAdminInactif(){
+      return this.http.get(url + '/getAllAdminInactif');
+    }
+
     public nombreAdmin(){
       return this.http.get(url + '/nombreAdmin');
     }

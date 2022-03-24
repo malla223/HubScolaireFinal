@@ -43,6 +43,8 @@ import { DetailecoleAttenteComponent } from './detailecole-attente/detailecole-a
 import { DetailDonConfirmeComponent } from './detail-don-confirme/detail-don-confirme.component';
 import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-ecole/detail-demande-confirme-ecole.component';
 import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
+import { CorbeilleComponent } from './corbeille/corbeille.component';
+
 
 @NgModule({
   declarations: [
@@ -85,6 +87,8 @@ import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-us
     DetailDonConfirmeComponent,
     DetailDemandeConfirmeEcoleComponent,
     DetailDemandeConfirmeUserComponent,
+    CorbeilleComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,7 @@ import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-us
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
