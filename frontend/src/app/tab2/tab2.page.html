@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hubS.png"></ion-img>
-    <ion-icon slot="end" name="notifications-circle"></ion-icon>
+    <!--<ion-icon slot="end" name="notifications-circle"></ion-icon>-->
   </ion-toolbar>
 </ion-header>
 
@@ -17,8 +17,11 @@
       </ion-card-header>
     <form [formGroup]="form" (ngSubmit)="saveDon()" enctype="multipart/form-data">
       <ion-item>
-        <ion-label position="floating" autocomplete="false">Libélle</ion-label>
-        <ion-input type="text" autocomplete="false" name="libelle_don" formControlName="libelle_don" required></ion-input>
+        <ion-label position="floating">Libélle</ion-label>
+        <ion-input type="text" autocomplete="off" name="libelle_don" formControlName="libelle_don" required></ion-input>
+        <div *ngIf="libelle_don?.errors?.['required']">
+          Name is required.
+        </div>
       </ion-item>
       <ion-item>
         <ion-label>Categorie</ion-label>
@@ -39,8 +42,8 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label position="floating" autocomplete="false">Storie</ion-label>
-        <ion-input type="textarea" autocomplete="false" name="storie" formControlName="storie" placeholder="Facultatif : Donner l'histoire derrière votre manuel"></ion-input>
+        <ion-label position="floating">Storie</ion-label>
+        <ion-input type="textarea" autocomplete="off" name="storie" formControlName="storie" placeholder="Facultatif : Donner l'histoire derrière votre manuel"></ion-input>
       </ion-item>
       <ion-button type="submit" [disabled]="!form.valid"><b>CONFIRMER</b></ion-button>
     </form>

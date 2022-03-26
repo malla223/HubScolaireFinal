@@ -38,6 +38,10 @@ export class DonServiceService {
     return this.http.get(url+ '/nbreDonRecu');
   }
 
+  public notifDonAttente(){
+    return this.http.get(url+ '/nbreNotif');
+  }
+
   public getNombreDemandeAttente(){
     return this.http.get(url+ '/nbreDonAttente');
   }

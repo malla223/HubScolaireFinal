@@ -13,16 +13,16 @@
     <ion-icon name="people"></ion-icon>
     <form [formGroup]="form" (ngSubmit)="saveUser()" enctype="multipart/form-data">
         <ion-item>
-          <ion-label position="floating" autocomplete="false" >Nom</ion-label>
-          <ion-input type="text" autocomplete="false" name="nom_user" formControlName="nom_user" required></ion-input>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input type="text" autocomplete="off" name="nom_user" formControlName="nom_user" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false" >Prénom</ion-label>
-          <ion-input type="text" autocomplete="false" name="prenom_user" formControlName="prenom_user" required></ion-input>
+          <ion-label position="floating">Prénom</ion-label>
+          <ion-input type="text" autocomplete="off" name="prenom_user" formControlName="prenom_user" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false" >Date de Naissance</ion-label>
-          <ion-input type="date" autocomplete="false" name="datenaiss" formControlName="datenaiss" required></ion-input>
+          <ion-label position="floating">Date de Naissance</ion-label>
+          <ion-input type="date" autocomplete="off" name="datenaiss" formControlName="datenaiss" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Genre</ion-label>
@@ -32,25 +32,25 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false">E-mail</ion-label>
-          <ion-input type="text" autocomplete="false" name="email_user" formControlName="email_user" required></ion-input>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" autocomplete="off" name="email_user" formControlName="email_user" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false">Nom d'utilisateur</ion-label>
-          <ion-input type="text" autocomplete="false" name="login_user" formControlName="login_user" required></ion-input>
+          <ion-label position="floating">Nom d'utilisateur</ion-label>
+          <ion-input type="text" autocomplete="off" name="login_user" formControlName="login_user" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false">Mot de passe</ion-label>
-          <ion-input type="password" autocomplete="false" name="password_user" formControlName="password_user" maxlength="10" pattern="(?=.*\d).{6,}" required ></ion-input>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input type="password" name="password_user" formControlName="password_user" maxlength="10" pattern="(?=.*\d).{6,}" required ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false">Téléphone</ion-label>
-          <ion-input type="number" autocomplete="false" name="tel_user" formControlName="tel_user" required></ion-input>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input type="number" autocomplete="off" name="tel_user" formControlName="tel_user" required></ion-input>
           
         </ion-item>
         <ion-item>
-          <ion-label position="floating" autocomplete="false" >Adresse</ion-label>
-          <ion-input type="text" autocomplete="false" name="adresse_user" formControlName="adresse_user" required></ion-input>
+          <ion-label position="floating">Adresse</ion-label>
+          <ion-input type="text" autocomplete="off" name="adresse_user" formControlName="adresse_user" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label class="custom-file-upload">
