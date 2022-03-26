@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { EcoleService } from '../Services/ecole.service';
 
@@ -12,6 +13,7 @@ export class DetailecoleAttenteComponent implements OnInit {
 
   id_ecole:any;
   detailEcole:any;
+  pdf = environment.pdfEcole;
   
   constructor(private router: ActivatedRoute,
     private eService : EcoleService,
@@ -67,4 +69,5 @@ export class DetailecoleAttenteComponent implements OnInit {
       timer: 2000
     })
   }
+
 }
