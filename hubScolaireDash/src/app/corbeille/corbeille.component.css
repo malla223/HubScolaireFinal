@@ -14,7 +14,7 @@
 }
 .fat{
     color: #ddb307;
-}
+}   
 .fat2{
     color: #005D99;
 }
@@ -30,4 +30,7 @@ img{
 }
 .bloc1{
     background-color:white;
+}
+.rbtn{
+    background-color: #005D99;
 }
