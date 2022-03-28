@@ -15,12 +15,12 @@
         <div>
         <form #loginForm="ngForm"  (ngSubmit)="onLogin(loginForm)">
           <ion-item>
-            <ion-label position="floating" autocomplete="false">Nom d'utilisateur</ion-label>
-            <ion-input type="text" autocomplete="false" name="login" ngModel required></ion-input>
+            <ion-label position="floating">Nom d'utilisateur</ion-label>
+            <ion-input type="text" autocomplete="off" name="login" ngModel required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="floating" autocomplete="false">Mot de passe</ion-label>
-            <ion-input type="password" autocomplete="false" name="password" ngModel required></ion-input>
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="password" name="password" ngModel required></ion-input>
           </ion-item>
           
           <ion-button type="submit" class="btn1" [disabled]="loginForm.invalid">CONNEXION</ion-button>

@@ -14,31 +14,31 @@
     <form [formGroup]="form" (ngSubmit)="saveEcole()" enctype="multipart/form-data">
         <ion-item>
           <ion-label position="floating">Nom de l'établissement</ion-label>
-          <ion-input type="text" autocomplete="false" name="nom_ecole" formControlName="nom_ecole" required></ion-input>
+          <ion-input type="text" autocomplete="off" name="nom_ecole" formControlName="nom_ecole" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Localité de l'établissement</ion-label>
-          <ion-input type="text" autocomplete="false" name="adresse_ecole" formControlName="adresse_ecole" required></ion-input>
+          <ion-input type="text" autocomplete="off" name="adresse_ecole" formControlName="adresse_ecole" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">E-mail</ion-label>
-          <ion-input type="text" autocomplete="false" name="email_ecole" formControlName="email_ecole" required></ion-input>
+          <ion-input type="text" autocomplete="off" name="email_ecole" formControlName="email_ecole" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Identifiant</ion-label>
-          <ion-input type="text" autocomplete="false" name="login_ecole" formControlName="login_ecole" required></ion-input>
+          <ion-input type="text" autocomplete="off" name="login_ecole" formControlName="login_ecole" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Mot de passe</ion-label>
-          <ion-input type="password" autocomplete="false" name="password_ecole" formControlName="password_ecole" maxlength="10" placeholder="10 caractères au maximum" required ></ion-input>
+          <ion-input type="password" name="password_ecole" formControlName="password_ecole" maxlength="10" placeholder="10 caractères au maximum" required ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Téléphone</ion-label>
-          <ion-input type="number" autocomplete="false" name="tel_ecole" formControlName="tel_ecole" required></ion-input> 
+          <ion-input type="number" autocomplete="off" name="tel_ecole" formControlName="tel_ecole" required></ion-input> 
         </ion-item>
         <ion-item>
           <ion-label position="floating">Lien du Site de l'école</ion-label>
-          <ion-input type="text" autocomplete="false" name="site_ecole" placeholder="facultatif" formControlName="site_ecole"></ion-input> 
+          <ion-input type="text" autocomplete="off" name="site_ecole" placeholder="facultatif" formControlName="site_ecole"></ion-input> 
         </ion-item>
         <ion-item>
           <ion-label class="custom-file-upload">
