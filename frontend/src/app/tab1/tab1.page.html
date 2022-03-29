@@ -27,13 +27,13 @@
     <ion-row>
       <ion-col size="6" *ngFor="let liste of listDonC | filter:filterTerm">
     
-        <ion-card  *ngSwitchCase="'don'" >
+        <ion-card  *ngSwitchCase="'don'" [disabled]="liste.etat === 'demandeConfirmer'">
           <ion-card-content>
             <h6 class="recu" *ngIf="liste.etat==='demandeConfirmer'">Don déjà Reçu</h6>
             <ion-img class="image" src="{{photo}} + {{liste?.id_don}}"  [routerLink]="['/demande',liste?.id_don]"></ion-img>
             <h3><b>{{liste.libelle_don}} </b></h3>
-            <ion-label>Catégorie : {{liste?.categorie?.libelle_cat}}</ion-label><br>
-            <ion-label>Niveau : {{liste?.niveau?.libelle_niveau}}</ion-label>
+            <ion-label>Catégorie : <span>{{liste?.categorie?.libelle_cat}}</span></ion-label><br>
+            <ion-label>Niveau : <span>{{liste?.niveau?.libelle_niveau}}</span></ion-label>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -48,8 +48,8 @@
                 <ion-card-content >
                   <ion-img class="image" src="{{photo}} + {{lista?.id_don}}" [routerLink]="['/attente', lista?.id_don]"></ion-img>
                   <h3><b>{{lista.libelle_don}}</b></h3>
-                  <ion-label><b>Catégorie : </b>{{lista.categorie.libelle_cat}}</ion-label><br>
-                  <ion-label><b>Niveau : </b>{{lista.niveau.libelle_niveau}}</ion-label>
+                  <ion-label><b>Catégorie : </b><span>{{lista.categorie.libelle_cat}}</span></ion-label><br>
+                  <ion-label><b>Niveau : </b><span>{{lista.niveau.libelle_niveau}}</span></ion-label>
                 </ion-card-content>
               </ion-card>
   
@@ -65,9 +65,9 @@
                 <ion-card-content>
                   <ion-img class="image" src="{{photo}} + {{list?.id_demande}}" [routerLink]="['/demande-confirmer',list?.id_demande]"></ion-img>
                   <h3><b>{{list.don.libelle_don}}</b></h3>
-                <ion-label><b>Nom élève : </b>{{list.nom_eleve}}</ion-label><br>
-                <ion-label *ngIf ="userConnect.type==='user'"><b>Nom école : </b>{{list.nom_ecole}}</ion-label>
-                <ion-label *ngIf ="userConnect.type==='ecole'"><b>Nom école : </b>{{list?.ecole.nom_ecole}}</ion-label>
+                <ion-label><b>Nom élève : </b><span>{{list.nom_eleve}}</span></ion-label><br>
+                <ion-label *ngIf ="userConnect.type==='user'"><b>Nom école : </b><span>{{list.nom_ecole}}</span></ion-label>
+                <ion-label *ngIf ="userConnect.type==='ecole'"><b>Nom école : </b><span>{{list?.ecole.nom_ecole}}</span></ion-label>
                 </ion-card-content>
               </ion-card>
           </ion-col>

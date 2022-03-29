@@ -23,6 +23,11 @@ ion-icon{
 ion-content{
     --background: #ECF7FF;
 
+    ion-card-content{
+        display: block;
+        justify-content: center;
+    }
+
     ion-segment{
         margin-top: 70px;
     }
@@ -35,16 +40,22 @@ ion-content{
         color: #ddb307;
     }
     .image{
-        width:80px;
-        height: 80px;
+        width:60px;
+        height: 60px;
     }
     ion-label{
         color: #005d99 ;
+        font-size: 12px;
+
+        span{
+            color: black;
+            font-size: 10px;
+        }
     }
     .recu{
         color: #ddb307;
         margin-bottom: 10px;
-        font-size: 8px;
+        font-size: 10px;
         text-align: center;
     }
 }
