@@ -36,6 +36,10 @@ export class AdminServiceService {
       return this.http.put(`${url + '/modifierAdmin'}/${id_admin}`, data);
     }
 
+    public restaurerAdmin(id_admin: any, data: any): Observable<any> {
+      return this.http.put(`${url + '/restaurerAdmin'}/${id_admin}`, data);
+    }
+
     public nombreAdminH(){
       return this.http.get(url + '/nombreAdminH');
     }
