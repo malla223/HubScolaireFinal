@@ -54,7 +54,7 @@
 
       <div class="list_div">
         <ion-label (click)="alertCE(don?.id_don)" *ngIf ="userConnect.type==='ecole'">DEMANDER</ion-label>
-        <ion-label (click)="alertC(don?.id_don)" *ngIf ="userConnect.type==='user'">DEMANDER</ion-label>
+        <ion-label (click)="alertC(don?.id_don)" *ngIf ="userConnect.type==='user'" [attr.disabled]="this.donUser === 'true'">DEMANDER</ion-label>
       </div>
     </div>
   </div>

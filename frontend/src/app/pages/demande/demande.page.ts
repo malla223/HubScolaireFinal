@@ -19,8 +19,11 @@ export class DemandePage implements OnInit {
   don_recuperer: any;
   userConnect: any;
   photo = environment.urlPhotoDon;
-msg:any;
-  constructor(private alertController : AlertController,
+  msg:any;
+  donUser = false;
+
+  constructor(
+     private alertController : AlertController,
      private router: ActivatedRoute,
      private route : Router,
      private userService : UserServiceService,
@@ -36,6 +39,7 @@ msg:any;
     //JSON.parse converti en Object les données de userconnect qui etait en strng
     let us = localStorage.getItem('user');
     this.userConnect = JSON.parse(us);
+    
   }
 
   async alertC(id_don : any){
@@ -194,9 +198,10 @@ msg:any;
   }
 
 //fin                                           
-    async effectuerDemande() {  
-      if(this.userConnect.id_user == this.don.user.id_user){
+    async effectuerDemande() {
+      if(this.userConnect.id_user === this.don.user.id_user){
         this.msg ='IMPOSSIBLE de faire cette demande, Vous êtes le donnateur';
+        this.donUser = true;
       }else{
         this.demander = await this.userService.demandeDon(this.demandeDon).toPromise();
         if(this.demander.id_demande){
