@@ -13,35 +13,30 @@ ion-icon{
 .logo{
     width: 100px;
 }
-.logoU{
-    width: 30px;
-    height: 30px;
-    border-radius: 7px;
-    border: 2px solid #005d99;
-    background-repeat: no-repeat;
-}
 ion-content{
     --background: #ECF7FF;
-
-    ion-card-content{
-        display: block;
-        justify-content: center;
-    }
-
     ion-segment{
         margin-top: 70px;
     }
     ion-card{
         --background: #ECF7FF;
         border-radius: 10px;
+        height: 150px;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        ion-card-content{
+            overflow: hidden;
+            overflow-y: auto;
+        }
     }
     h3{
         text-align: center;
         color: #ddb307;
     }
     .image{
-        width:60px;
-        height: 60px;
+        height: 50px;
     }
     ion-label{
         color: #005d99 ;
@@ -53,8 +48,7 @@ ion-content{
         }
     }
     .recu{
-        color: #ddb307;
-        margin-bottom: 10px;
+        color: #ddb307; 
         font-size: 10px;
         text-align: center;
     }
