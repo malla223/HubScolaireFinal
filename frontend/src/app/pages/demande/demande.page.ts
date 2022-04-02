@@ -185,7 +185,6 @@ export class DemandePage implements OnInit {
                 
               };
                 this.effectuerDemandeEcole();
-                this.route.navigate(['tabs']);
                }
             
           }
@@ -240,7 +239,10 @@ export class DemandePage implements OnInit {
           subHeader :this.msg,
           buttons:[
             {
-              text:'OK'
+              text:'OK',
+              handler: ()=>{
+                this.route.navigate(['tabs']);
+              }
             }
           ]
         })
