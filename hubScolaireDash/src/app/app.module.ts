@@ -44,6 +44,8 @@ import { DetailDonConfirmeComponent } from './detail-don-confirme/detail-don-con
 import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-ecole/detail-demande-confirme-ecole.component';
 import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
 import { CorbeilleComponent } from './corbeille/corbeille.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -94,6 +96,7 @@ import { CorbeilleComponent } from './corbeille/corbeille.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    PdfViewerModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -103,3 +106,4 @@ import { CorbeilleComponent } from './corbeille/corbeille.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+platformBrowserDynamic().bootstrapModule(AppModule);

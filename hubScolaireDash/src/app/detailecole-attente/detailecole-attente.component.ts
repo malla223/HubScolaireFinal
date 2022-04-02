@@ -13,7 +13,7 @@ export class DetailecoleAttenteComponent implements OnInit {
 
   id_ecole:any;
   detailEcole:any;
-  pdf = environment.pdfEcole;
+  pdf : any;
   
   constructor(private router: ActivatedRoute,
     private eService : EcoleService,
@@ -21,6 +21,8 @@ export class DetailecoleAttenteComponent implements OnInit {
 
   ngOnInit() {
     this.id_ecole = this.router.snapshot.params['id_ecole'];
+
+    this.pdf = environment.pdfEcole+this.router.snapshot.params.id_ecole;
 
     this.eService.getEcoleById(this.id_ecole).subscribe(res=>{
       this.detailEcole = res;
@@ -36,9 +38,6 @@ export class DetailecoleAttenteComponent implements OnInit {
 
   annulerC(id_ecole :any){
     this.eService.annulerC(id_ecole).subscribe();
-    // this.route.navigateByUrl('gestionecole', {skipLocationChange: true}).then(()=>
-    // this.route.navigate(['gestionecole']));
-    // window.location.reload();
   }
 
   alertConfirmation(id_ecole :any) {

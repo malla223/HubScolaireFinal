@@ -100,7 +100,6 @@ export class Tab2Page {
  
     this.uservice.saveDon(uploadFile).subscribe(data=>{
       let user = this.userConnect;
-      console.log("userconnect=========",user);
       data.libelle_don =  libelle_don,
       data.categorie = categorie,
       data.niveau = niveau,

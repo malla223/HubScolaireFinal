@@ -73,7 +73,11 @@
             <div class="col-sm-8">
                 <div class="card bloc1">
                     <div class="card-body">
-                        <embed width="500" height="600" src="{{pdf}}+{{detailEcole?.id_ecole}}" type="application/pdf">   
+                        <pdf-viewer [src]="pdf"
+                            [render-text]="true"
+                            [original-size]="false"
+                            style="width: 400px; height: 500px"
+                         ></pdf-viewer>
                     </div>
                 </div>
                 </div>
