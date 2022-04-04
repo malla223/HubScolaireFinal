@@ -24,8 +24,6 @@ export class HeaderComponent implements OnInit {
 
   getNotif(){
     this.notif = this.donService.notifDonAttente().subscribe();
-    console.log("notiff========",this.notif);
-    
   }
 
 }

@@ -45,11 +45,12 @@ import { DetailDemandeConfirmeEcoleComponent } from './detail-demande-confirme-e
 import { DetailDemandeConfirmeUserComponent } from './detail-demande-confirme-user/detail-demande-confirme-user.component';
 import { CorbeilleComponent } from './corbeille/corbeille.component';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 
 @NgModule({
   declarations: [
+    PdfViewerComponent,
     AppComponent,
     MenuComponent,
     HeaderComponent,
@@ -96,7 +97,6 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PdfViewerModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
