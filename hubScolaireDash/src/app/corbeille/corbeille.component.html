@@ -38,7 +38,7 @@
                                             <td>{{list.tel_admin}}</td>
                                             <td>{{list.email_admin}}</td>
                                             <td> 
-                                                <button type="button" class="btn btn-primary rbtn">Restaurer</button>
+                                                <button type="button" class="btn btn-primary rbtn" (click)="alertConfirmation(list.id_admin)">Restaurer</button>
                                             </td>
                                         </tr>
                                     </tbody>

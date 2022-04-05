@@ -24,6 +24,10 @@ export class AdminServiceService {
       return this.http.get(url + '/getAllAdminInactif');
     }
 
+    public restaurer(id_admin:any):Observable<any>{
+      return this.http.get(`${url + '/restaurerAdmin'}/${id_admin}`);
+    }
+
     public nombreAdmin(){
       return this.http.get(url + '/nombreAdmin');
     }
