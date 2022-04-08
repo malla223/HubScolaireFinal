@@ -2,9 +2,9 @@ ion-content{
     --background: #ECF7FF;
 
     .logo{
-        width: 150px;
-        height: 150px;
-        margin: 50px auto;
+        width: 200px;
+        height: 200px;
+        margin: 60px auto;
     }
 
     .don_image{
@@ -13,8 +13,10 @@ ion-content{
 
     .button{
         display: block;
-        width: 150px;
+        width: 200px;
         margin: 20px auto;
+        font-weight: bold;
+        font-size: 20px;
 
         .btn1{
             --background:#005d99 ;

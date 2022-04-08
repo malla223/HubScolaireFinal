@@ -11,18 +11,21 @@
     <ion-card>
         
       <ion-card-content>
-        <ion-icon name="person-circle"></ion-icon>
+        <h1> Se Connectez</h1>
         <div>
         <form #loginForm="ngForm"  (ngSubmit)="onLogin(loginForm)">
-          <ion-item>
-            <ion-label position="floating">Nom d'utilisateur</ion-label>
-            <ion-input type="text" autocomplete="off" name="login" ngModel required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Mot de passe</ion-label>
-            <ion-input type="password" name="password" ngModel required></ion-input>
-          </ion-item>
-          
+          <div class="textinput">
+            <ion-item>
+              <ion-icon class="ic" name="person"></ion-icon>
+              <ion-input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="login" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div class="textinput">
+            <ion-item>
+              <ion-icon class="ic" name="lock-closed"></ion-icon>
+              <ion-input type="password" placeholder="Mot de passe" name="password" ngModel required></ion-input>
+            </ion-item>
+          </div>
           <ion-button type="submit" class="btn1" [disabled]="loginForm.invalid">CONNEXION</ion-button>
         </form>
             <p>Vous n'avez pas de compte <br><a (click)="alertInscri()">INSCRIVEZ-VOUS</a></p>

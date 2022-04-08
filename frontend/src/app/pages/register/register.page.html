@@ -10,55 +10,75 @@
   <ion-img class="dessin" src="assets/images/dessin.png"></ion-img>
 
   <ion-card>
-    <ion-icon name="people"></ion-icon>
+    <h1> S'inscrire</h1>
     <form [formGroup]="form" (ngSubmit)="saveUser()" enctype="multipart/form-data">
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Nom</ion-label>
-          <ion-input type="text" autocomplete="off" name="nom_user" formControlName="nom_user" required></ion-input>
+          <ion-icon class="ic" name="person"></ion-icon>
+          <ion-input type="text" placeholder="Nom" autocomplete="off" name="nom_user" formControlName="nom_user" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Prénom</ion-label>
-          <ion-input type="text" autocomplete="off" name="prenom_user" formControlName="prenom_user" required></ion-input>
+          <ion-icon class="ic" name="person"></ion-icon>
+          <ion-input type="text"  placeholder="Prénom" autocomplete="off" name="prenom_user" formControlName="prenom_user" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Date de Naissance</ion-label>
-          <ion-input type="date" autocomplete="off" name="datenaiss" formControlName="datenaiss" required></ion-input>
+          <ion-icon class="ic" name="calendar"></ion-icon>
+          <ion-input type="date"  placeholder="Date de naissance" autocomplete="off" name="datenaiss" formControlName="datenaiss" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label>Genre</ion-label>
+          <ion-icon class="ic" name="male-female"></ion-icon>
+          <ion-label style="margin-left: 5px; font-size: 20px;">Genre</ion-label>
           <ion-select formControlName="genre" required>
             <ion-select-option [value]="Homme" name="genre" >Homme</ion-select-option>
             <ion-select-option [value]="Femme" name="genre" >Femme</ion-select-option>
           </ion-select>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">E-mail</ion-label>
-          <ion-input type="text" autocomplete="off" name="email_user" formControlName="email_user" required></ion-input>
+          <ion-icon class="ic" name="mail"></ion-icon>
+          <ion-input  placeholder="Email" type="text" autocomplete="off" name="email_user" formControlName="email_user" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Nom d'utilisateur</ion-label>
-          <ion-input type="text" autocomplete="off" name="login_user" formControlName="login_user" required></ion-input>
+          <ion-icon class="ic" name="person-add"></ion-icon>
+          <ion-input type="text"  placeholder="Nom d'utilisateur" autocomplete="off" name="login_user" formControlName="login_user" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Mot de passe</ion-label>
-          <ion-input type="password" name="password_user" formControlName="password_user" maxlength="10" pattern="(?=.*\d).{6,}" required ></ion-input>
+          <ion-icon class="ic" name="lock-closed"></ion-icon>
+          <ion-input type="password"  placeholder="Mot de passe" name="password_user" formControlName="password_user" maxlength="10" pattern="(?=.*\d).{6,}" required ></ion-input>
         </ion-item>
+      </div> 
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Téléphone</ion-label>
-          <ion-input type="number" autocomplete="off" name="tel_user" formControlName="tel_user" required></ion-input>
-          
+          <ion-icon class="ic" name="call"></ion-icon>
+          <ion-input type="number"  placeholder="Téléphone" autocomplete="off" name="tel_user" formControlName="tel_user" required></ion-input>
         </ion-item>
+      </div>  
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Adresse</ion-label>
-          <ion-input type="text" autocomplete="off" name="adresse_user" formControlName="adresse_user" required></ion-input>
+          <ion-icon class="ic" name="map"></ion-icon>
+          <ion-input type="text"  placeholder="Adresse" autocomplete="off" name="adresse_user" formControlName="adresse_user" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
+          <ion-icon class="ic" name="image"></ion-icon>
           <ion-label class="custom-file-upload">
             Choisir une photo
             <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo"/>
           </ion-label>
         </ion-item>
-        
+      </div>
         <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
     </form>
           <p>Vous avez déjà un compte <br><a [routerLink]="['/login']">CONNECTEZ-VOUS</a></p>
