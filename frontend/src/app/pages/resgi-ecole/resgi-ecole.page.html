@@ -10,44 +10,60 @@
   <ion-img class="dessin" src="assets/images/dessin.png"></ion-img>
 
   <ion-card>
-    <ion-icon name="school"></ion-icon>
+    <h1>Inscription Ecole</h1>
     <form [formGroup]="form" (ngSubmit)="saveEcole()" enctype="multipart/form-data">
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Nom de l'établissement</ion-label>
-          <ion-input type="text" autocomplete="off" name="nom_ecole" formControlName="nom_ecole" required></ion-input>
+          <ion-icon class="ic" name="person"></ion-icon>
+          <ion-input type="text" placeholder="Nom de l'établissement" autocomplete="off" name="nom_ecole" formControlName="nom_ecole" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Localité de l'établissement</ion-label>
-          <ion-input type="text" autocomplete="off" name="adresse_ecole" formControlName="adresse_ecole" required></ion-input>
+          <ion-icon class="ic" name="map"></ion-icon>
+          <ion-input type="text" placeholder="Adresse de l'établissement" autocomplete="off" name="adresse_ecole" formControlName="adresse_ecole" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">E-mail</ion-label>
-          <ion-input type="text" autocomplete="off" name="email_ecole" formControlName="email_ecole" required></ion-input>
+          <ion-icon class="ic" name="mail"></ion-icon>
+          <ion-input type="text" placeholder="Email de l'établissement" autocomplete="off" name="email_ecole" formControlName="email_ecole" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Identifiant</ion-label>
-          <ion-input type="text" autocomplete="off" name="login_ecole" formControlName="login_ecole" required></ion-input>
+          <ion-icon class="ic" name="person-add"></ion-icon>
+          <ion-input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="login_ecole" formControlName="login_ecole" required></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Mot de passe</ion-label>
-          <ion-input type="password" name="password_ecole" formControlName="password_ecole" maxlength="10" placeholder="10 caractères au maximum" required ></ion-input>
+          <ion-icon class="ic" name="lock-closed"></ion-icon>
+          <ion-input type="password" placeholder="Mot de passe" name="password_ecole" formControlName="password_ecole" maxlength="10" required ></ion-input>
         </ion-item>
+      </div>
+      <div class="textinput">
         <ion-item>
-          <ion-label position="floating">Téléphone</ion-label>
-          <ion-input type="number" autocomplete="off" name="tel_ecole" formControlName="tel_ecole" required></ion-input> 
+          <ion-icon class="ic" name="call"></ion-icon>
+          <ion-input type="number" placeholder="Contact de l'établissement" autocomplete="off" name="tel_ecole" formControlName="tel_ecole" required></ion-input> 
         </ion-item>
+      </div>
+      <div class="textinput"> 
         <ion-item>
-          <ion-label position="floating">Lien du Site de l'école</ion-label>
-          <ion-input type="text" autocomplete="off" name="site_ecole" placeholder="facultatif" formControlName="site_ecole"></ion-input> 
+          <ion-icon class="ic" name="link"></ion-icon>
+          <ion-input type="text" autocomplete="off" name="site_ecole" placeholder="Site de l'établissement (facultatif)" formControlName="site_ecole"></ion-input> 
         </ion-item>
+      </div>
+      <div class="textinput"> 
         <ion-item>
+          <ion-icon class="ic" name="document-attach"></ion-icon>
           <ion-label class="custom-file-upload">
             Joindre le contrat
             <input type="file" (change)="onFileChanged($event)" accept="application/pdf" formControlName="contrat_ecole" required/>
           </ion-label>
         </ion-item>
-        
-        <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
+      </div>
+      <ion-button type="submit" class="btn1" [disabled]="!form.valid">VALIDER</ion-button>
     </form>
           <p>Vous avez déjà un compte <br><a (click)="login()">CONNECTEZ-VOUS</a></p>
   </ion-card>
