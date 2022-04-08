@@ -3,5 +3,14 @@ ion-tab-bar{
 
     ion-tab-button{
         color: #ddb307;
+
+        ion-icon{
+            font-size: 30px;
+        }
+
+        ion-label{
+            font-weight: 600;
+            font-size: 15px;
+        }
     }
 }

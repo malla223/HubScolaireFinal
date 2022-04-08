@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-img [routerLink]="['/apropos']" class="logo" slot="start" src="assets/images/hubS.png"></ion-img>
-    <!--<ion-icon slot="end" name="notifications-circle"></ion-icon>-->
+    <ion-icon slot="end" name="notifications-circle"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -13,38 +13,48 @@
   <ion-card>
     <ion-card-content>
       <ion-card-header>
-        <ion-card-title><b>Faire un don</b></ion-card-title>
+        <ion-card-title><span>Faire un don</span></ion-card-title>
       </ion-card-header>
     <form [formGroup]="form" (ngSubmit)="saveDon()" enctype="multipart/form-data">
-      <ion-item>
-        <ion-label position="floating">Libélle</ion-label>
-        <ion-input type="text" autocomplete="off" name="libelle_don" formControlName="libelle_don" required></ion-input>
-        <div *ngIf="libelle_don?.errors?.['required']">
-          Name is required.
-        </div>
-      </ion-item>
-      <ion-item>
-        <ion-label>Categorie</ion-label>
-        <ion-select formControlName="categorie" required>
-          <ion-select-option *ngFor="let list of listCat" [value]="list" name="categorie">{{list.libelle_cat}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Niveau</ion-label>
-        <ion-select formControlName="niveau" required>
-          <ion-select-option *ngFor="let liste of listN" [value]="liste" name="niveau" >{{liste.libelle_niveau}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label class="custom-file-upload">
-          Choisir la photo
-          <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo" required/>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Storie</ion-label>
-        <ion-input type="textarea" autocomplete="off" name="storie" formControlName="storie" placeholder="Facultatif : Donner l'histoire derrière votre manuel"></ion-input>
-      </ion-item>
+      <div class="textinput">
+        <ion-item>
+          <ion-icon class="ic" name="document-text"></ion-icon>
+          <ion-input placeholder="Le nom du manuel" type="text" autocomplete="off" name="libelle_don" formControlName="libelle_don" required></ion-input>
+        </ion-item>
+      </div>
+      <div class="textinput">
+        <ion-item>
+          <ion-icon class="ic" name="layers"></ion-icon>
+          <ion-label style="margin-left: 5px; font-size: 20px;">Categorie</ion-label>
+          <ion-select formControlName="categorie" required>
+            <ion-select-option *ngFor="let list of listCat" [value]="list" name="categorie">{{list.libelle_cat}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="textinput">
+        <ion-item>
+          <ion-icon class="ic" name="aperture"></ion-icon>
+          <ion-label style="margin-left: 5px; font-size: 20px;">Niveau</ion-label>
+          <ion-select formControlName="niveau" required>
+            <ion-select-option *ngFor="let liste of listN" [value]="liste" name="niveau" >{{liste.libelle_niveau}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="textinput">
+        <ion-item>
+          <ion-icon class="ic" name="image"></ion-icon>
+          <ion-label class="custom-file-upload">
+            Choisir la photo
+            <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg" formControlName="photo" required/>
+          </ion-label>
+        </ion-item>
+      </div>
+      <div class="textinput">
+        <ion-item class="textinput">
+          <ion-icon class="ic" name="book"></ion-icon>
+          <ion-input type="textarea" autocomplete="off" name="storie" formControlName="storie" placeholder="Facultatif : Donner l'histoire derrière votre manuel"></ion-input>
+        </ion-item>
+      </div>
       <ion-button type="submit" [disabled]="!form.valid"><b>CONFIRMER</b></ion-button>
     </form>
     </ion-card-content>

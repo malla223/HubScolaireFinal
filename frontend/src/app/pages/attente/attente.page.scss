@@ -3,7 +3,7 @@ ion-content{
 
     .titre{
         color: #005d99;
-        font-size: 30px;
+        font-size: 40px;
     }
 }
 .main_content_div{
@@ -29,7 +29,7 @@ ion-content{
     .first_div{
         padding-top: 50px;
         .username{
-            font-size: 18px;
+            font-size: 25px;
             color: #005d99;
             font-weight: 600;
         }
@@ -71,19 +71,18 @@ ion-content{
                         padding-left: 5px;
                         .bold_label{
                             font-weight: 600;
-                            font-size: 16px;
+                            font-size: 20px;
                             color: #ddb307;
                         }
                         .small_label{
-                            font-size: 14px;
+                            font-size: 17px;
                             color: #005d99;
 
                         } 
                         .small_labels{
-                            font-size: 16px;
+                            font-size: 20px;
                             color: #005d99;
                             font-weight: 600;
-                            font-size: 16px;
 
                         } 
                     }
@@ -100,6 +99,7 @@ ion-content{
             color: #ddb307;
             background: #005d99;
             font-weight: 700;
+            font-size: 20px;
         }
     }
 }

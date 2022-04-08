@@ -2,13 +2,15 @@
   <div class="main_content_div" *ngIf ="userConnect.type==='user'">
     <ion-buttons slot="start" class="menu_btn" >
       <ion-icon class="titre" slot="end" name="log-in" (click)="onLogout()"></ion-icon>
-      <!--<ion-icon class="titre" slot="end" name="notifications-circle"></ion-icon>-->
+      <ion-icon class="titre" slot="end" name="notifications-circle"></ion-icon>
     </ion-buttons>
     <div class="user_div">
       <div class="first_div">
         <ion-label class="username">{{userConnect?.nom_user}} {{userConnect?.prenom_user}}</ion-label>
-        <ion-label class="info">{{userConnect?.login_user}}</ion-label>
-        <ion-label class="info">{{userConnect?.tel_user}}</ion-label>
+        <div class="ionfo_">
+          <ion-label class="info">{{userConnect?.login_user}} -</ion-label>
+          <ion-label class="info">{{userConnect?.tel_user}}</ion-label>
+        </div>
       </div>
       <ion-img class="user_back" src="{{photo}}+{{userConnect.id_user}}"></ion-img>
     </div>
@@ -80,8 +82,10 @@
     <div class="user_div">
       <div class="first_div">
         <ion-label class="usernameE">{{userConnect?.nom_ecole}}</ion-label>
-        <ion-label class="infoE">{{userConnect?.login_ecole}}</ion-label>
-        <ion-label class="infoE">{{userConnect?.tel_ecole}}</ion-label>
+        <div class="infoEdiv">
+          <ion-label class="infoE">{{userConnect?.login_ecole}} -</ion-label>
+          <ion-label class="infoE">{{userConnect?.tel_ecole}}</ion-label>
+        </div>
       </div>
     </div>
 

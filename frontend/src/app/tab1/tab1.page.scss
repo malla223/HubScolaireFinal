@@ -7,21 +7,26 @@ ion-toolbar{
 }
 ion-icon{
     color: #005d99 ;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
 }
 .logo{
-    width: 100px;
+    width: 150px;
 }
 ion-content{
     --background: #ECF7FF;
     ion-segment{
         margin-top: 70px;
+
+        ion-label{
+            font-size: 17px;
+            font-weight: 600;
+        }
     }
     ion-card{
-        --background: #ECF7FF;
         border-radius: 10px;
-        height: 150px;
+        height: 200px;
         max-height: 100%;
         display: flex;
         flex-direction: column;
@@ -34,13 +39,15 @@ ion-content{
     h3{
         text-align: center;
         color: #ddb307;
+        font-size: 20px;
+        margin-top: 5px;
     }
     .image{
-        height: 50px;
+        height: 50%;
     }
     ion-label{
         color: #005d99 ;
-        font-size: 12px;
+        font-size: 13px;
 
         span{
             color: black;

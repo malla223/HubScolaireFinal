@@ -2,13 +2,15 @@
   <div class="main_content_div">
       <ion-buttons slot="start" class="menu_btn">
         <ion-icon class="titre" name="arrow-back" slot="end" (click)="goBack()"></ion-icon>
-        <!--<ion-icon class="titre" slot="end" name="notifications-circle"></ion-icon>-->
+        <ion-icon class="titre" slot="end" name="notifications-circle"></ion-icon>
       </ion-buttons>
     <div class="user_div">
       <div class="first_div">
         <ion-label class="username">{{demandedon?.don.libelle_don}}</ion-label>
-        <ion-label class="username_"><h4>Catégorie : </h4>{{demandedon?.don.categorie.libelle_cat}}</ion-label>
-        <ion-label class="username_"><h4>Niveau : </h4>{{demandedon?.don.niveau.libelle_niveau}}</ion-label>
+        <div class="flexName">
+          <ion-label class="username_"><h4>Catégorie : </h4>{{demandedon?.don.categorie.libelle_cat}}</ion-label>
+          <ion-label class="username_"><h4>Niveau : </h4>{{demandedon?.don.niveau.libelle_niveau}}</ion-label>
+        </div>
       </div>
       <ion-img class="user_back" src="{{photo}}+{{demandedon?.id_demande}}"></ion-img>
     </div>
