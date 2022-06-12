@@ -5,5 +5,4 @@ export const environment = {
   photoAdmin : 'http://localhost:8080/api/admin/getPhoto/',
   photoDon : 'http://localhost:8080/api/don/getPhoto/',
   photo_user : 'http://localhost:8080/api/user/getPhoto/',
-  pdfEcole : 'http://localhost:8080/api/ecole/getPdf/'
 };

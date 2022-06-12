@@ -47,8 +47,7 @@ export class Tab2Page {
       libelle_don : [''],
       niveau: [''],
       categorie: [''],
-      photo:[''],
-      storie:['']
+      photo:['']
     })
     this.validations_form = this.formBuilder.group({
       libelle_don: new FormControl('', Validators.compose([
@@ -96,14 +95,12 @@ export class Tab2Page {
     let libelle_don = this.form.value['libelle_don'];
     let categorie = this.form.value['categorie'];
     let niveau = this.form.value['niveau'];
-    let storie = this.form.value['storie'];
  
     this.uservice.saveDon(uploadFile).subscribe(data=>{
       let user = this.userConnect;
       data.libelle_don =  libelle_don,
       data.categorie = categorie,
       data.niveau = niveau,
-      data.storie = storie,
       data.user = user
       
       this.uservice.updateDon(data.id_don, data).subscribe(res=>{

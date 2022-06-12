@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { ModalComponent } from '../componets/modal/modal.component';
 import { PasswordModalComponent } from '../componets/password-modal/password-modal.component';
@@ -25,9 +25,14 @@ export class Tab4Page {
   id_user: any;
   id_ecole: any;
 
-  constructor(private route : Router, private modal : ModalController,
+  constructor
+  (
+    private route : Router, 
+    private modal : ModalController,
     private userService : UserServiceService,
-    private ecoleService : EcoleServiceService) {}
+    private ecoleService : EcoleServiceService,
+    private load : LoadingController
+    ) {}
 
   ngOnInit() : void {
     //recuperer les données du user connecté
@@ -46,11 +51,17 @@ export class Tab4Page {
     }
   }
   
-  onLogout(){
+  async onLogout(){
+    const loading = await  this.load.create({
+      message : 'Déconnexion en cours...'
+    })
+    loading.present();
     localStorage.removeItem('user');
     localStorage.clear();
-    this.route.navigate(['login']);
-    console.log(localStorage.removeItem('user'));
+    if(localStorage.getItem('user') == null){
+      loading.dismiss();
+      this.route.navigate(['login']);
+    }
   }
 
   async detailUser(){

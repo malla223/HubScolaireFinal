@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Modifier le profil</ion-title>
+    <ion-title><b>Modifier le profil</b></ion-title>
     <ion-icon slot="end" (click)="fermer()" name="close"></ion-icon>
   </ion-toolbar>
 </ion-header>
@@ -9,34 +9,53 @@
 
   <ion-card>
     <ion-img src="assets/images/edit-profil.png"></ion-img>
-    <ion-item>
-      <ion-label><b>Nom : </b></ion-label>
-      <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.nom_user"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Prenom : </b></ion-label>
-      <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.prenom_user"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>E-mail : </b></ion-label>
-      <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.email_user"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Date de naissance : </b></ion-label>
-      <ion-input type="date" autocomplete="off" [(ngModel)]="userConnect.datenaiss"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Login : </b></ion-label>
-      <ion-input type="text" autocomplete="off" name="login_user" [(ngModel)]="userConnect.login_user"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Téléphone : </b></ion-label>
-      <ion-input type="number" autocomplete="off" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input> 
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Adresse : </b></ion-label>
-      <ion-input type="text" autocomplete="off" name="adresse_user" [(ngModel)]="userConnect.adresse_user"></ion-input>
-    </ion-item>
+    <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="person"></ion-icon>
+        <ion-label><b>Nom : </b></ion-label>
+        <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.nom_user"></ion-input> 
+      </ion-item>
+     </div> 
+
+     <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="person"></ion-icon>
+        <ion-label><b>Prenom : </b></ion-label>
+        <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.prenom_user"></ion-input> 
+      </ion-item>
+    </div>
+
+    <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="mail"></ion-icon>
+        <ion-label><b>E-mail : </b></ion-label>
+        <ion-input type="text" autocomplete="off" [(ngModel)]="userConnect.email_user"></ion-input> 
+      </ion-item>
+    </div>
+
+    <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="calendar"></ion-icon>
+        <ion-label><b>Date de naissance : </b></ion-label>
+        <ion-input type="date" autocomplete="off" [(ngModel)]="userConnect.datenaiss"></ion-input> 
+      </ion-item>
+    </div>
+
+    <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="call"></ion-icon>
+        <ion-label><b>Téléphone : </b></ion-label>
+        <ion-input type="number" autocomplete="off" name="tel_user" [(ngModel)]="userConnect.tel_user"></ion-input> 
+      </ion-item>
+    </div>
+
+    <div class="textinput">
+      <ion-item>
+        <ion-icon class="ic" name="map"></ion-icon>
+        <ion-label><b>Adresse : </b></ion-label>
+        <ion-input type="text" autocomplete="off" name="adresse_user" [(ngModel)]="userConnect.adresse_user"></ion-input>
+      </ion-item>
+    </div>
         
         <ion-button (click)="modUser()" class="btn1" >MODIFIER</ion-button>
   </ion-card>

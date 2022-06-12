@@ -16,6 +16,28 @@ ion-toolbar{
 }
 ion-content{
     --background: #ECF7FF;
+
+    .textinput{
+        width: 100%;
+        overflow: hidden;
+        font-size: 15px;
+        padding: 5px 0;
+        margin: 5px 0;
+
+        .ic{
+            width: 26px;
+            text-align: center;
+            color: #005d99;
+        }
+
+        ion-input{
+            font-size: 15px;
+            width: 30px;
+            float: left;
+            margin: 0 10px;
+        }
+    }
+
     h1{
         color: #005d99;
     }
@@ -32,8 +54,10 @@ ion-content{
         --background:#005d99 ;
         color: #ddb307;
         display: block;
-        width: 130px;
+        width: 200px;
         margin: 20px auto;
+        font-size: 20px;
+        font-weight: 600;
     }
     p{
         text-align: center;

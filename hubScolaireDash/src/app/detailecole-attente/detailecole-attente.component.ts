@@ -22,8 +22,6 @@ export class DetailecoleAttenteComponent implements OnInit {
   ngOnInit() {
     this.id_ecole = this.router.snapshot.params['id_ecole'];
 
-    this.pdf = environment.pdfEcole+this.router.snapshot.params.id_ecole;
-
     this.eService.getEcoleById(this.id_ecole).subscribe(res=>{
       this.detailEcole = res;
     })
